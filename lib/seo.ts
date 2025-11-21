@@ -3,11 +3,11 @@ import { CHEESES } from './database';
 /**
  * Updates the document title and meta tags dynamically based on the current cheese database size
  */
-// export function updateSEOMetaTags() {
+ export function updateSEOMetaTags() {
   const cheeseCount = CHEESES.length;
   
   // Update title
-  document.title = `Cheese Finder - Discover ${cheeseCount} Cheeses from 60+ Countries | A2 Milk & Exotic Varieties`;
+  //document.title = `Cheese Finder - Discover ${cheeseCount} Cheeses from 60+ Countries | A2 Milk & Exotic Varieties`;
   
   // Update meta description
   const metaDescription = document.querySelector('meta[name="description"]');
