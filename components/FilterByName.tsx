@@ -78,6 +78,7 @@ export function FilterByName({ onBack }: FilterByNameProps) {
             </Button>
           </div>
         </div>
+        </div>
         <div className="px-6 pb-4">
           <p className="text-brown text-center">Name a cheese and discover its character.</p>
         </div>
