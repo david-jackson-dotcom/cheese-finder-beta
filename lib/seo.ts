@@ -3,7 +3,7 @@ import { CHEESES } from './database';
 /**
  * Updates the document title and meta tags dynamically based on the current cheese database size
  */
-export function updateSEOMetaTags() {
+// export function updateSEOMetaTags() {
   const cheeseCount = CHEESES.length;
   
   // Update title
