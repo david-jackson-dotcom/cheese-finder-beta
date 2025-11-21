@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { Cheese } from '../types/cheese';
 import { searchCheesesByName } from '../lib/queries';
