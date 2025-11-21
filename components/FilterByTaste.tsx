@@ -63,12 +63,12 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
               Back
             </Button>
           </div>
+                </div>
         <div className="px-6 pb-4">
           <p className="text-brown text-center">How do you like your cheese? Use the sliders.</p>
         </div>
       </div>
-          </div>
-    </div>
+    
       <div className="max-w-md mx-auto space-y-8 px-6 py-8">
         <div className="space-y-10">
           {/* Firmness Slider */}
