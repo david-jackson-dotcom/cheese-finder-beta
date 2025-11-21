@@ -7,14 +7,14 @@ export function updateSEOMetaTags() {
   const cheeseCount = CHEESES.length;
   
   // Update title
-  document.title = `Cheese Finder - Discover ${cheeseCount} Cheeses from 60+ Countries | A2 Milk & Exotic Varieties`;
+  document.title = `Hundreds of cheeses. Four paths of discovery. Filter by taste preferences, regional origin, dietary restrictions, or search by name.`;
   
   // Update meta description
   const metaDescription = document.querySelector('meta[name="description"]');
   if (metaDescription) {
     metaDescription.setAttribute(
       'content',
-      `Discover ${cheeseCount} cheese varieties from 60+ countries and 17 milk sources including A2, goat, sheep, buffalo, yak, and camel. Filter by form, melt, funk, and cuisine. Smart substitution finder & global database.`
+      `Hundreds of cheeses. Four paths of discovery. Filter by taste preferences, regional origin, dietary restrictions, or search by name.`
     );
   }
   
@@ -23,7 +23,7 @@ export function updateSEOMetaTags() {
   if (ogTitle) {
     ogTitle.setAttribute(
       'content',
-      `Cheese Finder - Discover Your Perfect Cheese from ${cheeseCount} Global Varieties`
+      `Hundreds of cheeses. Four paths of discovery. Filter by taste preferences, regional origin, dietary restrictions, or search by name.`
     );
   }
   
@@ -32,7 +32,7 @@ export function updateSEOMetaTags() {
   if (ogDescription) {
     ogDescription.setAttribute(
       'content',
-      `Discover ${cheeseCount} cheese varieties from 60+ countries and 17 milk sources. Filter by form, melt, funk, and cuisine. Smart substitution finder & global database.`
+      `Hundreds of cheeses. Four paths of discovery. Filter by taste preferences, regional origin, dietary restrictions, or search by name.`
     );
   }
   
@@ -41,7 +41,7 @@ export function updateSEOMetaTags() {
   if (twitterDescription) {
     twitterDescription.setAttribute(
       'content',
-      `Discover ${cheeseCount} cheese varieties from 60+ countries and 17 milk sources including A2, goat, sheep, buffalo, yak, and camel. Filter by form, melt, funk, and cuisine.`
+      `Hundreds of cheeses. Four paths of discovery. Filter by taste preferences, regional origin, dietary restrictions, or search by name.`
     );
   }
   
@@ -50,7 +50,7 @@ export function updateSEOMetaTags() {
   if (structuredDataScript) {
     try {
       const structuredData = JSON.parse(structuredDataScript.textContent || '{}');
-      structuredData.description = `Discover ${cheeseCount} cheese varieties from 60+ countries and 17 milk sources including A2, goat, sheep, buffalo, yak, and camel. Filter by form, melt, funk, and cuisine. Smart substitution finder & global database.`;
+      structuredData.description = `Hundreds of cheeses. Four paths of discovery. Filter by taste preferences, regional origin, dietary restrictions, or search by name.`;
       structuredData.featureList[0] = `${cheeseCount} cheese varieties from 60+ countries`;
       structuredDataScript.textContent = JSON.stringify(structuredData, null, 2);
     } catch (error) {
