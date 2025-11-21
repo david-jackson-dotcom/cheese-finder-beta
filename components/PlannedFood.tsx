@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button } from './ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 
 interface PlannedFoodProps {
   onContinue: (dishText: string) => void;
@@ -19,14 +19,14 @@ export function PlannedFood({ onContinue, onBack }: PlannedFoodProps) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/30">
       {/* Header */}
-      <div className="sticky top-0 z-10 bg-background/95 backdrop-blur">
+      <div className="top-0 z-10 bg-background/95 backdrop-blur">
         <div className="relative px-6 py-4">
           <div className="absolute left-6 top-1/2 -translate-y-1/2">
             <Button
               onClick={onBack}
               className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80 mt-4"
             >
-              <ArrowLeft className="h-6 w-6" />
+              <ChevronLeft className="h-6 w-6" />
               Back
             </Button>
           </div>
@@ -73,7 +73,7 @@ export function PlannedFood({ onContinue, onBack }: PlannedFoodProps) {
         <div className="pt-[30px]">
           <div className="max-w-2xl mx-auto">
             <Button
-              size="lg"
+              size="sm"
               className="mx-auto block h-14 rounded-full px-8"
               onClick={handleContinue}
               disabled={!dishText.trim()}
