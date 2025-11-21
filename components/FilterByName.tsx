@@ -65,8 +65,6 @@ export function FilterByName({ onBack }: FilterByNameProps) {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-     // <div className="top-0 z-10 bg-background">
-      //  <div className="relative px-6 py-14">
          <div className="bg-gold">
         <div className="px-6 pb-4">
                 <div className="relative px-6 py-14">
