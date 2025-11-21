@@ -7,7 +7,7 @@ import { CHEESES } from './database';
   const cheeseCount = CHEESES.length;
   
   // Update title
-  //document.title = `Cheese Finder - Discover ${cheeseCount} Cheeses from 60+ Countries | A2 Milk & Exotic Varieties`;
+  document.title = `Hundreds of cheeses. Four paths of discovery. Filter by taste preferences, regional origin, dietary restrictions, or search by name.`;
   
   // Update meta description
   const metaDescription = document.querySelector('meta[name="description"]');
