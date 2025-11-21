@@ -78,12 +78,10 @@ export function FilterByName({ onBack }: FilterByNameProps) {
             </Button>
           </div>
         </div>
-        </div>
         <div className="px-6 pb-4">
           <p className="text-brown text-center">Name a cheese and discover its character.</p>
         </div>
       </div>
-
       <div className="max-w-md mx-auto space-y-8 px-6 py-8">
 
         {/* Name Search Input */}
