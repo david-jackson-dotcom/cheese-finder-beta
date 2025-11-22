@@ -1,7 +1,6 @@
 {
   "name": "Cheese Finder - Hundreds of cheeses. Four paths of discovery.",
   "short_name": "Cheese Finder",
-  "version": "1.0",
   "description": "Cheese Finder - Hundreds of cheeses. Four paths of discovery. Filter by taste preferences, regional origin, dietary restrictions, or search by name.",
   "start_url": "/cheese-finder-beta/",
   "display": "standalone",
@@ -20,34 +19,34 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
-    }
+    },
     {
       "src": "/apple-touch-icon-120.png",
       "sizes": "120x120",
       "type": "image/png",
       "purpose": "any maskable"
-    }
+    },
     {
       "src": "/apple-touch-icon-152.png",
       "sizes": "152x152",
       "type": "image/png",
       "purpose": "any maskable"
-    }
+    },
     {
       "src": "/apple-touch-icon-167.png",
       "sizes": "167x167",
       "type": "image/png",
       "purpose": "any maskable"
-    }
+    },
      {
       "src": "/apple-touch-icon-180.png",
-      "sizes": "180x180152",
+      "sizes": "180x180",
       "type": "image/png",
       "purpose": "any maskable"
-    }
+    },
      {
       "src": "/safari-pinned-tab.svg",
-      "sizes": "*",
+      "sizes": "any",
       "type": "image/svg",
       "purpose": "any maskable"
     }
