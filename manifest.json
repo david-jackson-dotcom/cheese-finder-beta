@@ -3,7 +3,7 @@
   "short_name": "Cheese Finder",
   "version": "1.0",
   "description": "Cheese Finder - Hundreds of cheeses. Four paths of discovery. Filter by taste preferences, regional origin, dietary restrictions, or search by name.",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#FFD800",
   "theme_color": "#FFD800",
