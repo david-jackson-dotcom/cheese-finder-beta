@@ -64,11 +64,13 @@ export default function App() {
     targetCheese?: Cheese;
   } | null>(null);
 
+  /*
   useEffect(() => {
     loadCheeses();
     // Update SEO meta tags with current cheese count
     updateSEOMetaTags();
   }, []);
+  */
 
   useEffect(() => {
     // Track results view whenever results are displayed
