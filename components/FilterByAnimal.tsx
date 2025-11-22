@@ -205,7 +205,7 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
             <div
               className={`p-4 rounded-xl border-3 transition-all cursor-pointer touch-manipulation ${
                 avoidInclusions
-                  ? 'border-primary bg-primary/5'
+                 ? 'border-primary bg-primary/5'
                   : 'border-orange bg-card hover:border-primary hover:bg-primary/5 active:bg-primary/10'
               }`}
               onClick={() => setAvoidInclusions(!avoidInclusions)}
@@ -232,13 +232,14 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
 
       {/* Fixed Bottom Buttons */}
       <div className="p-6 bg-gold flex justify-center gap-4">
-/* disable guideme button
+        {/* disable guideme button
         <Button
           className="w-auto gap-2 bg-dark-orange text-white hover:bg-dark-orange/90 active:bg-dark-orange/80 rounded-full px-6 min-h-[44px] touch-manipulation"
           onClick={onGuideMe}
         >
           Guide Me
         </Button>
+*/}
         <Button
           className="w-auto gap-2 bg-magenta text-white hover:bg-magenta/90 active:bg-magenta/80 rounded-full px-6 min-h-[44px] touch-manipulation"
           onClick={handleShowResults}
@@ -246,7 +247,6 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
         >
           Show Me the Cheese
         </Button>
-*/
         
       </div>
     </div>
