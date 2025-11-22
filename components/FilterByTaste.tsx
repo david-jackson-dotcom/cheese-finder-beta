@@ -62,7 +62,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
               <ChevronLeft className="h-6 w-6" />
               Back
             </Button>
-          </div>
+  
                 </div>
         <div className="px-6 pb-4">
           <p className="text-brown text-center">How do you like your cheese? Use the sliders.</p>
