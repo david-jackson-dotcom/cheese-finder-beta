@@ -145,7 +145,7 @@ export default function App() {
     handleShowAnimalResults(filters);
   };
 
-  const handleSelectUse = (usage: 'snacking' | 'appetizer-dessert' | 'entree' | 'cooking' | 'combination') => {
+  const handleSelectUsage = (usage: 'snacking' | 'appetizer-dessert' | 'entree' | 'cooking' | 'combination') => {
     trackGuidedFlow(usage); // Track guided flow usage selection
     // For straightforward uses, go directly to results
     if (usage === 'snacking' || usage === 'appetizer-dessert' || usage === 'combination') {
