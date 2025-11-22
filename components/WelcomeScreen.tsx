@@ -100,7 +100,7 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
           </DialogHeader>
           <div className="space-y-6 py-4">
             <p className="text-center text-orange" style={{ fontFamily: 'Orienta' }}>
-              v0.90.beta
+              v0.9.0.beta
             </p>
             <p className="text-center text-brown" style={{ fontFamily: 'Orienta' }}>
               © David Jackson 2025
