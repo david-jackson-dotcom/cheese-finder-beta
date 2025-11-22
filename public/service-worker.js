@@ -4,9 +4,9 @@ const RUNTIME_CACHE = 'cheese-finder-beta-runtime';
 // Assets to cache on install
 const PRECACHE_URLS = [
   '/',
-  '/index.html',
-  '/cheese-icon.svg',
-  '/manifest.json',
+  '/cheese-finder/index.html',
+  '/cheese-finder/cheese-icon.svg',
+  '/cheese-finder/manifest.json',
 ];
 
 // Install event - cache app shell
