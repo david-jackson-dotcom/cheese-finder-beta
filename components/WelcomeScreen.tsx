@@ -9,7 +9,7 @@ import {
   DialogTitle,
 } from './ui/dialog';
 import { toast } from 'sonner';
-import cheeseIcon from '../cheese-icon.svg';
+import cheeseIcon from './cheese-icon.svg';
 
 interface WelcomeScreenProps {
   onSelectMode: (mode: 'name' | 'taste' | 'region' | 'animal') => void;
