@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
 
 export default defineConfig({
-  base: '/cheese-finder-beta/
+  base: process.env.NODE_ENV === 'production' ? '/cheese-finder-beta/' : '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
