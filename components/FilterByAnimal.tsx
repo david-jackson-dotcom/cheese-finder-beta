@@ -206,7 +206,7 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
               className={`p-4 rounded-xl border-3 transition-all cursor-pointer touch-manipulation ${
                 avoidInclusions
                   ? 'border-primary bg-primary/5'
-                  : 'border-border bg-card hover:border-primary hover:bg-primary/5 active:bg-primary/10'
+                  : 'border-orange bg-card hover:border-primary hover:bg-primary/5 active:bg-primary/10'
               }`}
               onClick={() => setAvoidInclusions(!avoidInclusions)}
             >
