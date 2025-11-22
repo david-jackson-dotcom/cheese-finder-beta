@@ -146,7 +146,7 @@ You can filter by:
 
 Plus it has a smart substitution finder if you need to swap out a cheese in a recipe.
 
-Check it out: ${window.location.href}
+Check it out: ${window.location.origin}/cheese-finder-v1/
 
 Let me know what you think.`;
                   
