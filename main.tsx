@@ -85,7 +85,7 @@ try {
       }
     });
   }
-
+  <!--
   // Register service worker for PWA functionality
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -122,4 +122,5 @@ try {
   }
 } catch (error) {
   console.log('Analytics/PWA initialization error (non-critical):', error);
+ -->
 }
