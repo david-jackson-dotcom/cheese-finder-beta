@@ -1,20 +1,30 @@
 const CACHE_NAME = 'cheese-finder-beta';
 const RUNTIME_CACHE = 'cheese-finder-beta-runtime';
 
-// Assets to cache on install
-const PRECACHE_URLS = [
-  '/cheese-finder-beta/',
-];
+// Start with an empty precache list
+const PRECACHE_URLS = [];
 
 // Install event - cache app shell
 self.addEventListener('install', (event) => {
+  console.log('[Service Worker] Install event');
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
-        console.log('Opened cache');
+        console.log('[Service Worker] Cache opened successfully');
+        if (PRECACHE_URLS.length === 0) {
+          console.log('[Service Worker] No files to precache');
+          return Promise.resolve();
+        }
         return cache.addAll(PRECACHE_URLS);
       })
-      .then(() => self.skipWaiting())
+      .then(() => {
+        console.log('[Service Worker] Precaching complete, calling skipWaiting');
+        return self.skipWaiting();
+      })
+      .catch((error) => {
+        console.error('[Service Worker] Install failed:', error);
+        throw error;
+      })
   );
 });
 
