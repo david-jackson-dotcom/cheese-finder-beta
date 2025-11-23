@@ -232,14 +232,13 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
 
       {/* Fixed Bottom Buttons */}
       <div className="p-6 bg-gold flex justify-center gap-4">
-        {/* disable guideme button
-        <Button
-          className="w-auto gap-2 bg-dark-orange text-white hover:bg-dark-orange/90 active:bg-dark-orange/80 rounded-full px-6 min-h-[44px] touch-manipulation"
-          onClick={onGuideMe}
-        >
-          Guide Me
-        </Button>
-*/}
+// disable guideme button
+//        <Button
+//          className="w-auto gap-2 bg-dark-orange text-white hover:bg-dark-orange/90 active:bg-dark-orange/80 rounded-full px-6 min-h-[44px] touch-manipulation"
+//          onClick={onGuideMe}>
+//          Guide Me
+//        </Button>
+//
         <Button
           className="w-auto gap-2 bg-magenta text-white hover:bg-magenta/90 active:bg-magenta/80 rounded-full px-6 min-h-[44px] touch-manipulation"
           onClick={handleShowResults}
