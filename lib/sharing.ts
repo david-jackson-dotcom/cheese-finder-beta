@@ -9,7 +9,7 @@ console.log('window.location.origin:', window.location.origin);
   return {
     title: `${cheese.name} Cheese`,
     text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}...`,
-    url: `${window.location.origin}/cheese-finder-beta/`,
+    URL: 'https://david-jackson-dotcom.github.io/cheese-finder-beta/',
   };
 }
 
