@@ -1,6 +1,10 @@
 export function generateCheeseShareData(cheese: Cheese): ShareData {
   const milkTypes = cheese.milk.map(m => m.toLowerCase() === 'mixed' ? 'blend' : m.toLowerCase()).join(', ');
-  
+
+console.log('window.location.origin:', window.location.origin); 
+  const fullUrl = `${window.location.origin}/cheese-finder-beta/`;
+  console.log('Full URL:', fullUrl); 
+
   return {
     title: `${cheese.name} Cheese`,
     text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}...`,
