@@ -1,4 +1,4 @@
-import { useState } from 'react';
+aimport { useState } from 'react';
 import { Share2, Mail } from 'lucide-react';
 import { Button } from './ui/button';
 import {
@@ -146,7 +146,7 @@ You can filter by:
 
 Plus it has a smart substitution finder if you need to swap out a cheese in a recipe.
 
-Check it out: https://david-jackson-dotcom.github.io/cheese-finder-v1/
+Check it out: https://david-jackson-dotcom.github.io/cheese-finder-beta/
 
 Let me know what you think.`;
                   
