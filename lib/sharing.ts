@@ -1,27 +1,13 @@
-import { Cheese } from '../types/cheese';
-
-export interface ShareData {
-  title: string;
-  text: string;
-  url: string;
-}
-
-/**
- * Generate share content for a cheese
- */
 export function generateCheeseShareData(cheese: Cheese): ShareData {
   const milkTypes = cheese.milk.map(m => m.toLowerCase() === 'mixed' ? 'blend' : m.toLowerCase()).join(', ');
   
   return {
     title: `${cheese.name} Cheese`,
     text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}...`,
-    url: ${window.location.origin}/cheese-finder-beta/,
+    url: `${window.location.origin}/cheese-finder-beta/`,
   };
 }
 
-/**
- * Generate share content for search results
- */
 export function generateResultsShareData(
   count: number,
   trackName: string,
@@ -30,7 +16,7 @@ export function generateResultsShareData(
   return {
     title: `Cheese Discovery Results`,
     text: `Look what I discovered with Cheese Finder!`,
-    url: ${window.location.origin}/cheese-finder-beta/,
+    url: `${window.location.origin}/cheese-finder-beta/`,
   };
 }
 
