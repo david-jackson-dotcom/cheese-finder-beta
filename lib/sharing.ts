@@ -7,11 +7,12 @@ console.log('window.location.origin:', window.location.origin); 
   const fullUrl = `${window.location.origin}/cheese-finder-beta/`; 
   console.log('Full URL:', fullUrl); 
 
-  return {
-    title: `${cheese.name} Cheese`,
-    text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}... <https://david-jackson-dotcom.github.io/cheese-finder-beta/>`,
-    url: fullUrl,
-  };
+ return {
+    title: `${cheese.name} Cheese`,
+    text: `Check out ${cheese.name} on Cheese Finder.`, 
+    // MANDATORY for reliable, rich sharing
+    url: 'https://david-jackson-dotcom.github.io/cheese-finder-beta/',
+  };
 }
 
 export function generateResultsShareData(
