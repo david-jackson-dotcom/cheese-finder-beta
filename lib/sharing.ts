@@ -1,4 +1,3 @@
-//
 export function generateCheeseShareData(cheese: Cheese): ShareData {
   const milkTypes = cheese.milk.map(m => m.toLowerCase() === 'mixed' ? 'blend' : m.toLowerCase()).join(', ');
 
