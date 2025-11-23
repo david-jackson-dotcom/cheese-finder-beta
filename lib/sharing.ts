@@ -17,6 +17,7 @@ export function generateResultsShareData(
   trackName: string,
   filterDescription: string
 ): ShareData {
+    const fullUrl = `${window.location.origin}/cheese-finder-beta/`;
   return {
     title: `Cheese Discovery Results`,
     text: `Look what I discovered with Cheese Finder!`,
