@@ -4,7 +4,8 @@ export function generateCheeseShareData(cheese: Cheese): ShareData {
 console.log('window.location.origin:', window.location.origin); 
   // FIX: Using the explicit path ensures the link works on GitHub Pages even if 
   // pathname resolves to just '/'
-  const fullUrl = `${window.location.origin}/cheese-finder-beta/`; 
+  //const fullUrl = `${window.location.origin}/cheese-finder-beta/`; 
+   const fullUrl = `https://david-jackson-dotcom.github.io/cheese-finder-beta/`; 
   console.log('Full URL:', fullUrl); 
 
   return {
