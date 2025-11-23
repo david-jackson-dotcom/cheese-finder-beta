@@ -1,29 +1,30 @@
-//
 export function generateCheeseShareData(cheese: Cheese): ShareData {
-  const milkTypes = cheese.milk.map(m => m.toLowerCase() === 'mixed' ? 'blend' : m.toLowerCase()).join(', ');
+  const milkTypes = cheese.milk.map(m => m.toLowerCase() === 'mixed' ? 'blend' : m.toLowerCase()).join(', ');
 
-console.log('window.location.origin:', window.location.origin); 
-  const fullUrl = window.location.origin + window.location.pathname;
-  console.log('Full URL:', fullUrl); 
+console.log('window.location.origin:', window.location.origin); 
+  // FIX: Using the explicit path ensures the link works on GitHub Pages even if 
+  // pathname resolves to just '/'
+  const fullUrl = `${window.location.origin}/cheese-finder-beta/`; 
+  console.log('Full URL:', fullUrl); 
 
-  return {
-    title: `${cheese.name} Cheese`,
-    text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}...`,
-    url: 'https://david-jackson-dotcom.github.io/cheese-finder-beta/',
-  };
+  return {
+    title: `${cheese.name} Cheese`,
+    text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}...`,
+    url: fullUrl, // Use the dynamically created fullUrl
+  };
 }
 
 export function generateResultsShareData(
-  count: number,
-  trackName: string,
-  filterDescription: string
+  count: number,
+  trackName: string,
+  filterDescription: string
 ): ShareData {
-    const fullUrl = `${window.location.origin}/cheese-finder-beta/`;
-  return {
-    title: `Cheese Discovery Results`,
-    text: `Look what I discovered with Cheese Finder!`,
-    url: fullUrl,
-  };
+    const fullUrl = `${window.location.origin}/cheese-finder-beta/`;
+  return {
+    title: `Cheese Discovery Results`,
+    text: `Look what I discovered with Cheese Finder!`,
+    url: fullUrl,
+  };
 }
 
 /**
