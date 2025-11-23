@@ -8,7 +8,7 @@ console.log('window.location.origin:', window.location.origin);
   return {
     title: `${cheese.name} Cheese`,
     text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}...`,
-    url: `${window.location.origin}/cheese-finder-beta/`,
+    url: fullUrl,
   };
 }
 
@@ -20,7 +20,7 @@ export function generateResultsShareData(
   return {
     title: `Cheese Discovery Results`,
     text: `Look what I discovered with Cheese Finder!`,
-    url: `${window.location.origin}/cheese-finder-beta/`,
+    url: fullUrl,
   };
 }
 
