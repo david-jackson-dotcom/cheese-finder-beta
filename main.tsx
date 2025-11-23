@@ -90,7 +90,7 @@ try {
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
-      .register(`${import.meta.env.BASE_URL}service-worker.js`)
+      .register(`https://david-jackson-dotcom.github.io/cheese-finder-beta/service-worker.js`)
       .then((registration) => {
         console.log('Service Worker registered successfully:', registration.scope);
           
