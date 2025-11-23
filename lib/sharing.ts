@@ -11,7 +11,7 @@ console.log('window.location.origin:', window.location.origin); 
     title: `${cheese.name} Cheese`,
     text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}...`,
     //url: fullUrl, // Use the dynamically created fullUrl
-    url: 'https://david-jackson-dotcom.github.io/cheese-finder-beta/',
+    url: https://david-jackson-dotcom.github.io/cheese-finder-beta/,
   };
 }
 
@@ -24,7 +24,7 @@ export function generateResultsShareData(
   return {
     title: `Cheese Discovery Results`,
     text: `Look what I discovered with Cheese Finder!`,
-    url: fullUrl,
+    url: https://david-jackson-dotcom.github.io/cheese-finder-beta/,
   };
 }
 
