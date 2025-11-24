@@ -802,7 +802,7 @@ export default function App() {
       
       {screen === 'usage-selection' && (
         <WhatAreYouMaking 
-          onSelectUsage={handleSelectUsage} 
+          onSelectUsage={handleSelectUse} 
           onBack={() => setScreen('animal')} 
           onSubstituteSearch={handleSubstituteSearch}
           onSubstituteError={handleSubstituteError}
