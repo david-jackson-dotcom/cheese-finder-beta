@@ -67,7 +67,7 @@
       "url": "/cheese-finder-beta/?mode=taste",
       "icons": [
         {
-          "src": "/cheese-finder-beta/logo192.png",
+          "src": "/cheese-finder-beta/icon-192.png",
           "sizes": "192x192"
         }
       ]
@@ -79,7 +79,7 @@
       "url": "/cheese-finder-beta/?mode=place",
       "icons": [
         {
-          "src": "/cheese-finder-beta/logo192.png",
+          "src": "/cheese-finder-beta/icon-192.png",
           "sizes": "192x192"
         }
       ]
@@ -91,7 +91,7 @@
       "url": "/cheese-finder-beta/?mode=beast",
       "icons": [
         {
-          "src": "/cheese-finder-beta/logo192.png",
+          "src": "/cheese-finder-beta/icon-192.png",
           "sizes": "192x192"
         }
       ]
