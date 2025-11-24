@@ -91,7 +91,7 @@
       "url": "/cheese-finder-beta/?mode=beast",
       "icons": [
         {
-          "src": "/cheese-finder-beta/icon-192.png",
+          "src": "/cheese-finder-beta/public/icon-192.png",
           "sizes": "192x192"
         }
       ]
