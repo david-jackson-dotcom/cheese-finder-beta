@@ -2,12 +2,14 @@ const CACHE_NAME = 'cheese-finder-v0';
 const urlsToCache = [
   '/cheese-finder-beta/',
   '/cheese-finder-beta/index.html',
+  '/cheese-finder-beta/styles.css',  
   '/cheese-finder-beta/icon-48.png',
   '/cheese-finder-beta/icon-72.png',
   '/cheese-finder-beta/icon-96.png',
   '/cheese-finder-beta/icon-144.png',
   '/cheese-finder-beta/icon-192.png',
-  '/cheese-finder-beta/icon-512.png'
+  '/cheese-finder-beta/icon-512.png',
+  '/cheese-finder-beta/cheese-icon.svg'
 ];
 
 self.addEventListener('install', (event) => {
