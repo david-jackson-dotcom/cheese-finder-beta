@@ -194,7 +194,7 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
                   <Label className="cursor-pointer">
                     Lower Lactose (Aged Cheeses)
                   </Label>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-foreground">
                     Hard and aged cheeses have naturally lower lactose content
                   </p>
                 </div>
@@ -220,7 +220,7 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
                   <Label className="cursor-pointer">
                     Just Cheese
                   </Label>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-foreground">
                     Pure cheese without smoke, peppers, herbs, wine, fruit, truffles, seeds, pixie dust, or other additions
                   </p>
                 </div>
