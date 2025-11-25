@@ -1,18 +1,10 @@
 export function generateCheeseShareData(cheese: Cheese): ShareData {
-  const milkTypes = cheese.milk.map(m => m.toLowerCase() === 'mixed' ? 'blend' : m.toLowerCase()).join(', ');
+  const milkTypes = cheese.milk.map(m => m.toLowerCase() === 'mixed' ? 'blend' : m.toLowerCase()).join(', ');
 
-console.log('window.location.origin:', window.location.origin); 
-  // FIX: Using the explicit path ensures the link works on GitHub Pages even if 
-  // pathname resolves to just '/'
-  //const fullUrl = `${window.location.origin}/cheese-finder-beta/`; 
-   const fullUrl = `${window.location.pathname}`; 
-  console.log('Full URL:', fullUrl); 
-
-  return {
-    title: `${cheese.name} Cheese`,
-    text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}...`,
-    url: fullUrl, // Use the dynamically created fullUrl
-  };
+return {
+  title: `${cheese.name} Cheese`,
+  text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}: https://bit.ly/cheese-finder-beta`,
+};
 }
 
 export function generateResultsShareData(
@@ -20,14 +12,11 @@ export function generateResultsShareData(
   trackName: string,
   filterDescription: string
 ): ShareData {
-    const fullUrl = `${window.location.origin}/cheese-finder-beta/`;
-  return {
-    title: `Cheese Discovery Results`,
-    text: `Look what I discovered with Cheese Finder!`,
-    url: fullUrl,
-  };
+  return {
+    title: `Cheese Discovery Results`,
+    text: `Look what I discovered with Cheese Finder!`,
+  };
 }
-
 /**
  * Check if Web Share API is available
  */
@@ -61,9 +50,15 @@ function fallbackCopyToClipboard(text: string): boolean {
 /**
  * Share using Web Share API or fallback to clipboard
  */
+// old:
+//export async function share(data: ShareData): Promise<{ success: boolean; method: 'native' | 'clipboard' | 'fallback' | 'none'; shareText?: string }> {
+  //const shareText = `${data.title}\n\n${data.text}\n\nhttps://bit.ly/cheese-finder-beta`;
+
+// new:
 export async function share(data: ShareData): Promise<{ success: boolean; method: 'native' | 'clipboard' | 'fallback' | 'none'; shareText?: string }> {
-  const shareText = `${data.title}\n\n${data.text}\n\n${data.url}`;
-  
+  const shareText = `Check out ${data.title.replace(' Cheese', '')} on Cheese Finder:\n\n${data.text}\n\nhttps://bit.ly/cheese-finder-beta`;
+
+
   // Try native sharing first (mobile)
   if (canShare()) {
     try {
