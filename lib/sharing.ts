@@ -6,7 +6,7 @@ export function generateCheeseShareData(cheese: Cheese): ShareData {
 
 return {
   title: `${cheese.name} Cheese`,
-  text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}: 'https://bit.ly/cheese-finder-beta`,
+  text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}: https://bit.ly/cheese-finder-beta`,
   //url: fullUrl,
 };
 }
