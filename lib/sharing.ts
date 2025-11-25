@@ -21,44 +21,39 @@ console.log('window.location.origin:', window.location.origin); 
 // Assuming your Cheese object type looks like: { id: string | number, name: string, ... }
 
 export function generateCheeseShareData(cheese: Cheese): ShareData {
-  console.log("SHARE DATA OBJECT:", shareData);
+  // 1. Logic starts here
+  const milkTypes = cheese.milk.map(m => m.toLowerCase() === 'mixed' ? 'blend' : m.toLowerCase()).join(', ');
 
-    if (navigator.share) {
-        // ...
-    } else {
-        // ...
-    }
-}
-  const milkTypes = cheese.milk.map(m => m.toLowerCase() === 'mixed' ? 'blend' : m.toLowerCase()).join(', ');
-
-  // 🧀 FIX: Define the unique identifier using the 'id' property from the passed-in 'cheese' object
+  // 🧀 FIX: Define the unique identifier using the 'id' property
   const cheeseId = cheese.id; 
 
   console.log('window.location.origin:', window.location.origin); 
   
-  const fullUrl = `${window.location.origin}/cheese-finder-beta/${cheeseId}`; // Now 'cheeseId' is correctly defined
-  console.log('Full URL:', fullUrl); 
+  const fullUrl = `${window.location.origin}/cheese-finder-beta/${cheeseId}`; 
+  console.log('Full URL:', fullUrl); // <-- THIS LOG WILL NOW RUN!
 
-  return {
-    title: `${cheese.name} Cheese`,
-    // ... other properties ...
-    url: fullUrl,
-  };
-}
+  // 2. Logic ends with a return statement
+  return {
+    title: `${cheese.name} Cheese`,
+    text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}...`,
+    url: fullUrl,
+  };
+} // <-- Correct function end
+
+// --- The second function is separate and correctly defined ---
 
 export function generateResultsShareData(
   count: number,
   trackName: string,
   filterDescription: string
 ): ShareData {
-    const fullUrl = `${window.location.origin}/cheese-finder-beta/`;
-  return {
-    title: `Cheese Discovery Results`,
-    text: `Look what I discovered with Cheese Finder!`,
-    url: fullUrl,
-  };
+  const fullUrl = `${window.location.origin}/cheese-finder-beta/`;
+  return {
+    title: `Cheese Discovery Results`,
+    text: `Look what I discovered with Cheese Finder!`,
+    url: fullUrl,
+  };
 }
-
 /**
  * Check if Web Share API is available
  */
