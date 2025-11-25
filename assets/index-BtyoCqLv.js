@@ -202,8 +202,8 @@ Let me know what you think.`;fo.success("Opening email client...",{duration:2e3}
 {
     const i = r.milk.map(o => o.toLowerCase() === "mixed" ? "blend" : o.toLowerCase()).join(", ");
     return {
-        title: `${r.name} Cheese`,
-        text: `Check out ${r.name} on Cheese Finder:\n\n${r.description.slice(0, 100)}.\n\nhttps://bit.ly/cheese-finder-beta`
+        //title: `${r.name} Cheese`,
+        text: `Check out ${r.name} on Cheese Finder:\n${r.description.slice(0, 100)}.\n\nhttps://bit.ly/cheese-finder-beta`
     }
 }
 
