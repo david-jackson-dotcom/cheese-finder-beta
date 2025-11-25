@@ -6,7 +6,7 @@ console.log('window.location.origin:', window.location.origin); 
   // pathname resolves to just '/'
   //const fullUrl = `${window.location.origin}/cheese-finder-beta/`; 
    // const fullUrl = `${window.location.pathname}`; 
-  const fullUrl = `${window.location.origin}/cheese-finder-beta/${cheeseID}`;
+  const fullUrl = `${window.location.origin}/cheese-finder-beta/${cheeseId}`;
   console.log('Full URL:', fullUrl); 
 
   return {
