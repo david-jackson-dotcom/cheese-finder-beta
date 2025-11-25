@@ -180,7 +180,7 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
               className={`p-4 rounded-xl border-3 transition-all cursor-pointer touch-manipulation ${
                 lowLactose
                   ? 'border-primary bg-primary/5'
-                  : 'border-orange bg-card hover:border-primary hover:bg-primary/5 active:bg-primary/10'
+                    : 'border-orange bg-card hover:border-primary hover:bg-butter active:bg-butter'
               }`}
               onClick={() => setLowLactose(!lowLactose)}
             >
@@ -191,7 +191,7 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
                   className="mt-1"
                 />
                 <div className="flex-1 space-y-1">
-                  <Label className="cursor-pointer" text-foreground>
+                  <Label className="cursor-pointer text-dark-orange font-bold">
                     Lower Lactose (Aged Cheeses)
                   </Label>
                   <p className="text-sm text-muted-foreground">
@@ -206,7 +206,7 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
               className={`p-4 rounded-xl border-3 transition-all cursor-pointer touch-manipulation ${
                 avoidInclusions
                  ? 'border-primary bg-primary/5'
-                  : 'border-orange bg-card hover:border-primary hover:bg-primary/5 active:bg-primary/10'
+                    : 'border-orange bg-card hover:border-primary hover:bg-butter active:bg-butter'
               }`}
               onClick={() => setAvoidInclusions(!avoidInclusions)}
             >
@@ -217,7 +217,7 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
                   className="mt-1"
                 />
                 <div className="flex-1 space-y-1">
-                  <Label className="cursor-pointer" text-foreground>
+                  <Label className="cursor-pointer text-dark-orange font-bold">
                     Just Cheese
                   </Label>
                   <p className="text-sm text-muted-foreground">
