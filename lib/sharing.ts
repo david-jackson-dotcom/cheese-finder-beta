@@ -1,46 +1,18 @@
-/*
-  export function generateCheeseShareData(cheese: Cheese): ShareData {
-  const milkTypes = cheese.milk.map(m => m.toLowerCase() === 'mixed' ? 'blend' : m.toLowerCase()).join(', ');
-
-console.log('window.location.origin:', window.location.origin); 
-  // FIX: Using the explicit path ensures the link works on GitHub Pages even if 
-  // pathname resolves to just '/'
-  //const fullUrl = `${window.location.origin}/cheese-finder-beta/`; 
-   // const fullUrl = `${window.location.pathname}`; 
-  const fullUrl = `${window.location.origin}/cheese-finder-beta/${cheeseId}`;
-  console.log('Full URL:', fullUrl); 
-
-  return {
-    title: `${cheese.name} Cheese`,
-    text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}...`,
-    url: fullUrl, // Use the dynamically created fullUrl
-  };
-}
-*/
-
-// Assuming your Cheese object type looks like: { id: string | number, name: string, ... }
-
 export function generateCheeseShareData(cheese: Cheese): ShareData {
-  // 1. Logic starts here
   const milkTypes = cheese.milk.map(m => m.toLowerCase() === 'mixed' ? 'blend' : m.toLowerCase()).join(', ');
 
-  // 🧀 FIX: Define the unique identifier using the 'id' property
-  const cheeseId = cheese.id; 
-
-  console.log('window.location.origin:', window.location.origin); 
+  console.log('window.location.origin:', window.location.origin); 
   
-  const fullUrl = `${window.location.origin}/cheese-finder-beta/${cheeseId}`; 
-  console.log('Full URL:', fullUrl); // <-- THIS LOG WILL NOW RUN!
+  // Create full URL with cheese ID
+  const fullUrl = `${window.location.origin}/cheese-finder-beta/?cheese=${encodeURIComponent(cheese.id)}`;
+  console.log('Full URL:', fullUrl); 
 
-  // 2. Logic ends with a return statement
   return {
     title: `${cheese.name} Cheese`,
     text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}...`,
     url: fullUrl,
   };
-} // <-- Correct function end
-
-// --- The second function is separate and correctly defined ---
+}
 
 export function generateResultsShareData(
   count: number,
