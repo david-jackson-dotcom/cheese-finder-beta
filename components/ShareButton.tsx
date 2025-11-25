@@ -23,6 +23,7 @@ export function ShareButton({
   const isNativeShareAvailable = canShare();
 
   const handleShare = async () => {
+    console.log("SHARE DATA INPUT:", data);
     const result = await share(data);
     
     if (result.success) {
