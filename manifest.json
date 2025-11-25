@@ -7,43 +7,55 @@
   "background_color": "#FFD800",
   "theme_color": "#FFD800",
   "orientation": "portrait-primary",
-"icons": [
+  "icons": [
     {
-      "src": "./cheese-icon.svg",
+      "src": "/cheese-finder-beta/public/cheese-icon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
     },
     {
-      "src": "./logo48.png",
+      "src": "/cheese-finder-beta/public/icon-48.png",
       "sizes": "48x48",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "./logo72.png",
+      "src": "/cheese-finder-beta/public/icon-72.png",
       "sizes": "72x72",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "./logo96.png",
+      "src": "/cheese-finder-beta/public/icon-96.png",
       "sizes": "96x96",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "./logo144.png",
+      "src": "/cheese-finder-beta/public/icon-144.png",
       "sizes": "144x144",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "./logo192.png",
+      "src": "/cheese-finder-beta/public/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+       {
+      "src": "/cheese-finder-beta/public/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
-      "src": "./logo512.png",
+      "src": "/cheese-finder-beta/public/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
-      }
+      "type": "image/png",
+      "purpose": "any"
+    }
   ],
   "categories": ["food", "lifestyle"],
   "screenshots": [],
@@ -52,10 +64,10 @@
       "name": "Browse by Taste",
       "short_name": "Taste",
       "description": "Find cheese by flavor preferences",
-      "url": "/?mode=taste",
+      "url": "/cheese-finder-beta/?mode=taste",
       "icons": [
         {
-          "src": "/icon-192.png",
+          "src": "/cheese-finder-beta/public/icon-192.png",
           "sizes": "192x192"
         }
       ]
@@ -64,10 +76,10 @@
       "name": "Browse by Place",
       "short_name": "Place",
       "description": "Find cheese by country or region",
-      "url": "/?mode=place",
+      "url": "/cheese-finder-beta/?mode=place",
       "icons": [
         {
-          "src": "/icon-192.png",
+          "src": "/cheese-finder-beta/public/icon-192.png",
           "sizes": "192x192"
         }
       ]
@@ -76,23 +88,23 @@
       "name": "Beast Milk",
       "short_name": "Beast",
       "description": "Find alternatives to cow milk cheese",
-      "url": "/?mode=beast",
+      "url": "/cheese-finder-beta/?mode=beast",
       "icons": [
         {
-          "src": "/icon-192.png",
+          "src": "/cheese-finder-beta/public/icon-192.png",
           "sizes": "192x192"
         }
       ]
     }
   ],
   "share_target": {
-    "action": "/",
+    "action": "/cheese-finder-beta/",
     "method": "GET",
     "enctype": "application/x-www-form-urlencoded",
     "params": {
       "title": "title",
       "text": "text",
-      "url": "url"
+      "url": "fullUrl"
     }
   }
 }
