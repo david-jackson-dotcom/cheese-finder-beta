@@ -61,7 +61,7 @@ function fallbackCopyToClipboard(text: string): boolean {
  */
 export async function share(data: ShareData): Promise<{ success: boolean; method: 'native' | 'clipboard' | 'fallback' | 'none'; shareText?: string }> {
   const shareText = `${data.title}\n\n${data.text}\n\n${data.url}`;
-  
+  console.log('About to copy:', shareText); 
   // Try native sharing first (mobile)
   if (canShare()) {
     try {
