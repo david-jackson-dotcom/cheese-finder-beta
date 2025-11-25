@@ -57,7 +57,7 @@ function fallbackCopyToClipboard(text: string): boolean {
  * Share using Web Share API or fallback to clipboard
  */
 export async function share(data: ShareData): Promise<{ success: boolean; method: 'native' | 'clipboard' | 'fallback' | 'none'; shareText?: string }> {
-  const shareText = `${data.title}\n\n${data.text}\n\n${data.url}`;
+  const shareText = `${data.title}\n\n${data.text}\n\nhttps://bit.ly/cheese-finder-beta`;
   //console.log('About to copy:', shareText); 
   // Try native sharing first (mobile)
   if (canShare()) {
