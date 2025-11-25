@@ -1,4 +1,5 @@
-export function generateCheeseShareData(cheese: Cheese): ShareData {
+/*
+  export function generateCheeseShareData(cheese: Cheese): ShareData {
   const milkTypes = cheese.milk.map(m => m.toLowerCase() === 'mixed' ? 'blend' : m.toLowerCase()).join(', ');
 
 console.log('window.location.origin:', window.location.origin); 
@@ -13,6 +14,27 @@ console.log('window.location.origin:', window.location.origin); 
     title: `${cheese.name} Cheese`,
     text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}...`,
     url: fullUrl, // Use the dynamically created fullUrl
+  };
+}
+*/
+
+// Assuming your Cheese object type looks like: { id: string | number, name: string, ... }
+
+export function generateCheeseShareData(cheese: Cheese): ShareData {
+  const milkTypes = cheese.milk.map(m => m.toLowerCase() === 'mixed' ? 'blend' : m.toLowerCase()).join(', ');
+
+  // 🧀 FIX: Define the unique identifier using the 'id' property from the passed-in 'cheese' object
+  const cheeseId = cheese.id; 
+
+  console.log('window.location.origin:', window.location.origin); 
+  
+  const fullUrl = `${window.location.origin}/cheese-finder-beta/${cheeseId}`; // Now 'cheeseId' is correctly defined
+  console.log('Full URL:', fullUrl); 
+
+  return {
+    title: `${cheese.name} Cheese`,
+    // ... other properties ...
+    url: fullUrl,
   };
 }
 
