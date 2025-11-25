@@ -94,8 +94,7 @@ export function FilterByRegion({ onSelectRegion, onBack }: FilterByRegionProps) 
           <div className="absolute left-6 top-1/2 -translate-y-1/2">
             <Button
               onClick={onBack}
-              className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
-            >
+              className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80">
               <ChevronLeft className="h-6 w-6" />
               Back
             </Button>
