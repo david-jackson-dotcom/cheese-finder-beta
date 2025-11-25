@@ -1,17 +1,14 @@
 export function generateCheeseShareData(cheese: Cheese): ShareData {
   const milkTypes = cheese.milk.map(m => m.toLowerCase() === 'mixed' ? 'blend' : m.toLowerCase()).join(', ');
-
-  console.log('window.location.origin:', window.location.origin); 
   
   // Create full URL with cheese ID
-  const fullUrl = `${window.location.origin}/cheese-finder-beta/?cheese=${encodeURIComponent(cheese.id)}`;
-  console.log('Full URL:', fullUrl); 
+  const fullUrl = 'https://bit.ly/cheese-finder-beta';
 
-  return {
-    title: `${cheese.name} Cheese`,
-    text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}...`,
-    url: fullUrl,
-  };
+return {
+  title: `${cheese.name} Cheese`,
+  text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}...`,
+  url: fullUrl,
+};
 }
 
 export function generateResultsShareData(
@@ -19,7 +16,7 @@ export function generateResultsShareData(
   trackName: string,
   filterDescription: string
 ): ShareData {
-  const fullUrl = `${window.location.origin}/cheese-finder-beta/`;
+  const fullUrl = 'https://bit.ly/cheese-finder-beta';
   return {
     title: `Cheese Discovery Results`,
     text: `Look what I discovered with Cheese Finder!`,
