@@ -119,14 +119,11 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
     <div className="min-h-screen bg-gold">
       {/* Header */}
       <div className="bg-gold">
-
-        <div className="px-6 pb-4">
                 <div className="relative px-6 py-14">
           <div className="absolute left-6 top-1/2 -translate-y-1/2">
             <Button
               onClick={onBack}
-              className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
-            >
+              className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80">
               <ChevronLeft className="h-6 w-6" />
               Back
             </Button>
