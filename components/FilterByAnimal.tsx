@@ -120,7 +120,7 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
       {/* Header */}
       <div className="bg-gold">
 
-        <div className="px-6 pb-4">
+      //  <div className="px-6 pb-4">
                 <div className="relative px-6 py-14">
           <div className="absolute left-6 top-1/2 -translate-y-1/2">
             <Button
