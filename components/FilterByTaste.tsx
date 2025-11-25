@@ -49,7 +49,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gold">
       {/* Header */}
           <div className="bg-gold">
         <div className="px-6 pb-4">
