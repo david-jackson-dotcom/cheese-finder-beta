@@ -19,11 +19,13 @@ export function ShareButton({
   className = '',
   showLabel = false 
 }: ShareButtonProps) {
+  console.log("ShareButton rendered with data:", data); // ADD THIS
   const [copied, setCopied] = useState(false);
   const isNativeShareAvailable = canShare();
-
+  
   const handleShare = async () => {
     console.log("SHARE DATA INPUT:", data);
+    console.log("URL in data:", data.url); // ADD THIS
     const result = await share(data);
     
     if (result.success) {
