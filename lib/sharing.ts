@@ -21,6 +21,14 @@ console.log('window.location.origin:', window.location.origin); 
 // Assuming your Cheese object type looks like: { id: string | number, name: string, ... }
 
 export function generateCheeseShareData(cheese: Cheese): ShareData {
+  console.log("SHARE DATA OBJECT:", shareData);
+
+    if (navigator.share) {
+        // ...
+    } else {
+        // ...
+    }
+}
   const milkTypes = cheese.milk.map(m => m.toLowerCase() === 'mixed' ? 'blend' : m.toLowerCase()).join(', ');
 
   // 🧀 FIX: Define the unique identifier using the 'id' property from the passed-in 'cheese' object
