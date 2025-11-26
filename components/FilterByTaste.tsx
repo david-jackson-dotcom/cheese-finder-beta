@@ -3,6 +3,10 @@ import { Slider } from './ui/slider';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { ChevronLeft } from 'lucide-react';
+import { useEffect } from 'react';
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, []); // Runs once when component mounts
 
 interface FilterByTasteProps {
   onApplyFilters: (filters: {
