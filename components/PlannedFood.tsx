@@ -21,7 +21,7 @@ export function PlannedFood({ onContinue, onBack }: PlannedFoodProps) {
       {/* Header */}
       <div className="top-0 z-10 bg-background/95 backdrop-blur">
         <div className="relative px-6 py-4">
-          <div className="absolute left-6 top-1/2 -translate-y-1/2">
+          <div className="px-6 py-14 **flex items-center justify-start**">
             <Button
               onClick={onBack}
               className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80 mt-4"
@@ -62,7 +62,7 @@ export function PlannedFood({ onContinue, onBack }: PlannedFoodProps) {
             </p>
           </div>
 
-          <div className="p-3 bg-accent/10 rounded-xl border border-accent/20">
+          <div className="p-3 bg-accent/10 rounded-2x1 border border-accent/20">
             <p className="text-sm text-muted-foreground">
               <span className="text-primary">Tip:</span> Describe the dish you're making for tailored cheese recommendations!
             </p>
