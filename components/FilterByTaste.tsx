@@ -54,7 +54,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
           <div className="bg-gold">
       //  <div className="px-6 pb-4">
                 <div className="px-6 py-14 **flex items-center justify-start**">
-          <div className="left-6 top-1/2 -translate-y-1/2">
+          <div">
             <Button
               onClick={onBack}
               className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80">
