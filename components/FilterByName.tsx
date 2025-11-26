@@ -3,12 +3,11 @@ import { ChevronLeft } from 'lucide-react';
 import { Button } from './ui/button';
 import { NameResultsView } from './NameResultsView';
 import { searchCheesesByName, searchCheesesByTags } from '../lib/queries';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
-// ... inside your component:
 useEffect(() => {
   window.scrollTo(0, 0);
-}, []);
+}, []); // Runs once when component mounts
 
 interface FilterByNameProps {
   onBack: () => void;
