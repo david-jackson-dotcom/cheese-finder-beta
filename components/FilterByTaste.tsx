@@ -53,27 +53,29 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gold">
-      {/* Header */}
-          <div className="bg-gold">
-      //  <div className="px-6 pb-4">
-                <div className="px-6 py-14 **flex items-center justify-start**">
-          <div">
-            <Button
-              onClick={onBack}
-              className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80">
-              <ChevronLeft className="h-6 w-6" />
-              Back
-            </Button>
-                </div>
-                </div>
-        <div className="px-6 pb-4">
-          <p className="text-brown text-center">How do you like your cheese? Use the sliders.</p>
-        </div>
+   
+   {/* TASTE Page container */}
+<div className="min-h-screen bg-gold">
+  {/* Header */}
+  <div className="bg-gold">
+    <div className="px-6 py-14 flex items-center justify-start">
+      <div>
+        <Button
+         onClick={onBack} className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80">
+          <ChevronLeft className="h-6 w-6" />
+          Back
+        </Button>
       </div>
+    </div>
+    <div className="px-6 pb-4">
+      <p className="text-brown text-center">How do you like your cheese? Use the sliders.</p>
+    </div>
+  </div>
+  {/* END Header */}
+  
+  {/* Content */}
+  <div className="max-w-md mx-auto space-y-8 px-6 py-8">
     
-      <div className="max-w-md mx-auto space-y-8 px-6 py-8">
-        <div className="space-y-10">
           {/* Firmness Slider */}
           <div className="space-y-4">
             <div className="flex justify-between items-baseline">
