@@ -28,19 +28,19 @@ export function ResultsView({ cheeses, onBack, filterDescription, isA2Search, on
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <div className="bg-gold">
-        <div className="relative px-6 py-14">
-          <div className="absolute left-6 top-1/2 -translate-y-1/2">
-            <Button
-              onClick={onBack}
-              className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
-            >
-              <ChevronLeft className="h-6 w-6" />
-              Back
-            </Button>
-          </div>
-        </div>
+  <div className="bg-gold">
+    <div className="px-6 py-14 flex items-center justify-start">
+      <div>
+        <Button
+          onClick={onBack}
+          className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
+        >
+          <ChevronLeft className="h-6 w-6" />
+          Back
+        </Button>
       </div>
+    </div>
+  </div>
 
       {/* Count Text */}
       <div className="bg-gold px-6 pt-2 pb-4">
