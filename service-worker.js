@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 const CACHE_NAME = 'cheese-finder-v2';
 const urlsToCache = [
   '/cheese-finder-beta/',
@@ -22,10 +23,16 @@ self.addEventListener('install', (event) => {
       })
       .then(() => self.skipWaiting())
   );
+=======
+self.addEventListener('install', (event) => {
+  console.log('Installing service worker');
+  self.skipWaiting();
+>>>>>>> Stashed changes
 });
 
 self.addEventListener('activate', (event) => {
   console.log('Activating service worker');
+<<<<<<< Updated upstream
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
@@ -68,4 +75,7 @@ self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
   }
+=======
+  self.clients.claim();
+>>>>>>> Stashed changes
 });
