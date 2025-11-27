@@ -26,10 +26,7 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
           <div className="flex justify-center">
 // LOGO
 <div className="inline-block z-10 opacity-20">
-    
-              
   	<img title="logo" src="./cheese-icon.svg" width="200" height="200" alt="cheese finder logo" id="logo" />
-            
 </div>
             
   // DISPLAY          
@@ -170,6 +167,7 @@ Let me know what you think.`;
                 <Share2 className="w-4 h-4" />
                 Share
               </Button>
+              <p>r.a</p>
             </div>
           </div>
         </DialogContent>
