@@ -24,7 +24,16 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
         {/* Logo/Title Section */}
         <div className="space-y-4">
           <div className="flex justify-center">
-            <div className="inline-block" style={{ transform: 'rotate(-15deg)' }}>
+// LOGO
+<div className="inline-block z-10 opacity-20">
+    
+              
+  	<img title="logo" src="./cheese-icon.svg" width="200" height="200" alt="cheese finder logo" id="logo" />
+            
+</div>
+            
+  // DISPLAY          
+            <div className="inline-block" z-[50] style={{ transform: 'rotate(-15deg)' }}>
               <h1 className="text-7xl sm:text-8xl text-accent mb-2" style={{ fontFamily: 'Leckerli One, cursive', fontWeight: 700 }}>
                 Cheese
               </h1>
