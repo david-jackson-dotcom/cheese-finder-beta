@@ -25,8 +25,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-          - name: 🔎 Debug NODE_ENV
-            run: echo "NODE_ENV is set to: $NODE_ENV"
+         - name: 🔎 Debug NODE_ENV (Node Method)
+        run: node -e 'console.log(`NODE_ENV is set to: ${process.env.NODE_ENV}`)
       
       - name: Install dependencies
         run: npm install
