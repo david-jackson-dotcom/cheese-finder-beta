@@ -42,7 +42,10 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
           <p className="text-xl text-accent mt-12" style={{ fontFamily: 'Orienta, sans-serif' }}>
             — Discover Cheese for Any Preference —
           </p>
-        <p>r. b</p>
+        
+        // FRESH CACHE DETECTION
+        <p>revision: c</p>
+        
         </div>
 
         {/* Question */}
