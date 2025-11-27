@@ -1,3 +1,4 @@
+//
 const CACHE_NAME = 'cheese-finder-v3';
 const urlsToCache = [
   '/cheese-finder-beta/',
