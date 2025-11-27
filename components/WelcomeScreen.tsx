@@ -171,7 +171,7 @@ Let me know what you think.`;
                 <Share2 className="w-4 h-4" />
                 Share
               </Button>
-              <p>r.a</p>
+             
             </div>
           </div>
         </DialogContent>
