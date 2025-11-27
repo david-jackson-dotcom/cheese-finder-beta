@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cheese-finder-v10';
+const CACHE_NAME = 'cheese-finder-v11';
 const urlsToCache = [
   '/cheese-finder-beta/',
   '/cheese-finder-beta/index.html',
