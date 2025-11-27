@@ -43,8 +43,8 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
             — Discover Cheese for Any Preference —
           </p>
         
-        // FRESH CACHE DETECTION
-        <p>revision: c</p>
+// FRESH CACHE DETECTION
+        <p>revision: d</p>
         
         </div>
 
