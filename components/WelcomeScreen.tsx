@@ -44,7 +44,7 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
           </p>
         
 // FRESH CACHE DETECTION
-        <p>revision: e</p>
+        <p>revision: f</p>
         
         </div>
 
