@@ -88,41 +88,53 @@ try {
     });
   }
   
-  // Register service worker for PWA functionality
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker
-      .register(`/cheese-finder-beta/service-worker.js`)
-      .then((registration) => {
-        console.log('Service Worker registered successfully:', registration.scope);
-          
-          // Check for updates periodically
-          setInterval(() => {
-            registration.update();
-          }, 60000); // Check every minute
-          
-          // Handle updates
-          registration.addEventListener('updatefound', () => {
-            const newWorker = registration.installing;
-            if (newWorker) {
-              newWorker.addEventListener('statechange', () => {
-                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  // New service worker available, prompt user to refresh
-                  if (confirm('New version available! Reload to update?')) {
-                    newWorker.postMessage({ type: 'SKIP_WAITING' });
-                    window.location.reload();
-                  }
-                }
-              });
-            }
-          });
-        })
-        .catch((error) => {
-          console.log('Service Worker registration failed (expected on localhost):', error);
-        });
-    });
-  }
-} catch (error) {
-  console.log('Analytics/PWA initialization error (non-critical):', error);
+  // NOTE: Use the swPath variable if defined, or define it here for robustness:
+// const swPath = `${import.meta.env.BASE_URL}service-worker.js`;
 
+try { // 🔑 Required keyword to match the final catch block
+    // Register service worker for PWA functionality
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker
+                // WARNING: Hardcoding the path is risky. Use a variable if possible.
+                .register(`/cheese-finder-beta/service-worker.js`) 
+                .then((registration) => {
+                    console.log('Service Worker registered successfully:', registration.scope);
+                    
+                    // Check for updates periodically
+                    setInterval(() => {
+                        // 🔑 FIX: Chain the .catch() directly to the promise
+                        registration.update()
+                            .catch(err => {
+                                // This silences the expected InvalidStateError during worker handover.
+                                if (err.name !== 'InvalidStateError') {
+                                    console.error("Service Worker update failed non-critically:", err);
+                                }
+                            }); // 🔑 FIX: Close the .catch() function
+                    }, 60000); // Check every minute. Correctly ends setInterval call.
+                    
+                    // Handle updates
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        if (newWorker) {
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // New service worker available, prompt user to refresh
+                                    if (confirm('New version available! Reload to update?')) {
+                                        // Send SKIP_WAITING to force immediate activation
+                                        newWorker.postMessage({ type: 'SKIP_WAITING' }); 
+                                        window.location.reload();
+                                    }
+                                }
+                            });
+                        }
+                    });
+                })
+                .catch((error) => {
+                    console.log('Service Worker registration failed (expected on localhost):', error);
+                });
+        });
+    }
+} catch (error) { // 🔑 Matches the initial 'try'
+    console.log('Analytics/PWA initialization error (non-critical):', error);
 }
