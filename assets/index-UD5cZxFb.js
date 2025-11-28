@@ -24,10 +24,14 @@ try {
                             installingWorker.addEventListener("statechange", () => {
                                 // Check if installation is complete and the old worker is still controlling the page
                                 if (installingWorker.state === "installed" && navigator.serviceWorker.controller) {
-                                    if (confirm("New version available! Reload to update?")) {
+                                    const userAccepted = confirm("New version available! Reload to update?");
+                                    if (userAccepted) {
                                         // Send message to the new worker to skip the waiting state
                                         installingWorker.postMessage({ type: "SKIP_WAITING" });
                                         window.location.reload();
+                                    } else {
+                                        console.log("User declined update. Will prompt again on next visit.");
+                                        // Optional: Store timestamp to avoid nagging users too frequently
                                     }
                                 }
                             });
