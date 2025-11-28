@@ -209,7 +209,7 @@ Let me know what you think.`;fo.success("Opening email client...",{duration:2e3}
 
 function Nf(){return typeof navigator<"u"&&!!navigator.share}function LC(r){const i=document.createElement("textarea");i.value=r,i.style.position="fixed",i.style.left="-999999px",i.style.top="-999999px",document.body.appendChild(i),i.focus(),i.select();try{const o=document.execCommand("copy");return document.body.removeChild(i),o}catch{return document.body.removeChild(i),!1}}async function zC(r){const i=`${r.title}
 
-// ${r.text}
+const swPath = `${import.meta.env.BASE_URL}service-worker.js`;
 
 try {
     if ('serviceWorker' in navigator) {
