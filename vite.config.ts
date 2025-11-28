@@ -1,9 +1,8 @@
-//
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
-import { VitePWA } from 'vite-plugin-pwa';
+import { VitePWA } from 'vite-plugin-pwa'; // Import necessary for PWA
 
 export default defineConfig({
   // Base path necessary for GitHub Pages subfolder deployment
@@ -15,14 +14,15 @@ export default defineConfig({
     
     // RESTORING AND CONFIGURING VITE PWA
     VitePWA({
+      // ✅ FIX: Move exclude one level up (as a peer to workbox)
+      exclude: ['globals.css', 'index.html'],
+      
       workbox: {
         // Correct path modification for SW assets
         modifyURLPrefix: {
           '/': '/cheese-finder-beta/', 
         },
-        // FIX: Exclude files that are either bundled (globals.css) 
-        // or cause path conflicts (index.html) to prevent SW crash.
-        exclude: ['globals.css', 'index.html'],
+        // We removed the exclude property from here to fix the build error.
       },
     }),
   ],
