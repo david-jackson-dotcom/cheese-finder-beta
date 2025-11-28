@@ -4,7 +4,7 @@ console.log('🧀 MAIN.TSX IS LOADING - VERSION 2.0');
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
-import './styles/globals.css';
+import '../globals.css';
 import { 
   trackPWALaunched, 
   trackPWAStandalone, 
