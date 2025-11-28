@@ -103,17 +103,24 @@ if ('serviceWorker' in navigator) {
           
           // Handle updates
           registration.addEventListener('updatefound', () => {
-            const newWorker = registration.installing;
-            if (newWorker) {
-              newWorker.addEventListener('statechange', () => {
-                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  // New service worker available, prompt user to refresh
-                  if (confirm('New version available! Reload to update?')) {
-                    newWorker.postMessage({ type: 'SKIP_WAITING' });
-                    window.location.reload();
-                  }
-                }
-              });
+t.addEventListener("updatefound", () => {
+    const installingWorker = t.installing;
+    if (installingWorker) {
+        installingWorker.addEventListener("statechange", (event) => {
+            
+            // ⭐️ FIX: Access the worker object safely via event.target
+            const worker = event.target; 
+            
+            // ⭐️ FIX: Check if the worker exists before checking its state
+            if (worker && worker.state === "installed" && navigator.serviceWorker.controller) {
+                // This is the user prompt logic:
+                (confirm("New version available! Reload to update?") 
+                    ? (worker.postMessage({ type: "SKIP_WAITING" }), window.location.reload()) 
+                    : console.log("User declined update. Will prompt again on next visit."));
+            }
+        });
+    }
+});
             }
           });
         })
