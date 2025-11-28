@@ -1,5 +1,5 @@
-const CACHE_NAME = 'cheese-finder-v12';
-const urlsToCache = [
+const CACHE_NAME = 'cheese-finder-v13';
+//*const urlsToCache = [
   '/cheese-finder-beta/',
   '/cheese-finder-beta/index.html',
   '/cheese-finder-beta/styles/globals.css',  
@@ -11,6 +11,7 @@ const urlsToCache = [
   '/cheese-finder-beta/icon-512.png',
   '/cheese-finder-beta/cheese-icon.svg'
 ];
+*//
 
 self.addEventListener('install', (event) => {
   console.log('Installing service worker');
