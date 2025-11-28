@@ -1,3 +1,4 @@
+//
 console.log('🧀 MAIN.TSX IS LOADING - VERSION 2.0');
 
 import { StrictMode } from 'react';
