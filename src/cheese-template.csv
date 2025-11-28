@@ -1,0 +1,21 @@
+Cheese_ID,Name,Description,Milk_Type,Origin_Country,Rind_Type,Texture,FlavorBySource,Firmness_Attribute,Meltability_Attribute,Funkiness_Attribute,Availability_Attribute,Flavor_Tags,Use_Tags,Inclusion_Tags
+1,Brie de Meaux,"Soft, creamy cow's milk cheese with a bloomy rind and buttery flavor.",Cow,France,Bloomy,soft,Cow: Buttery and creamy with balanced flavor from moderate fat/protein,Soft,Moderate-Melt,Mild,Specialty,"Buttery,Earthy,Mushroom","Dessert,Appetizer",
+2,Roquefort,"Bold blue sheep's milk cheese with a pungent, salty flavor.",Sheep,France,Natural,semi-soft,Sheep: Sweet rich and oily/nutty from highest fat and protein concentration,Semi-Soft,Low-Melt,Intense,Specialty,"Salty,Tangy,Pungent","Dessert,Salad",
+61,Mild Cheddar,"Young, creamy cheddar with a gentle flavor. Perfect for everyday sandwiches and snacking.",Cow,United States,None,semi-hard,Cow: Buttery milk with minimal aging creates smooth mellow flavor,Semi-Hard,High-Melt,Delicate,Ubiquitous,"Buttery,Creamy","Cooking,Snacking",
+62,Sharp Cheddar,"Aged cheddar with a tangy, bold flavor and slightly crumbly texture.",Cow,United States,Natural,hard,Cow: Extended aging develops sharp complex tang,Hard,Moderate-Melt,Mild,Ubiquitous,"Sharp,Tangy","Cooking,Snacking",
+
+INSTRUCTIONS FOR USE:
+"1. Each row represents one cheese"
+"2. Cheese_ID: Unique identifier (start from 121 for new cheeses)"
+"3. Milk_Type: Cow, Sheep, Goat, Buffalo, Mixed, Yak (comma-separated if multiple)"
+"4. Origin_Country: Full country or region name"
+"5. Rind_Type: None, Bloomy, Washed, Natural, Waxed"
+"6. Texture: soft, semi-soft, semi-hard, hard, firm, crumbly"
+"7. Firmness_Attribute: Very Soft (15), Soft (25), Semi-Soft (40), Semi-Hard (65), Hard (85)"
+"8. Meltability_Attribute: Non-Melting (20), Low-Melt (45), Moderate-Melt (70), High-Melt (90)"
+"9. Funkiness_Attribute: Delicate (15), Mild (30), Aromatic (55), Intense (85)"
+"10. Availability_Attribute: Ubiquitous, Specialty, Artisanal, Obscure"
+"11. Flavor_Tags: Comma-separated from: Buttery,Nutty,Tangy,Earthy,Pungent,Salty,Fresh,Milky,Umami,Sweet,Fruity,Mushroom,Caramel,Creamy,Sharp"
+"12. Use_Tags: Comma-separated from: Cooking,Snacking,Dessert,Salad,Appetizer,Fondue,Seasoning,Grilling,Baking,Spread"
+"13. Inclusion_Tags: Comma-separated from: Peppers,Caraway,Wine,Herbs,Truffles (leave empty if none)"
+"14. To import: Convert CSV to TypeScript format using the admin tool"

@@ -1,127 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Basic Meta Tags -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-        <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&family=Orienta&display=swap" rel="stylesheet" />
-    <!-- Preconnect for Google Fonts (performance) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#ffa530">
-    
-    <!-- SEO Meta Tags -->
-    <title>Cheese Finder - Hundreds of cheeses. Four paths of discovery.</title>
-    <meta name="description" content="Hundreds of cheeses. Four paths of discovery." />
-    <meta name="version" content="0.9.0.beta" />
-    <meta name="application-name" content="Cheese Finder 0.9.0.beta" />
-    <meta name="keywords" content="cheese finder, cheese database, A2 milk cheese, A1 free cheese, goat cheese, sheep cheese, buffalo cheese, yak cheese, camel cheese, cheese alternatives, cheese substitutes, global cheese varieties, lactose free cheese, cow milk alternatives, cheese by country, cheese by taste, exotic cheese, artisan cheese, cheese discovery, find cheese, cheese search" />
-    <meta name="author" content="Cheese Finder" />
-    <meta name="robots" content="index, follow" />
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/cheese-finder-beta/public/cheese-icon.svg" />
-
-    <!-- iOS-specific icons -->
-<link rel="apple-touch-icon" href="/cheese-finder-beta/public/icon-192.png" sizes="192x192">
-<link rel="apple-touch-icon" href="/cheese-finder-beta/public/icon-180.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Cheese Finder">
-
-<!-- iOS splash screen color -->
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Cheese Finder">
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="./manifest.json" />
-    
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#FFD800" />
-    <meta name="msapplication-TileColor" content="#FFD800" />
-    
-    <!-- iOS-specific PWA Tags -->
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="Cheese Finder" />
-    <!-- <link rel="apple-touch-icon" href="/cheese-finder-beta/public/cheese-icon.svg" /> -->
-    
-    <!-- Open Graph (Facebook, LinkedIn) -->
-    <meta property="og:title" content="Cheese Finder - Hundreds of cheeses. Four paths of discovery." />
-    <meta property="og:description" content="Cheese Finder - Hundreds of cheeses. Four paths of discovery. Filter by taste preferences, regional origin, dietary restrictions, or search by name." />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Cheese Finder" />
-    <meta property="og:locale" content="en_US" />
-    
-    <!-- // Twitter Card -->
-     <meta name="twitter:card" content="summary_large_image" />
-     <meta name="twitter:title" content="Cheese Finder - Hundreds of cheeses. Four paths of discovery." />
-     <meta name="twitter:description" content="Cheese Finder - Hundreds of cheeses. Four paths of discovery. Filter by taste preferences, regional origin, dietary restrictions, or search by name." />
-    
-    <!-- Additional Meta Tags for Search Engines -->
-    <meta name="rating" content="General" />
-    <meta name="distribution" content="global" />
-    <meta name="language" content="English" />
-    <meta name="revisit-after" content="7 days" />
-    
-    <!-- JSON-LD Structured Data for Rich Snippets -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Cheese Finder",
-      "description": "Cheese Finder - Hundreds of cheeses. Four paths of discovery. Filter by taste preferences, regional origin, dietary restrictions, or search by name. Smart substitution finder & global database.",
-      "applicationCategory": "FoodApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "operatingSystem": "Any",
-      "browserRequirements": "Requires JavaScript. Requires HTML5.",
-      "author": {
-        "@type": "Organization",
-        "name": "Cheese Finder"
-      },
-      "featureList": [
-        "Hundreds of cheese varieties from 60+ countries",
-        "Filter by taste preferences (mild, sharp, funky)",
-        "Filter by regional origin",
-        "Filter by dietary restrictions",
-        "Smart cheese substitution finder",
-        "A2 cow milk cheese discovery",
-        "10+ milk types including exotic varieties",
-        "Mobile-optimized interface",
-        "Global cheese database",
-        "Cheese name lookup with fuzzy matching"
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "ratingCount": "1",
-        "bestRating": "5",
-        "worstRating": "1"
-      }
-    }
-    </script>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M84CMFKL2D"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-M84CMFKL2D', {
-        'send_page_view': true
-      });
-    </script>
-    <script type="module" crossorigin src="./assets/index-UD5cZxFb.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-aCkPWOgC.css">
+    <link rel="icon" type="image/svg+xml" href="/cheese-icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffd700" />
+    <meta name="description" content="Discover cheese for any preference" />
+    <title>Cheese Finder</title>
   </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
