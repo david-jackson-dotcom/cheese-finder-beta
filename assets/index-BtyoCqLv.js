@@ -209,43 +209,4 @@ Let me know what you think.`;fo.success("Opening email client...",{duration:2e3}
 
 function Nf(){return typeof navigator<"u"&&!!navigator.share}function LC(r){const i=document.createElement("textarea");i.value=r,i.style.position="fixed",i.style.left="-999999px",i.style.top="-999999px",document.body.appendChild(i),i.focus(),i.select();try{const o=document.execCommand("copy");return document.body.removeChild(i),o}catch{return document.body.removeChild(i),!1}}async function zC(r){const i=`${r.title}
 
-
-const swPath = `${import.meta.env.BASE_URL}service-worker.js`;
-
-try {
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker
-                .register(swPath)
-                .then((registration) => {
-                    console.log('Service Worker registered successfully:', registration.scope);
-                    
-                    // BEST PRACTICE: Only check for updates on production (not localhost)
-                    if (location.hostname !== 'localhost') {
-                        setInterval(() => { registration.update() }, 60000);
-                    }
-                    
-                    // Logic to handle update detection
-                    registration.addEventListener("updatefound", () => {
-                        const installingWorker = registration.installing;
-                        if (installingWorker) {
-                            installingWorker.addEventListener("statechange", () => {
-                                // Check if installation is complete and the old worker is still controlling the page
-                                if (installingWorker.state === "installed" && navigator.serviceWorker.controller) {
-                                    if (confirm("New version available! Reload to update?")) {
-                                        installingWorker.postMessage({ type: "SKIP_WAITING" });
-                                        window.location.reload();
-                                    }
-                                }
-                            });
-                        }
-                    });
-                })
-                .catch(error => {
-                    console.error("Service Worker registration failed:", error);
-                });
-        });
-    }
-} catch (error) {
-    console.error("Critical PWA initialization error:", error);
-}
+  "serviceWorker"in navigator&&window.addEventListener("load",()=>{navigator.serviceWorker.register("./service-worker.js").then(i=>{console.log("Service Worker registered successfully:",i.scope),setInterval(()=>{i.update()},6e4),i.addEventListener("updatefound",()=>{const o=i.installing;o&&o.addEventListener("statechange",()=>{o.state==="installed"&&navigator.serviceWorker.controller&&confirm("New version available! Reload to update?")&&(o.postMessage({type:"SKIP_WAITING"}),window.location.reload())})})}).catch(i=>{console.log("Service Worker registration failed (expected on localhost):",i)})})}catch(r){console.log("Analytics/PWA initialization error (non-critical):",r)}
