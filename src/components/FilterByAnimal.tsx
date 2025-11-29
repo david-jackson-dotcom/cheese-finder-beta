@@ -225,6 +225,12 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
 
       {/* Fixed Bottom Buttons */}
       <div className="p-6 bg-gold flex justify-center gap-4 shadow-lg">
+         <Button
+          className="w-auto gap-2 bg-dark-orange text-white hover:bg-dark-orange/90 active:bg-dark-orange/80 rounded-full px-6 min-h-[44px] touch-manipulation"
+          onClick={onGuideMe}>
+          Guide Me
+        </Button>
+
         <Button
           className="gap-2 bg-accent text-white hover:bg-accent/90 active:bg-accent/80 rounded-full px-8 h-14 shadow-lg touch-manipulation"
           style={{ fontFamily: 'Orienta, sans-serif' }}

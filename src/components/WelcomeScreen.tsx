@@ -18,11 +18,16 @@ export function WelcomeScreen({
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6 py-12 bg-gold relative">
       <div className="max-w-md w-full space-y-8 text-center">
-        {/* Logo/Title Section */}
+      
+{/* Logo/Title Section */}
         <div className="space-y-4">
+         <div className="flex justify-center">
+            <div className="inline-block z-10 opacity-20 w-80">
+  	<img title="logo" src="./icon-512" width:250px height:250px alt="cheese finder logo" id="logo" />
+</div>
           <div className="flex justify-center">
             <div
-              className="inline-block"
+              className="inline-block z-50"
               style={{ transform: "rotate(-15deg)" }}
             >
               <h1
@@ -67,28 +72,28 @@ export function WelcomeScreen({
         <div className="space-y-4 pt-4">
           <Button
             size="lg"
-            className="w-full h-16 text-2xl rounded-2xl bg-accent hover:bg-accent/90 active:bg-accent/80 transition-all text-white touch-manipulation border-4 border-accent"
+            className="w-full h-16 text-2xl rounded-2xl bg-[hsl(var(--accent))] hover:bg-[hsl(var(--accent))]/90 active:scale-95 transition-all text-white touch-manipulation"
             onClick={() => onSelectMode("name")}
           >
             Name
           </Button>
           <Button
             size="lg"
-            className="w-full h-16 text-2xl rounded-2xl bg-primary hover:bg-primary/90 active:bg-primary/80 transition-all text-white touch-manipulation border-4 border-accent"
+            className="w-full h-16 text-2xl rounded-2xl bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/90 active:scale-95 transition-all text-white touch-manipulation"
             onClick={() => onSelectMode("taste")}
           >
             Taste
           </Button>
           <Button
             size="lg"
-            className="w-full h-16 text-2xl rounded-2xl bg-orange hover:bg-orange/90 active:bg-orange/80 transition-all text-white touch-manipulation border-4 border-orange-dark"
+            className="w-full h-16 text-2xl rounded-2xl bg-[var(--orange)] hover:bg-[var(--orange)]/90 active:scale-95 transition-all text-white touch-manipulation"
             onClick={() => onSelectMode("place")}
           >
             Place
           </Button>
           <Button
             size="lg"
-            className="w-full h-16 text-2xl rounded-2xl bg-butter hover:bg-butter/90 active:bg-butter/80 transition-all text-orange touch-manipulation border-4 border-orange"
+            className="w-full h-16 text-2xl rounded-2xl bg-[var(--butter)] hover:bg-[var(--butter)]/90 active:scale-95 transition-all text-[var(--orange)] touch-manipulation"
             onClick={() => onSelectMode("animal")}
           >
             Beast
@@ -103,7 +108,7 @@ export function WelcomeScreen({
         aria-label="About"
       >
         <div className="relative w-11 h-11 text-5xl">
-          🧀
+          	<img title="logo" src="../cheese-icon.svg" width="44" height="44" alt="Cheese Finder logo" id="logo" />
         </div>
       </button>
 

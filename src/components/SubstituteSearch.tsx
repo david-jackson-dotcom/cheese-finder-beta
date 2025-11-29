@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 import { Cheese } from '../types/cheese';
 
 interface SubstituteSearchProps {
@@ -84,7 +84,7 @@ export function SubstituteSearch({ targetCheese, initialTolerance, onBack, onSub
               onClick={onBack}
               className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
             >
-              <ArrowLeft className="h-6 w-6" />
+              <ChevronLeft className="h-6 w-6" />
               Back
             </Button>
           </div>

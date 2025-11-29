@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { Cheese } from '../types/cheese';
 import { searchCheesesByName } from '../lib/queries';
@@ -218,7 +218,7 @@ export function WhatAreYouMaking({ onSelectUsage, onBack, onSubstituteSearch, on
               onClick={onBack}
               className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
             >
-              <ArrowLeft className="h-6 w-6" />
+              <ChevronLeft className="h-6 w-6" />
               Back
             </Button>
           </div>

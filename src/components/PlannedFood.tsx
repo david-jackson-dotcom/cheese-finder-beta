@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button } from './ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 
 interface PlannedFoodProps {
   onContinue: (dishText: string) => void;
@@ -26,7 +26,7 @@ export function PlannedFood({ onContinue, onBack }: PlannedFoodProps) {
               onClick={onBack}
               className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80 mt-4"
             >
-              <ArrowLeft className="h-6 w-6" />
+              <ChevronLeft className="h-6 w-6" />
               Back
             </Button>
           </div>
