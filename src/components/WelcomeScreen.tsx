@@ -18,8 +18,7 @@ export function WelcomeScreen({
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6 py-12 bg-gold relative">
       <div className="max-w-md w-full space-y-8 text-center">
-      
-{/* Logo/Title Section */}
+        {/* Logo/Title Section */}
         <div className="space-y-4">
           <div className="flex justify-center relative">
             {/* Large background logo */}
@@ -27,7 +26,7 @@ export function WelcomeScreen({
               <img 
                 src="/icon-512.png" 
                 alt="" 
-                className="w-250 h-250"
+                className="w-80 h-80"
                 aria-hidden="true"
               />
             </div>
@@ -79,28 +78,28 @@ export function WelcomeScreen({
         <div className="space-y-4 pt-4">
           <Button
             size="lg"
-            className="w-full h-16 text-2xl rounded-2xl bg-[hsl(var(--accent))] hover:bg-[hsl(var(--accent))]/90 active:scale-95 transition-all text-white touch-manipulation"
+            className="w-full h-16 text-2xl rounded-2xl bg-[hsl(var(--accent))] hover:bg-[hsl(var(--accent))]/90 active:scale-95 transition-all text-white touch-manipulation border-4 border-[hsl(var(--accent))]"
             onClick={() => onSelectMode("name")}
           >
             Name
           </Button>
           <Button
             size="lg"
-            className="w-full h-16 text-2xl rounded-2xl bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/90 active:scale-95 transition-all text-white touch-manipulation"
+            className="w-full h-16 text-2xl rounded-2xl bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/90 active:scale-95 transition-all text-white touch-manipulation border-4 border-[hsl(var(--accent))]"
             onClick={() => onSelectMode("taste")}
           >
             Taste
           </Button>
           <Button
             size="lg"
-            className="w-full h-16 text-2xl rounded-2xl bg-[var(--orange)] hover:bg-[var(--orange)]/90 active:scale-95 transition-all text-white touch-manipulation"
+            className="w-full h-16 text-2xl rounded-2xl bg-[var(--orange)] hover:bg-[var(--orange)]/90 active:scale-95 transition-all text-white touch-manipulation border-4 border-[var(--dark-orange)]"
             onClick={() => onSelectMode("place")}
           >
             Place
           </Button>
           <Button
             size="lg"
-            className="w-full h-16 text-2xl rounded-2xl bg-[var(--butter)] hover:bg-[var(--butter)]/90 active:scale-95 transition-all text-[var(--orange)] touch-manipulation"
+            className="w-full h-16 text-2xl rounded-2xl bg-[var(--butter)] hover:bg-[var(--butter)]/90 active:scale-95 transition-all text-[var(--orange)] touch-manipulation border-4 border-[var(--orange)]"
             onClick={() => onSelectMode("animal")}
           >
             Beast
