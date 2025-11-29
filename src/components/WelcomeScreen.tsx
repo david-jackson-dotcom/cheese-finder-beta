@@ -23,7 +23,7 @@ export function WelcomeScreen({
         <div className="space-y-4">
          <div className="flex justify-center">
             <div className="inline-block z-10 opacity-20 w-80">
-  	<img title="logo" src="./icon-512" width:250px height:250px alt="cheese finder logo" id="logo" />
+  	<img title="logo" src="./icon-512" width-250px height-250px alt="cheese finder logo" id="logo" />
 </div>
           <div className="flex justify-center">
             <div
