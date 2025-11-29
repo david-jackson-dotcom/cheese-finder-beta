@@ -74,38 +74,37 @@ export function WelcomeScreen({
           </p>
         </div>
 
-        {/* Main Buttons */}
-        <div className="space-y-4 pt-4">
-          <Button
-            size="lg"
-            className="w-full h-16 text-2xl rounded-2xl bg-[hsl(var(--accent))] hover:bg-[hsl(var(--accent))]/90 active:scale-95 transition-all text-white touch-manipulation border-4 border-[hsl(var(--accent))]"
-            onClick={() => onSelectMode("name")}
-          >
-            Name
-          </Button>
-          <Button
-            size="lg"
-            className="w-full h-16 text-2xl rounded-2xl bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/90 active:scale-95 transition-all text-white touch-manipulation border-4 border-[hsl(var(--accent))]"
-            onClick={() => onSelectMode("taste")}
-          >
-            Taste
-          </Button>
-          <Button
-            size="lg"
-            className="w-full h-16 text-2xl rounded-2xl bg-[var(--orange)] hover:bg-[var(--orange)]/90 active:scale-95 transition-all text-white touch-manipulation border-4 border-[var(--dark-orange)]"
-            onClick={() => onSelectMode("place")}
-          >
-            Place
-          </Button>
-          <Button
-            size="lg"
-            className="w-full h-16 text-2xl rounded-2xl bg-[var(--butter)] hover:bg-[var(--butter)]/90 active:scale-95 transition-all text-[var(--orange)] touch-manipulation border-4 border-[var(--orange)]"
-            onClick={() => onSelectMode("animal")}
-          >
-            Beast
-          </Button>
-        </div>
-      </div>
+{/* Main Buttons */}
+<div className="space-y-4 pt-4">
+  <Button
+    size="lg"
+    className="w-full h-16 text-2xl rounded-2xl bg-accent hover:bg-accent/90 active:scale-95 transition-all text-white touch-manipulation border-4 border-accent"
+    onClick={() => onSelectMode("name")}
+  >
+    Name
+  </Button>
+  <Button
+    size="lg"
+    className="w-full h-16 text-2xl rounded-2xl bg-primary hover:bg-primary/90 active:scale-95 transition-all text-white touch-manipulation border-4 border-accent"
+    onClick={() => onSelectMode("taste")}
+  >
+    Taste
+  </Button>
+  <Button
+    size="lg"
+    className="w-full h-16 text-2xl rounded-2xl bg-orange hover:bg-orange/90 active:scale-95 transition-all text-white touch-manipulation border-4 border-dark-orange"
+    onClick={() => onSelectMode("place")}
+  >
+    Place
+  </Button>
+  <Button
+    size="lg"
+    className="w-full h-16 text-2xl rounded-2xl bg-butter hover:bg-butter/90 active:scale-95 transition-all text-orange touch-manipulation border-4 border-orange"
+    onClick={() => onSelectMode("animal")}
+  >
+    Beast
+  </Button>
+</div>
 
       {/* About Button - Logo Icon */}
       <button
