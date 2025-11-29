@@ -21,13 +21,20 @@ export function WelcomeScreen({
       
 {/* Logo/Title Section */}
         <div className="space-y-4">
-         <div className="flex justify-center">
-            <div className="inline-block z-10 opacity-20 w-80">
-  	<img title="logo" src="./icon-512" width-250px height-250px alt="cheese finder logo" id="logo" />
-</div>
-          <div className="flex justify-center">
+          <div className="flex justify-center relative">
+            {/* Large background logo */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+              <img 
+                src="/icon-512.png" 
+                alt="" 
+                className="w-250 h-250"
+                aria-hidden="true"
+              />
+            </div>
+            
+            {/* Rotated text on top */}
             <div
-              className="inline-block z-50"
+              className="inline-block relative z-50"
               style={{ transform: "rotate(-15deg)" }}
             >
               <h1
@@ -101,15 +108,17 @@ export function WelcomeScreen({
         </div>
       </div>
 
-      {/* About Button - Cheese Icon */}
+      {/* About Button - Logo Icon */}
       <button
         onClick={() => setShowAbout(true)}
-        className="mt-12 w-14 h-14 bg-white rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform touch-manipulation"
+        className="mt-12 w-14 h-14 bg-white rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform touch-manipulation p-2"
         aria-label="About"
       >
-        <div className="relative w-11 h-11 text-5xl">
-          	<img title="logo" src="../cheese-icon.svg" width="44" height="44" alt="Cheese Finder logo" id="logo" />
-        </div>
+        <img 
+          src="/cheese-icon.svg" 
+          alt="Cheese Finder" 
+          className="w-full h-full"
+        />
       </button>
 
       {/* About Dialog */}
@@ -137,12 +146,12 @@ export function WelcomeScreen({
               className="text-center text-brown/60 text-sm"
               style={{ fontFamily: "Orienta" }}
             >
-              v0.9.0
+              v1.0.0
             </p>
 
             <div className="flex justify-center gap-3">
               <Button
-                className="w-auto gap-2 bg-orange text-white hover:bg-orange/90 active:scale-95 transition-transform"
+                className="w-auto gap-2 bg-[var(--orange)] text-white hover:bg-[var(--orange)]/90 active:scale-95 transition-transform"
                 onClick={() => {
                   const subject = "Cheese Finder Feedback";
                   const body = `Hi David,
@@ -163,7 +172,7 @@ Thanks!`;
                 Write
               </Button>
               <Button
-                className="w-auto gap-2 bg-orange text-white hover:bg-orange/90 active:scale-95 transition-transform"
+                className="w-auto gap-2 bg-[var(--orange)] text-white hover:bg-[var(--orange)]/90 active:scale-95 transition-transform"
                 onClick={() => {
                   const subject = "Check out this cheese app";
                   const body = `Hey, Friendo.
@@ -173,10 +182,10 @@ I've been using this cheese discovery tool and thought you might like it too. Ch
 It has hundreds of cheeses from around the world and all kinds of cows. 
 
 You can filter by:
-• Form (soft, firm, spreadable, etc.)
-• Meltability (from crumbly to super stretchy)
-• Funkiness (mild to stinky!)
-• Cuisine pairings
+- Form (soft, firm, spreadable, etc.)
+- Meltability (from crumbly to super stretchy)
+- Funkiness (mild to stinky!)
+- Cuisine pairings
 
 Plus it has a smart substitution finder if you need to swap out a cheese in a recipe.
 
