@@ -18,7 +18,9 @@ export function WelcomeScreen({
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6 py-12 bg-gold relative">
       <div className="max-w-md w-full space-y-8 text-center">
-        {/* Logo/Title Section */}
+      
+      
+{/* Logo/Title Section */}
         <div className="space-y-4">
           <div className="flex justify-center relative">
             {/* Large background logo */}
@@ -105,8 +107,9 @@ export function WelcomeScreen({
     Beast
   </Button>
 </div>
+</div>
 
-      {/* About Button - Logo Icon */}
+{/* About Button - Logo Icon */}
       <button
         onClick={() => setShowAbout(true)}
         className="mt-12 w-14 h-14 bg-white rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform touch-manipulation p-2"
