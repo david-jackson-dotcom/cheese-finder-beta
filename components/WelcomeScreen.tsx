@@ -95,7 +95,7 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
         className="mt-12 w-14 h-14 bg-white rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform touch-manipulation"
         aria-label="About"
       >
-        <img src="cheese-icon.svg" alt="" className="w-12 h-12" />
+        <img src="./cheese-icon.svg" alt="" className="w-12 h-12" />
       </button>
 
       {/* About Dialog */}
