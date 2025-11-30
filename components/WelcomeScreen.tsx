@@ -1,4 +1,4 @@
-aimport { useState } from 'react';
+import { useState } from 'react';
 import { Share2, Mail } from 'lucide-react';
 import { Button } from './ui/button';
 import {
@@ -9,7 +9,7 @@ import {
   DialogTitle,
 } from './ui/dialog';
 import { toast } from 'sonner';
-import cheeseIcon from './cheese-icon.svg';
+// import cheeseIcon from './cheese-icon.svg';
 
 interface WelcomeScreenProps {
   onSelectMode: (mode: 'name' | 'taste' | 'region' | 'animal') => void;
@@ -84,7 +84,7 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
         className="mt-12 w-14 h-14 bg-white rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform touch-manipulation"
         aria-label="About"
       >
-        <img src={cheeseIcon} alt="" className="w-12 h-12" />
+        <img src="./cheese-icon.svg" alt="" className="w-12 h-12" />
       </button>
 
       {/* About Dialog */}

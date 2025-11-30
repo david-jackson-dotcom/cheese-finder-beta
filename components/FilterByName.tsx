@@ -65,9 +65,8 @@ export function FilterByName({ onBack }: FilterByNameProps) {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-         <div className="bg-gold">
-        <div className="px-6 pb-4">
-                <div className="relative px-6 py-14">
+      <div className="bg-background">
+        <div className="relative px-6 py-14">
           <div className="absolute left-6 top-1/2 -translate-y-1/2">
             <Button
               onClick={onBack}
@@ -77,10 +76,12 @@ export function FilterByName({ onBack }: FilterByNameProps) {
               Back
             </Button>
           </div>
+        </div>
         <div className="px-6 pb-4">
           <p className="text-brown text-center">Name a cheese and discover its character.</p>
         </div>
       </div>
+
       <div className="max-w-md mx-auto space-y-8 px-6 py-8">
 
         {/* Name Search Input */}

@@ -9,7 +9,7 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/cheese-finder-beta/public/cheese-icon.svg",
+      "src": "/cheese-finder-beta/cheese-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
