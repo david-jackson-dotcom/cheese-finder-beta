@@ -24,14 +24,13 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
       
       
       {/* Large background logo */}
-<div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
-  <img 
-    src="/icon-512.png" 
-    alt="" 
-    className="w-[50vw] h-auto"
-    aria-hidden="true"
-  />
-</div>
+			<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] opacity-20 pointer-events-none">              <img 
+                src="/icon-512.png" 
+                alt="" 
+                className="w-80 h-80"
+                aria-hidden="true"
+              />
+            </div>
             
             {/* Rotated text on top */}
 
@@ -97,7 +96,7 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
         className="mt-12 w-14 h-14 bg-white rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform touch-manipulation"
         aria-label="About"
       >
-        <img src={cheeseIcon} alt="" className="w-12 h-12" />
+        <img src="cheese-icon.svg" alt="" className="w-12 h-12" />
       </button>
 
       {/* About Dialog */}
