@@ -22,27 +22,32 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
       <div className="max-w-md w-full space-y-8 text-center">
       
       
-      {/* Large background logo */}
-			<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] opacity-20 pointer-events-none">              <img 
-                src="/icon-512.png" 
-                alt="" 
-                className="w-80 h-80"
-                aria-hidden="true"
-              />
-            </div>
-            
-            {/* Rotated text on top */}
-
-        <div className="space-y-4">
-          <div className="flex justify-center">
-            <div className="inline-block relative z-50" style={{ transform: 'rotate(-15deg)' }}>
-              <h1 className="text-7xl sm:text-8xl text-accent mb-2" style={{ fontFamily: 'Leckerli One, cursive', fontWeight: 700 }}>
-                Cheese
-              </h1>
-              <h1 className="text-7xl sm:text-8xl text-accent" style={{ fontFamily: 'Leckerli One, cursive', fontWeight: 700 }}>
-                Finder
-              </h1>
-            </div>
+     {/* --- Title Block (Logo unrotated, Text rotated) --- */}
+<div className="relative inline-block w-full flex flex-col items-center justify-center">
+  
+  {/* Background Logo (Watermark - NOT ROTATED) */}
+  <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+    <img 
+      src="icon512.png" 
+      alt="Cheese Finder Logo Watermark" 
+      className="w-48 h-48 opacity-10"
+      aria-hidden="true"
+    />
+  </div>
+  
+  {/* Rotated Text (Foreground - ROTATED) */}
+  <div className="relative z-20" style={{ transform: 'rotate(-15deg)' }}>
+    <h1 className="text-7xl sm:text-8xl text-accent mb-2" style={{ fontFamily: 'Leckerli One, cursive', fontWeight: 700 }}>
+      Cheese
+    </h1>
+    <h1 className="text-7xl sm:text-8xl text-accent" style={{ fontFamily: 'Leckerli One, cursive', fontWeight: 700 }}>
+      Finder
+    </h1>
+  </div>
+</div>
+{/* --- End Title Block --- */}
+     
+     
           </div>
           <p className="text-xl text-accent mt-12" style={{ fontFamily: 'Orienta, sans-serif' }}>
             — Discover Cheese for Any Preference —
