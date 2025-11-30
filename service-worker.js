@@ -1,16 +1,16 @@
-// const CACHE_NAME = 'cheese-finder-v14';
-const urlsToCache = [
+  const CACHE_NAME = 'cheese-finder-v14';
+  const urlsToCache = [
   '/cheese-finder-beta/',
-  '/cheese-finder-beta/index.html',
-  '/cheese-finder-beta/styles/globals.css',  
-  '/cheese-finder-beta/public/icon-48.png',
-  '/cheese-finder-beta/public/icon-72.png',
-  '/cheese-finder-beta/public/icon-96.png',
-  '/cheese-finder-beta/public/icon-144.png',
-  '/cheese-finder-beta/public/icon-192.png',
-  '/cheese-finder-beta/public/icon-512.png',
-  '/cheese-finder-beta/public/cheese-icon.svg'
-];
+   '/cheese-finder-beta/index.html',
+   '/cheese-finder-beta/styles/globals.css',  
+   '/cheese-finder-beta/public/icon-48.png',
+   '/cheese-finder-beta/public/icon-72.png',
+   '/cheese-finder-beta/public/icon-96.png',
+   '/cheese-finder-beta/public/icon-144.png',
+   '/cheese-finder-beta/public/icon-192.png',
+   '/cheese-finder-beta/public/icon-512.png',
+   '/cheese-finder-beta/public/cheese-icon.svg'
+ ];
 
 self.addEventListener('install', (event) => {
   console.log('Installing service worker');
@@ -40,7 +40,7 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// CRITICAL: Fetch handler required for PWA
+  CRITICAL: Fetch handler required for PWA
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request)
@@ -63,7 +63,7 @@ self.addEventListener('fetch', (event) => {
   );
 });
 
-// Listen for skip waiting message
+  Listen for skip waiting message
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
