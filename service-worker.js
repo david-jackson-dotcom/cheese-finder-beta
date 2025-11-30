@@ -1,15 +1,15 @@
-const CACHE_NAME = 'cheese-finder-v16';
+const CACHE_NAME = 'cheese-finder-v17';
 const urlsToCache = [
-  '/cheese-finder-beta/',
-  '/cheese-finder-beta/index.html',
-  '/cheese-finder-beta/styles/globals.css',  
-  '/cheese-finder-beta/icon-48.png',
-  '/cheese-finder-beta/icon-72.png',
-  '/cheese-finder-beta/icon-96.png',
-  '/cheese-finder-beta/icon-144.png',
-  '/cheese-finder-beta/icon-192.png',
-  '/cheese-finder-beta/icon-512.png',
-  '/cheese-finder-beta/cheese-icon.svg'
+  '/',
+  '/index.html',
+  '/styles/globals.css',  
+  '/icon-48.png',
+  '/icon-72.png',
+  '/icon-96.png',
+  '/icon-144.png',
+  '/icon-192.png',
+  '/icon-512.png',
+  '/cheese-icon.svg'
 ];
 
 self.addEventListener('install', (event) => {
