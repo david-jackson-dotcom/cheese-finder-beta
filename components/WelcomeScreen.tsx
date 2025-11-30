@@ -1,4 +1,4 @@
-aimport { useState } from 'react';
+import { useState } from 'react';
 import { Share2, Mail } from 'lucide-react';
 import { Button } from './ui/button';
 import {
