@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "deploy": "npm run build && gh-pages -d dist -r https://github.com/david-jackson-dotcom/cheese-finder-beta.git",
     "preview": "vite preview"
   },
   "dependencies": {
