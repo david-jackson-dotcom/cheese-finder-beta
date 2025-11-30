@@ -21,10 +21,23 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6 py-12 bg-gold relative">
       <div className="max-w-md w-full space-y-8 text-center">
-        {/* Logo/Title Section */}
+      
+      
+      {/* Large background logo */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+              <img 
+                src="/icon-512.png" 
+                alt="" 
+                className="w-80 h-80"
+                aria-hidden="true"
+              />
+            </div>
+            
+            {/* Rotated text on top */}
+
         <div className="space-y-4">
           <div className="flex justify-center">
-            <div className="inline-block" style={{ transform: 'rotate(-15deg)' }}>
+            <div className="inline-block relative z-50" style={{ transform: 'rotate(-15deg)' }}>
               <h1 className="text-7xl sm:text-8xl text-accent mb-2" style={{ fontFamily: 'Leckerli One, cursive', fontWeight: 700 }}>
                 Cheese
               </h1>
