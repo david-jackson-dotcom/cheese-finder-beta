@@ -30,7 +30,7 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
     <img 
       src="icon512.png" 
       alt="Cheese Finder Logo Watermark" 
-      className="w-48 h-48 opacity-10"
+      className="w-32 h-32 opacity-10"
       aria-hidden="true"
     />
   </div>
