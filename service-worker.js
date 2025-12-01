@@ -1,8 +1,8 @@
-const CACHE_NAME = 'cheese-finder-v19';
+const CACHE_NAME = 'cheese-finder-v20';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/main.tsx'
+  '/main.tsx',
   '/styles/globals.css',  
   '/icon-48.png',
   '/icon-72.png',

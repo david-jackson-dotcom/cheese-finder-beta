@@ -1,193 +1,20 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { createRoot } from 'react-dom/client';
-
-// --- PLACEHOLDER DEPENDENCIES START ---
-// Define placeholder types
-type Cheese = {
-  id: string;
-  name: string;
-  milk: string[];
-  firmness?: number;
-  funkiness?: number;
-  meltability?: number;
-  inclusions?: string[];
-  isA2?: boolean;
-  availability?: 'Ubiquitous' | 'Specialty' | 'Artisanal' | 'Obscure';
-  texture?: string;
-  origin?: string;
-  flavor?: string[];
-  flavorBySource?: string;
-  uses?: string[];
-};
-
-// Define placeholder constants
-const APP_VERSION = '1.0.1';
-
-// Define placeholder utility functions (stubs)
-const trackDiscoveryPath = (mode: string) => console.log(`[Analytics] Tracked discovery path: ${mode}`);
-const trackResultsView = (desc: string, count: number) => console.log(`[Analytics] Tracked results view: ${desc} (${count})`);
-const trackGuidedFlow = (usage: string) => console.log(`[Analytics] Tracked guided flow: ${usage}`);
-const updateSEOMetaTags = () => console.log('[SEO] Updated meta tags.');
-
-// Mock database (10 example cheeses)
-const MOCK_CHEESES: Cheese[] = [
-  { id: '1', name: 'Goat Cheddar', milk: ['Goat'], firmness: 85, funkiness: 20, meltability: 70, inclusions: [], isA2: false, availability: 'Specialty', uses: ['snacking', 'cooking'] },
-  { id: '2', name: 'Sheep Feta', milk: ['Sheep'], firmness: 55, funkiness: 40, meltability: 10, inclusions: [], isA2: false, availability: 'Ubiquitous', uses: ['salad', 'topping'] },
-  { id: '3', name: 'A2 Cow Brie', milk: ['Cow'], firmness: 20, funkiness: 60, meltability: 80, inclusions: [], isA2: true, availability: 'Artisanal', uses: ['appetizer'] },
-  { id: '4', name: 'Buffalo Mozzarella', milk: ['Buffalo'], firmness: 10, funkiness: 5, meltability: 95, inclusions: [], isA2: false, availability: 'Specialty', uses: ['pizza', 'cooking'] },
-  { id: '5', name: 'Plain Goat Chevre', milk: ['Goat'], firmness: 15, funkiness: 30, meltability: 5, inclusions: [], isA2: false, availability: 'Ubiquitous', uses: ['snacking'] },
-  { id: '6', name: 'Regular Cow Gruyere', milk: ['Cow'], firmness: 90, funkiness: 70, meltability: 90, inclusions: [], isA2: false, availability: 'Ubiquitous', uses: ['fondue', 'cooking'] },
-  { id: '7', name: 'Sheep Ricotta Salata', milk: ['Sheep'], firmness: 70, funkiness: 10, meltability: 5, inclusions: ['Pepper'], isA2: false, availability: 'Artisanal', uses: ['topping'] },
-  { id: '8', name: 'Non-A2 Cow Cheddar', milk: ['Cow'], firmness: 80, funkiness: 30, meltability: 75, inclusions: [], isA2: false, availability: 'Ubiquitous', uses: ['snacking', 'cooking'] },
-  { id: '9', name: 'A2 Cow Gouda w/ Truffles', milk: ['Cow'], firmness: 70, funkiness: 50, meltability: 80, inclusions: ['Truffle'], isA2: true, availability: 'Obscure', uses: ['snacking', 'entree'] },
-  { id: '10', name: 'Hard Swiss Cheese', milk: ['Cow'], firmness: 95, funkiness: 50, meltability: 60, inclusions: [], isA2: true, availability: 'Specialty', uses: ['seasoning'] },
-];
-
-const fetchCheeses = async (): Promise<Cheese[]> => {
-  return new Promise(resolve => setTimeout(() => resolve(MOCK_CHEESES), 1000));
-};
-
-const advancedCheeseSearch = (filters: any): Cheese[] => {
-  console.log('[Query] Advanced Search executed:', filters);
-  // Placeholder logic to return a subset
-  return MOCK_CHEESES.filter(c => (c.firmness || 0) >= filters.firmness - 30 && c.milk.some(m => m !== 'Cow'));
-};
-
-const findCheesesByRegion = (region: string): Cheese[] => {
-  console.log('[Query] Region Search executed:', region);
-  // Placeholder logic
-  return MOCK_CHEESES.filter(c => c.origin?.toLowerCase().includes(region.toLowerCase()) || c.milk.some(m => m !== 'Cow'));
-};
-
-// Placeholder UI components (minimal JSX for rendering)
-const Button = ({ children, onClick, className = '' }) => (
-  <button
-    onClick={onClick}
-    className={`px-4 py-2 rounded-lg font-semibold transition-all duration-150 ${className}`}
-  >
-    {children}
-  </button>
-);
-
-const Toaster = () => <div className="fixed top-4 right-4 p-2 bg-black text-white rounded-lg">Toaster Placeholder</div>;
-
-const NavHeader = ({ title, onBack }) => (
-  <div className="flex items-center p-4 border-b border-gray-200 bg-white sticky top-0 z-10">
-    {onBack && (
-      <Button onClick={onBack} className="bg-gray-100 text-gray-700 mr-3 hover:bg-gray-200">
-        &larr; Back
-      </Button>
-    )}
-    <h1 className="text-2xl font-bold text-gray-800">{title}</h1>
-  </div>
-);
-
-const WelcomeScreen = ({ onSelectMode }) => (
-  <div className="p-8 space-y-6">
-    <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-6">Welcome to Cheese Finder 🧀</h2>
-    <div className="grid grid-cols-2 gap-4">
-      <Button onClick={() => onSelectMode('name')} className="bg-indigo-600 text-white hover:bg-indigo-700">Find by Name</Button>
-      <Button onClick={() => onSelectMode('taste')} className="bg-green-600 text-white hover:bg-green-700">Find by Taste</Button>
-      <Button onClick={() => onSelectMode('region')} className="bg-yellow-600 text-white hover:bg-yellow-700">Find by Region</Button>
-      <Button onClick={() => onSelectMode('animal')} className="bg-pink-600 text-white hover:bg-pink-700">Find by Milk Source</Button>
-    </div>
-  </div>
-);
-
-// Placeholder component stubs
-const FilterByName = ({ onBack }) => (
-  <div className="p-8">
-    <NavHeader title="Filter by Name (Placeholder)" onBack={onBack} />
-    <p className="mt-4">Search functionality would go here.</p>
-  </div>
-);
-const FilterByTaste = ({ onApplyFilters, onBack }) => (
-  <div className="p-8">
-    <NavHeader title="Filter by Taste (Placeholder)" onBack={onBack} />
-    <Button onClick={() => onApplyFilters({ firmness: 50, funkiness: 50, meltability: 50, inclusions: [] })} className="mt-4 bg-blue-500 text-white">Apply Sample Filters</Button>
-  </div>
-);
-const FilterByRegion = ({ onSelectRegion, onBack }) => (
-  <div className="p-8">
-    <NavHeader title="Filter by Region (Placeholder)" onBack={onBack} />
-    <Button onClick={() => onSelectRegion('France')} className="mt-4 bg-blue-500 text-white">Select France (Sample)</Button>
-  </div>
-);
-const FilterByAnimal = ({ onApplyFilters, onBack, onShowResults, onGuideMe }) => (
-  <div className="p-8 space-y-6">
-    <NavHeader title="Filter by Animal (Placeholder)" onBack={onBack} />
-    <p>Simulate finding non-Cow cheeses or special milk types.</p>
-    <Button onClick={() => onShowResults({ milkTypes: ['Goat', 'Sheep'], avoidInclusions: true, lowLactose: false })} className="bg-purple-600 text-white w-full">Show Goat/Sheep Results</Button>
-    <Button onClick={onGuideMe} className="bg-purple-300 text-purple-900 w-full">Guide Me By Use Case</Button>
-  </div>
-);
-
-const WhatAreYouMaking = ({ onSelectUsage, onBack, onSubstituteSearch, onSubstituteError, allCheeses }) => (
-  <div className="p-8 space-y-6">
-    <NavHeader title="What Are You Making? (Placeholder)" onBack={onBack} />
-    <Button onClick={() => onSelectUsage('snacking')} className="bg-teal-500 text-white w-full">Snacking</Button>
-    <Button onClick={() => onSelectUsage('cooking')} className="bg-teal-500 text-white w-full">Cooking (Go to Dish Details)</Button>
-    <Button onClick={() => onSubstituteError(allCheeses[5], 25)} className="bg-red-500 text-white w-full">Substitute Search (Error trigger)</Button>
-  </div>
-);
-
-const PlannedFood = ({ onContinue, onBack }) => (
-  <div className="p-8 space-y-6">
-    <NavHeader title="Dish Details (Placeholder)" onBack={onBack} />
-    <Button onClick={() => onContinue('Pizza')} className="bg-teal-500 text-white w-full">Continue with "Pizza"</Button>
-  </div>
-);
-
-const SubstituteSearch = ({ targetCheese, initialTolerance, onBack, onSubstituteSearch, allCheeses }) => (
-  <div className="p-8 space-y-6">
-    <NavHeader title="Substitute Search (Placeholder)" onBack={onBack} />
-    <p>We couldn't find a substitute for **{targetCheese.name}** within {initialTolerance} degrees.</p>
-    <Button onClick={() => onSubstituteSearch([allCheeses[0], allCheeses[1]], 'Wider range substitutes.', targetCheese.name, initialTolerance + 10, targetCheese)} className="bg-yellow-500 text-white w-full">Increase Range to {initialTolerance + 10}</Button>
-  </div>
-);
-
-const ResultsView = ({ cheeses, onBack, filterDescription, onStartOver, substituteCheeseName, substituteTolerance, onIncreaseRange }) => (
-  <div className="p-8 space-y-6">
-    <NavHeader title="Results" onBack={onBack} />
-    <div className="p-4 bg-blue-50 border-l-4 border-blue-400 text-blue-800 rounded-lg">
-      <p className="font-semibold">Filter:</p>
-      <p>{filterDescription}</p>
-      {substituteCheeseName && (
-        <p className="mt-2 text-sm">Substituting **{substituteCheeseName}** (Tolerance: {substituteTolerance})</p>
-      )}
-    </div>
-
-    <h3 className="text-xl font-bold">Found {cheeses.length} Cheeses</h3>
-    {cheeses.length === 0 ? (
-      <div className="text-center p-8 border border-dashed rounded-lg">
-        <p className="text-gray-500">No cheeses matched your criteria.</p>
-        {substituteCheeseName && onIncreaseRange && (
-          <Button onClick={onIncreaseRange} className="mt-4 bg-indigo-500 text-white">Increase Range Further</Button>
-        )}
-      </div>
-    ) : (
-      <div className="space-y-4">
-        {cheeses.map(cheese => (
-          <div key={cheese.id} className="p-4 border rounded-lg shadow-sm bg-white">
-            <h4 className="text-lg font-semibold">{cheese.name}</h4>
-            <p className="text-sm text-gray-600">Milk: {cheese.milk.join(', ')}</p>
-            <p className="text-sm text-gray-600">Firmness: {cheese.firmness || 'N/A'} | Melt: {cheese.meltability || 'N/A'}</p>
-          </div>
-        ))}
-      </div>
-    )}
-
-    <Button onClick={onStartOver} className="bg-red-500 text-white w-full">Start New Discovery</Button>
-  </div>
-);
-
-const CheeseAdmin = () => (
-    <div className="p-8">
-        <h1 className="text-3xl font-bold text-center">🧀 Cheese Admin Panel (Placeholder)</h1>
-        <p className="text-center mt-2 text-gray-600">This mode is active because `?admin=cheese` is in the URL.</p>
-    </div>
-);
-// --- PLACEHOLDER DEPENDENCIES END ---
+import { trackDiscoveryPath, trackResultsView, trackGuidedFlow } from './lib/analytics';
+import { APP_VERSION } from './lib/version';
+import { useState, useEffect } from 'react';
+import { WelcomeScreen } from './components/WelcomeScreen';
+import { FilterByName } from './components/FilterByName';
+import { FilterByTaste } from './components/FilterByTaste';
+import { FilterByRegion } from './components/FilterByRegion';
+import { FilterByAnimal } from './components/FilterByAnimal';
+import { WhatAreYouMaking } from './components/WhatAreYouMaking';
+import { SubstituteSearch } from './components/SubstituteSearch';
+import { PlannedFood } from './components/PlannedFood';
+import { ResultsView } from './components/ResultsView';
+import { CheeseAdmin } from './components/CheeseAdmin';
+import { Cheese } from './types/cheese';
+import { fetchCheeses } from './lib/api';
+import { advancedCheeseSearch, findCheesesByRegion } from './lib/queries';
+import { Toaster } from './components/ui/sonner';
 
 type Screen = 'welcome' | 'name' | 'taste' | 'region' | 'animal' | 'results' | 'usage-selection' | 'dish-details' | 'substitute-search';
 
@@ -236,14 +63,12 @@ export default function App() {
     targetCheese?: Cheese;
   } | null>(null);
 
-  // **********************************************
-  // FIX: Uncommented this useEffect to load data
-  // **********************************************
+  /*
   useEffect(() => {
     loadCheeses();
-    // Update SEO meta tags with current cheese count
-    updateSEOMetaTags();
+
   }, []);
+  */
 
   useEffect(() => {
     // Track results view whenever results are displayed
@@ -254,14 +79,9 @@ export default function App() {
 
   const loadCheeses = async () => {
     setIsLoading(true);
-    try {
-      const cheeses = await fetchCheeses();
-      setAllCheeses(cheeses);
-      setIsLoading(false);
-    } catch (error) {
-      console.error("Failed to load cheeses:", error);
-      setIsLoading(false);
-    }
+    const cheeses = await fetchCheeses();
+    setAllCheeses(cheeses);
+    setIsLoading(false);
   };
 
   const handleModeSelect = (mode: 'name' | 'taste' | 'region' | 'animal') => {
@@ -315,7 +135,6 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Deprecated, but keeping signature for completeness
   const handleApplyAnimalFilters = (filters: {
     milkTypes: string[];
     avoidInclusions: boolean;
@@ -345,9 +164,6 @@ export default function App() {
     lowLactose: boolean;
     requireA2?: boolean;
   }) => {
-    // Store filters for potential later refinement (guided flow or skip refinement)
-    setPendingAnimalFilters(filters);
-
     // Apply animal filters and show results immediately
     let filtered = allCheeses;
 
@@ -372,11 +188,26 @@ export default function App() {
     }
 
     // Filter out cheeses with inclusions
+    console.log('=== INCLUSIONS FILTER DEBUG ===');
+    console.log('avoidInclusions:', filters.avoidInclusions);
+    console.log('Before inclusions filter:', filtered.length);
+    
+    // Count how many have inclusions vs not
+    const withInclusions = filtered.filter(c => c.inclusions && c.inclusions.length > 0);
+    const withoutInclusions = filtered.filter(c => !c.inclusions || c.inclusions.length === 0);
+    console.log(`Cheeses WITH inclusions: ${withInclusions.length}`);
+    console.log(`Cheeses WITHOUT inclusions: ${withoutInclusions.length}`);
+    console.log('Sample cheeses WITH inclusions:', withInclusions.slice(0, 5).map(c => ({ name: c.name, inclusions: c.inclusions })));
+    
     if (filters.avoidInclusions) {
       filtered = filtered.filter(
         cheese => !cheese.inclusions || cheese.inclusions.length === 0
       );
+      console.log('After inclusions filter:', filtered.length);
+    } else {
+      console.log('Skipping inclusions filter (showing all cheeses including those with inclusions)');
     }
+    console.log('=== END DEBUG ===');
 
     // Filter for lower lactose
     if (filters.lowLactose) {
@@ -628,10 +459,10 @@ export default function App() {
     // Filter by use case (skip if 'all' is selected)
     const useCaseMap: { [key: string]: string[] } = {
       snacking: ['snacking', 'dessert'],
-      'appetizer-dessert': ['appetizer', 'dessert'],
+      appetizer: ['appetizer', 'dessert'],
       entree: ['fondue', 'cooking'],
       cooking: ['cooking', 'baking'],
-      combination: ['seasoning', 'salad', 'cooking'],
+      topping: ['seasoning', 'salad', 'cooking'],
       all: [], // Don't filter by use case when 'all' is selected
     };
 
@@ -646,6 +477,7 @@ export default function App() {
         )
       );
       console.log('After use case filter:', filtered.length, 'cheeses');
+      console.log('Filtered cheeses:', filtered.map(c => `${c.name} (${c.milk.join(',')}, uses: ${c.uses?.join(',')})`));
     }
 
     // Apply text refinement if provided - context-aware based on use case
@@ -662,6 +494,7 @@ export default function App() {
             (cheese.firmness || 50) >= 50 // Semi-firm to hard for structure
           );
           console.log('After onion soup filter:', filtered.length, 'cheeses');
+          console.log('Final cheeses:', filtered.map(c => `${c.name} (firmness: ${c.firmness}, meltability: ${c.meltability})`));
         }
         // Au gratin dishes (potatoes, etc.) - need good melting and browning
         else if (searchTerm.includes('gratin') || searchTerm.includes('potato')) {
@@ -671,6 +504,7 @@ export default function App() {
             (cheese.firmness || 50) >= 45 // Semi-firm for structure and browning
           );
           console.log('After gratin filter:', filtered.length, 'cheeses');
+          console.log('Final cheeses:', filtered.map(c => `${c.name} (firmness: ${c.firmness}, meltability: ${c.meltability})`));
         }
         // Pizza needs excellent melt and stretch
         else if (searchTerm.includes('pizza')) {
@@ -745,10 +579,10 @@ export default function App() {
     // Build description
     const useCaseLabels: { [key: string]: string } = {
       snacking: 'cheese boards and snacking',
-      'appetizer-dessert': 'appetizers and wine pairings',
+      appetizer: 'appetizers and wine pairings',
       entree: 'fondue and main dishes',
       cooking: 'cooking and baking',
-      combination: 'combination dishes',
+      topping: 'toppings and garnishes',
       all: 'any use',
     };
 
@@ -859,7 +693,7 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleIncreaseRange = useCallback(() => {
+  const handleIncreaseRange = () => {
     if (!substituteMetadata?.targetCheese) return;
     
     const newTolerance = (substituteMetadata.tolerance || 5) + 5;
@@ -909,7 +743,7 @@ export default function App() {
       // Still no results - update metadata and stay on page
       setSubstituteMetadata({ cheeseName: targetCheese.name, tolerance: newTolerance, targetCheese });
     }
-  }, [allCheeses, substituteMetadata]);
+  };
 
   const handleStartOver = () => {
     // Clear all filters and return to the current track
@@ -917,7 +751,6 @@ export default function App() {
     setSelectedUseCase(null);
     setFilteredCheeses([]);
     setFilterDescription('');
-    setSubstituteMetadata(null); // Clear substitute metadata
     
     // Go back to the track we came from
     if (currentTrack === 'animal') {
@@ -936,22 +769,17 @@ export default function App() {
 
   if (isLoading) {
     return (
-      <div className="size-full flex items-center justify-center min-h-screen bg-gray-50">
+      <div className="size-full flex items-center justify-center bg-background">
         <div className="text-center space-y-4">
-          <svg className="animate-spin h-8 w-8 text-indigo-600 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-          </svg>
-          <p className="text-muted-foreground text-gray-500">Loading cheese database...</p>
+          <p className="text-muted-foreground">Loading cheese database...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="size-full min-h-screen bg-gray-50">
+    <div className="size-full bg-background">
       <Toaster />
-      
       {screen === 'welcome' && <WelcomeScreen onSelectMode={handleModeSelect} />}
       
       {screen === 'name' && (
@@ -973,7 +801,7 @@ export default function App() {
       {screen === 'usage-selection' && (
         <WhatAreYouMaking 
           onSelectUsage={handleSelectUsage} 
-          onBack={handleBackToAnimal} // Go back to animal filter from usage selection
+          onBack={() => setScreen('animal')} 
           onSubstituteSearch={handleSubstituteSearch}
           onSubstituteError={handleSubstituteError}
           allCheeses={allCheeses}
@@ -1011,16 +839,5 @@ export default function App() {
         />
       )}
     </div>
-  );
-}
-
-// Boilerplate to run the single component
-const container = document.getElementById('root');
-if (container) {
-  const root = createRoot(container);
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
   );
 }
