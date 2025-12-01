@@ -63,11 +63,11 @@ export default function App() {
     targetCheese?: Cheese;
   } | null>(null);
 
-  /*
+  
   useEffect(() => {
     loadCheeses();
   }, []);
-  */
+  
 
   useEffect(() => {
     // Track results view whenever results are displayed

@@ -7,6 +7,10 @@
 @layer base {
   :root {
     --font-size: 16px;
+    --text-base: 1rem;     
+    --text-lg: 1.125rem;    
+    --text-xl: 1.25rem;     
+    --text-2xl: 1.5rem;      
     --gold: #FFD800;
     --butter: #FFF5C6;
     --brown: #8b6914;
@@ -105,7 +109,7 @@
  * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
  */
 @layer base {
-  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"]))))) {
     h1 {
       font-size: var(--text-2xl);
       font-weight: var(--font-weight-medium);
