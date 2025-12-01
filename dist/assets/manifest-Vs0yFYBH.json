@@ -1,0 +1,110 @@
+{
+  "name": "Cheese Finder - Hundreds of cheeses. Four paths of discovery.",
+  "short_name": "Cheese Finder",
+  "description": "Cheese Finder - Hundreds of cheeses. Four paths of discovery. Filter by taste preferences, regional origin, dietary restrictions, or search by name.",
+  "start_url": "/cheese-finder-beta/",
+  "display": "standalone",
+  "background_color": "#FFD800",
+  "theme_color": "#FFD800",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/cheese-finder-beta/cheese-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/cheese-finder-beta/icon-48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/cheese-finder-beta/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/cheese-finder-beta/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/cheese-finder-beta/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/cheese-finder-beta/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+       {
+      "src": "/cheese-finder-beta/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/cheese-finder-beta/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["food", "lifestyle"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Browse by Taste",
+      "short_name": "Taste",
+      "description": "Find cheese by flavor preferences",
+      "url": "/cheese-finder-beta/?mode=taste",
+      "icons": [
+        {
+          "src": "/cheese-finder-beta/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Browse by Place",
+      "short_name": "Place",
+      "description": "Find cheese by country or region",
+      "url": "/cheese-finder-beta/?mode=place",
+      "icons": [
+        {
+          "src": "/cheese-finder-beta/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Beast Milk",
+      "short_name": "Beast",
+      "description": "Find alternatives to cow milk cheese",
+      "url": "/cheese-finder-beta/?mode=beast",
+      "icons": [
+        {
+          "src": "/cheese-finder-beta/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "share_target": {
+    "action": "/cheese-finder-beta/",
+    "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "fullUrl"
+    }
+  }
+}
