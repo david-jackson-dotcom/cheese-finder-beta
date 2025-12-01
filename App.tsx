@@ -70,14 +70,19 @@ export default function App() {
   }, []);
   
 
+// Scroll whenever screen changes
 useEffect(() => {
+  // Scroll immediately
   if (scrollContainerRef.current) {
-    requestAnimationFrame(() => {
-      if (scrollContainerRef.current) {
-        scrollContainerRef.current.scrollTop = 0;
-      }
-    });
+    scrollContainerRef.current.scrollTop = 0;
   }
+  
+  // Scroll again after render completes
+  requestAnimationFrame(() => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
+  });
 }, [screen]);
   
   useEffect(() => {
