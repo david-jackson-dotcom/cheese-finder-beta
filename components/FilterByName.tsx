@@ -80,7 +80,7 @@ export function FilterByName({ onBack }: FilterByNameProps) {
   </div>
   {/* Container for Title/Description */}
   <div className="px-6 pb-4">
-    <p className="text-brown text-center">How do you like your cheese? Use the sliders.</p>
+    <p className="text-brown text-center">Name a cheese and discover its character.</p>
   </div>
 </div>
       
