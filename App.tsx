@@ -1,6 +1,6 @@
 import { trackDiscoveryPath, trackResultsView, trackGuidedFlow } from './lib/analytics';
 import { APP_VERSION } from './lib/version';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { WelcomeScreen } from './components/WelcomeScreen';
 import { FilterByName } from './components/FilterByName';
 import { FilterByTaste } from './components/FilterByTaste';
@@ -34,6 +34,7 @@ export default function App() {
   }, []);
   
   const [screen, setScreen] = useState<Screen>('welcome');
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [currentTrack, setCurrentTrack] = useState<'name' | 'taste' | 'region' | 'animal' | null>(null);
   const [allCheeses, setAllCheeses] = useState<Cheese[]>([]);
   const [filteredCheeses, setFilteredCheeses] = useState<Cheese[]>([]);
@@ -71,7 +72,9 @@ export default function App() {
 
  // Scroll whenever screen changes
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (scrollContainerRef.current) {
+    scrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+  }
   }, [screen]);
   
   useEffect(() => {
@@ -769,8 +772,8 @@ export default function App() {
   }
 
   return (
-    <div className="size-full bg-background">
-      <Toaster />
+  <div ref={scrollContainerRef} className="size-full bg-background overflow-y-auto">
+        <Toaster />
       {screen === 'welcome' && <WelcomeScreen onSelectMode={handleModeSelect} />}
       
       {screen === 'name' && (
