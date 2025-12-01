@@ -70,11 +70,15 @@ export default function App() {
   }, []);
   
 
- // Scroll whenever screen changes
-  useEffect(() => {
+useEffect(() => {
   if (scrollContainerRef.current) {
-	scrollContainerRef.current.scrollTop = 0;  }
-  }, [screen]);
+    requestAnimationFrame(() => {
+      if (scrollContainerRef.current) {
+        scrollContainerRef.current.scrollTop = 0;
+      }
+    });
+  }
+}, [screen]);
   
   useEffect(() => {
     // Track results view whenever results are displayed
