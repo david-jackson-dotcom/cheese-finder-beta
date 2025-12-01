@@ -177,7 +177,7 @@ className="mt-12 mx-auto w-14 h-14 bg-white rounded-full flex items-center justi
       <Dialog open={showAbout} onOpenChange={setShowAbout}>
         <DialogContent className="sm:max-w-md bg-butter border-2 border-primary">
           <DialogHeader className="mt-[30px] mr-[0px] mb-[0px] ml-[0px]">
-            <DialogTitle className="text-center text-accent text-6xl sm:text-7xl" style={{ fontFamily: 'Leckerli One'}}>
+            <DialogTitle className="text-center text-accent text-5xl sm:text-6xl" style={{ fontFamily: 'Leckerli One'}}>
               Cheese Finder
             </DialogTitle>
             <DialogDescription className="sr-only">

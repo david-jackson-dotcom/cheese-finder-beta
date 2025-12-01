@@ -50,23 +50,21 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
 
   return (
 <div className="min-h-screen bg-background">
-{/* Header */}
-	<div className="bg-gold">
-  {/* Container for Back Button */}
-  <div className="relative px-6 py-14">
-    <div className="absolute left-6 top-1/2 -translate-y-1/2">
-      <Button
-        onClick={onBack}
-        className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
-      >
-        <ChevronLeft className="h-6 w-6" />
-        Back
-      </Button>
-    </div>
-  </div>
-  {/* Container for Title/Description */}
-  <div className="px-6 pb-4">
-    <p className="text-brown text-center">How do you like your cheese? Use the sliders.</p>
+      {/* Header */}
+      <div className="bg-gold">
+        <div className="relative px-6 py-14">
+          <div className="absolute left-6 top-1/2 -translate-y-1/2">
+            <Button
+              onClick={onBack}
+              className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
+            >
+              <ChevronLeft className="h-6 w-6" />
+              Back
+            </Button>
+          </div>
+        </div>
+        <div className="px-6 pb-4">
+          <p className="text-brown text-center">How do you like your cheese? Use the sliders.</p>
   </div>
 </div>
     
