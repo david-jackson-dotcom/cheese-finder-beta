@@ -94,20 +94,19 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
     <div className="min-h-screen flex flex-col items-center justify-center px-6 py-12 bg-gold relative">
       <div className="max-w-md w-full space-y-8 text-center">
         
-        {/* --- Title Block (Logo unrotated, Text rotated) --- */}
+{/* --- Title Block (Logo unrotated, Text rotated) --- */}
         <div className="relative inline-block w-full flex flex-col items-center justify-center">
           
           {/* Background Logo (Watermark - NOT ROTATED) */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
             <img 
-              src="/icon-512.png" 
+              src="./icon-512.png" 
               alt="Cheese Finder Logo Watermark" 
               className="opacity-15"
               style={{ width: '250px', height: 'auto' }}
               aria-hidden="true"
             />
           </div>
-          
           {/* Rotated Text (Foreground - ROTATED) */}
           <div className="relative z-20" style={{ transform: 'rotate(-15deg)' }}>
             <h1 className="text-7xl sm:text-8xl text-accent mb-2" style={{ fontFamily: 'Leckerli One, cursive', fontWeight: 700 }}>
@@ -119,16 +118,16 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
           </div>
         </div>
         {/* --- End Title Block --- */}
-        
-      </div> 
 
-      <p className="text-xl text-accent mt-12" style={{ fontFamily: 'Orienta, sans-serif' }}>
+      
+
+      <p className="text-l text-accent mt-10" style={{ fontFamily: 'Orienta, sans-serif' }}>
         — Discover Cheese for Any Preference —
       </p>
-
+	 
       {/* Question */}
       <div className="pt-6">
-        <p className="text-xl text-brown" style={{ fontFamily: 'Orienta, sans-serif' }}>
+        <p className="text-l text-brown" style={{ fontFamily: 'Orienta, sans-serif' }}>
           What matters most in your cheese?
         </p>
       </div>
@@ -168,12 +167,12 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
       {/* About Button - Cheese Icon */}
       <button
         onClick={() => setShowAbout(true)}
-        className="mt-12 w-14 h-14 bg-white rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform touch-manipulation"
+className="mt-12 mx-auto w-14 h-14 bg-white rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform touch-manipulation"
         aria-label="About"
       >
-        <img src="/cheese-icon.svg" alt="" className="w-12 h-12" />
+        <img src="./cheese-icon.svg" alt="" className="w-12 h-12" />
       </button>
-
+</div>
       {/* About Dialog */}
       <Dialog open={showAbout} onOpenChange={setShowAbout}>
         <DialogContent className="sm:max-w-md bg-gold border-2 border-primary">
