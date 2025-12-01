@@ -68,8 +68,7 @@ export default function App() {
   /*
   useEffect(() => {
     loadCheeses();
-    // Update SEO meta tags with current cheese count
-    updateSEOMetaTags();
+
   }, []);
   */
 
