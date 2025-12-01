@@ -13,6 +13,11 @@ import {
   trackPWAInstallDeclined 
 } from './lib/analytics';
 
+// Add this after your imports, before createRoot
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
