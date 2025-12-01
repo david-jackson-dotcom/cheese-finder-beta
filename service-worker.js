@@ -2,7 +2,7 @@ const CACHE_NAME = 'cheese-finder-v21';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/index-DvHV_o-4.js',
+  '/main.tsx',
   '/styles/globals.css',  
   '/icon-48.png',
   '/icon-72.png',
