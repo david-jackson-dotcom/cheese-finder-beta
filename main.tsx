@@ -88,13 +88,13 @@ try {
     });
   }
   
-  // Register service worker for PWA functionality
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker
-      .register(`/service-worker.js`)
-      .then((registration) => {
-        console.log('Service Worker registered successfully:', registration.scope);
+  // Only register service worker in production
+  if ('serviceWorker' in navigator && import.meta.env.PROD) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/cheese-finder-beta/service-worker.js')
+        .then((registration) => {
+          console.log('Service Worker registered successfully:', registration.scope);
           
           // Check for updates periodically
           setInterval(() => {
@@ -118,11 +118,11 @@ if ('serviceWorker' in navigator) {
           });
         })
         .catch((error) => {
-          console.log('Service Worker registration failed (expected on localhost):', error);
+          console.error('Service Worker registration failed:', error);
         });
     });
   }
+
 } catch (error) {
   console.log('Analytics/PWA initialization error (non-critical):', error);
-
 }

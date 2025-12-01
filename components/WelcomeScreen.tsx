@@ -27,13 +27,14 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
   
   {/* Background Logo (Watermark - NOT ROTATED) */}
   <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-    <img 
-      src="icon512.png" 
-      alt="Cheese Finder Logo Watermark" 
-      className="w-32 h-32 opacity-10"
-      aria-hidden="true"
-    />
-  </div>
+<img 
+  src="/icon-512.png" 
+  alt="Cheese Finder Logo Watermark" 
+  className="opacity-15"
+  style={{ width: '250px', height: 'auto' }}
+  aria-hidden="true"
+/>
+</div>
   
   {/* Rotated Text (Foreground - ROTATED) */}
   <div className="relative z-20" style={{ transform: 'rotate(-15deg)' }}>
