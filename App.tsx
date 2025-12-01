@@ -72,16 +72,21 @@ export default function App() {
 
 // Scroll whenever screen changes
 useEffect(() => {
-  // Scroll immediately
-  if (scrollContainerRef.current) {
-    scrollContainerRef.current.scrollTop = 0;
-  }
-  
-  // Scroll again after render completes
-  requestAnimationFrame(() => {
+  const scrollToTop = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollTop = 0;
     }
+  };
+  
+  // Scroll immediately
+  scrollToTop();
+  
+  // Scroll after first render frame
+  requestAnimationFrame(() => {
+    scrollToTop();
+    
+    // Scroll after second render frame (backup)
+    requestAnimationFrame(scrollToTop);
   });
 }, [screen]);
   
