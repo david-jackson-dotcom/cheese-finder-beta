@@ -73,8 +73,7 @@ export default function App() {
  // Scroll whenever screen changes
   useEffect(() => {
   if (scrollContainerRef.current) {
-    scrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+	scrollContainerRef.current.scrollTop = 0;  }
   }, [screen]);
   
   useEffect(() => {
