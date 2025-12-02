@@ -1,7 +1,6 @@
-//
-   import { trackDiscoveryPath, trackResultsView, trackGuidedFlow } from './lib/analytics';
+import { trackDiscoveryPath, trackResultsView, trackGuidedFlow } from './lib/analytics';
 import { APP_VERSION } from './lib/version';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { WelcomeScreen } from './components/WelcomeScreen';
 import { FilterByName } from './components/FilterByName';
 import { FilterByTaste } from './components/FilterByTaste';
@@ -16,7 +15,6 @@ import { Cheese } from './types/cheese';
 import { fetchCheeses } from './lib/api';
 import { advancedCheeseSearch, findCheesesByRegion } from './lib/queries';
 import { Toaster } from './components/ui/sonner';
-import { updateSEOMetaTags } from './lib/seo';
 
 type Screen = 'welcome' | 'name' | 'taste' | 'region' | 'animal' | 'results' | 'usage-selection' | 'dish-details' | 'substitute-search';
 
@@ -36,6 +34,7 @@ export default function App() {
   }, []);
   
   const [screen, setScreen] = useState<Screen>('welcome');
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [currentTrack, setCurrentTrack] = useState<'name' | 'taste' | 'region' | 'animal' | null>(null);
   const [allCheeses, setAllCheeses] = useState<Cheese[]>([]);
   const [filteredCheeses, setFilteredCheeses] = useState<Cheese[]>([]);
@@ -65,14 +64,32 @@ export default function App() {
     targetCheese?: Cheese;
   } | null>(null);
 
-  /*
+  
   useEffect(() => {
     loadCheeses();
-    // Update SEO meta tags with current cheese count
-    updateSEOMetaTags();
   }, []);
-  */
+  
 
+// Scroll whenever screen changes
+useEffect(() => {
+  const scrollToTop = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
+  };
+  
+  // Scroll immediately
+  scrollToTop();
+  
+  // Scroll after first render frame
+  requestAnimationFrame(() => {
+    scrollToTop();
+    
+    // Scroll after second render frame (backup)
+    requestAnimationFrame(scrollToTop);
+  });
+}, [screen]);
+  
   useEffect(() => {
     // Track results view whenever results are displayed
     if (screen === 'results' && filteredCheeses.length > 0 && filterDescription) {
@@ -91,8 +108,7 @@ export default function App() {
     setCurrentTrack(mode);
     setScreen(mode);
     trackDiscoveryPath(mode); // Track which discovery path user selected
-    // Scroll to top when entering a new track
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
   };
 
   const handleApplyTasteFilters = (filters: {
@@ -123,8 +139,7 @@ export default function App() {
     
     setFilterDescription(description);
     setScreen('results');
-    // Scroll to top when showing results
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+ 
   };
 
   const handleSelectRegion = (region: string) => {
@@ -134,8 +149,7 @@ export default function App() {
     setFilteredCheeses(filtered);
     setFilterDescription(`Cheeses from ${region}`);
     setScreen('results');
-    // Scroll to top when showing results
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
   };
 
   const handleApplyAnimalFilters = (filters: {
@@ -157,7 +171,6 @@ export default function App() {
       // For complex uses (entree, cooking), go to dish details page
       setSelectedUseCase(usage);
       setScreen('dish-details');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -238,15 +251,13 @@ export default function App() {
     
     setFilterDescription(description);
     setScreen('results');
-    // Scroll to top when showing results
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
   };
 
   const handleGuideMe = () => {
     // Navigate to usage selection page
     setIsGuidedFlow(true);
     setScreen('usage-selection');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleDishDetails = (dishText: string) => {
@@ -335,7 +346,6 @@ export default function App() {
     
     setFilterDescription(description);
     setScreen('results');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSkipRefinement = () => {
@@ -663,8 +673,6 @@ export default function App() {
     } else {
       setScreen('welcome');
     }
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleBackToAnimal = () => {
@@ -687,13 +695,11 @@ export default function App() {
       setSubstituteMetadata(null);
     }
     
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSubstituteError = (targetCheese: Cheese, initialTolerance: number) => {
     setSubstituteErrorState({ targetCheese, initialTolerance });
     setScreen('substitute-search');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleIncreaseRange = () => {
@@ -765,9 +771,7 @@ export default function App() {
     } else {
       setScreen('welcome');
     }
-    
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
   };
 
   if (isLoading) {
@@ -781,8 +785,8 @@ export default function App() {
   }
 
   return (
-    <div className="size-full bg-background">
-      <Toaster />
+  <div ref={scrollContainerRef} className="size-full bg-background overflow-y-auto">
+        <Toaster />
       {screen === 'welcome' && <WelcomeScreen onSelectMode={handleModeSelect} />}
       
       {screen === 'name' && (

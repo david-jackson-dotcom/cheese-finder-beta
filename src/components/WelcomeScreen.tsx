@@ -26,7 +26,7 @@ export function WelcomeScreen({
             {/* Large background logo */}
             <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
               <img 
-                src="/icon-512.png" 
+                src="/cheese-finder-beta/icon-512.png" 
                 alt="" 
                 className="w-80 h-80"
                 aria-hidden="true"

@@ -7,6 +7,10 @@
 @layer base {
   :root {
     --font-size: 16px;
+    --text-base: 1rem;     
+    --text-lg: 1.125rem;    
+    --text-xl: 1.25rem;     
+    --text-2xl: 1.5rem;      
     --gold: #FFD800;
     --butter: #FFF5C6;
     --brown: #8b6914;

@@ -1,15 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <!-- <base href="cheese-finder-beta/"> -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/cheese-icon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/cheese-finder-beta/cheese-icon.svg" />
+    <link rel="manifest" href="manifest.json" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#ffd700" />
     <meta name="description" content="Discover cheese for any preference" />
     <title>Cheese Finder</title>
+    <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+  }
+</script>
+
+
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Cheese Finder - Hundreds of Cheeses. Four Paths of Discovery.</title>
+  <meta name="description" content="Hundreds of cheeses. Four paths of discovery. Filter by taste preferences, regional origin, dietary restrictions, or search by name. A2 cow, goat, sheep, buffalo, and exotic milk varieties.">
+  <meta name="keywords" content="cheese finder, cheese database, A2 milk cheese, goat cheese, sheep cheese, buffalo cheese, yak cheese, camel cheese, cheese alternatives, cheese substitutes, global cheese varieties, lactose free cheese, cow milk alternatives, cheese by country, cheese by taste, exotic cheese, artisan cheese">
+  <meta name="author" content="David Jackson">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Theme Color (Mobile Browser) -->
+  <meta name="theme-color" content="#FFD800">
+  
+  <!-- iOS-specific PWA Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Cheese Finder">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+  
+  <!-- Open Graph (Facebook, LinkedIn) -->
+  <meta property="og:title" content="Cheese Finder - Hundreds of Cheeses. Four Paths of Discovery.">
+  <meta property="og:description" content="Discover cheeses by taste, region, diet, or name. A2 cow, goat, sheep, buffalo, yak, camel, and more.">
+  <meta property="og:image" content="https://david-jackson-dotcom.github.io/cheese-finder-beta//cheese-social.jpg">
+  <meta property="og:url" content="https://david-jackson-dotcom.github.io/cheese-finder-beta/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cheese Finder">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cheese Finder - Hundreds of Cheeses. Four Paths of Discovery.">
+  <meta name="twitter:description" content="Discover cheeses by taste, region, diet, or name. A2 cow, goat, sheep, buffalo, yak, camel, and more.">
+  <meta name="twitter:image" content="https://david-jackson-dotcom.github.io/cheese-finder-beta//cheese-social.jpg">
+  
+  <!-- Windows-specific -->
+  <meta name="msapplication-TileColor" content="#FFD800">
+  <meta name="msapplication-TileImage" content="/icon-192.png">
+  
+  <!-- Preconnect to Google Fonts (Performance) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Canonical URL (SEO) -->
+  <link rel="canonical" href="https://david-jackson-dotcom.github.io/cheese-finder-beta/">
+  
+  <!-- Google Analytics (Optional - replace with your ID) -->
+  <!-- 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G-M84CMFKL2D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+  
+  <!-- Service Worker Registration (Optional - for offline mode) -->
+  <!--
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(registration => console.log('Service Worker registered:', registration))
+          .catch(error => console.log('Service Worker registration failed:', error));
+      });
+    }
+  </script>
+  -->
+  
+  <!-- JSON-LD Structured Data (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Cheese Finder",
+    "description": "Hundreds of cheeses. Four paths of discovery. Filter by taste preferences, regional origin, dietary restrictions, or search by name.",
+    "url": "https://david-jackson-dotcom.github.io/cheese-finder-beta/",
+    "applicationCategory": "FoodApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "operatingSystem": "Any",
+    "author": {
+      "@type": "Person",
+      "name": "David Jackson"
+    },
+    "featureList": [
+      "Hundreds of cheese varieties from 60+ countries",
+      "Four discovery paths: Taste, Place, Beast, Name",
+      "Filter by taste preferences",
+      "Filter by regional origin",
+      "Filter by dietary restrictions",
+      "A2 cow milk cheese discovery",
+      "Multiple milk types including exotic varieties",
+      "Mobile-optimized interface",
+      "Smart cheese name lookup"
+    ]
+  }
+  </script>
+
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+      <script type="module" src="/main.tsx"></script>
   </body>
 </html>

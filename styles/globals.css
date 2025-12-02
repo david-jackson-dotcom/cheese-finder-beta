@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Leckerli+One&family=Orienta&display=swap');
+@import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -143,6 +143,10 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+  
+    .size-full {
+    overscroll-behavior: contain;
   }
 }
 
