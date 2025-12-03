@@ -102,7 +102,7 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
             <img 
               src="./icon-512.png" 
               alt="Cheese Finder Logo Watermark" 
-              className="opacity-15"
+              className="opacity-25"
               style={{ width: '250px', height: 'auto' }}
               aria-hidden="true"
             />
@@ -121,43 +121,43 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
 
       
 
-      <p className="text-l text-accent mt-10" style={{ fontFamily: 'Orienta, sans-serif' }}>
-        — Discover Cheese for Any Preference —
+      <p className="text-lg text-dark-orange mt-8" style={{ fontFamily: 'Orienta, sans-serif', fontWeight: 600 }}>
+        Discover Your Cheese
       </p>
 	 
       {/* Question */}
-      <div className="pt-6">
-        <p className="text-l text-brown" style={{ fontFamily: 'Orienta, sans-serif' }}>
+      <div className="pt-4 pb-0">
+        <p className="text-brown" style={{ fontFamily: 'Orienta, sans-serif' }}>
           What matters most in your cheese?
         </p>
       </div>
 
       {/* Main Buttons */}
-      <div className="space-y-4 pt-4">
+      <div className="space-y-4">
         <Button
           size="lg"
-          className="w-full h-16 text-2xl rounded-2xl bg-accent hover:bg-accent/90 active:bg-accent/80 transition-all text-white touch-manipulation border-3 border-accent"
+          className="w-full h-16 text-4xl rounded-2xl bg-accent hover:bg-accent/90 active:bg-accent/80 transition-all text-white touch-manipulation border-3 border-accent"
           onClick={() => onSelectMode('name')}
         >
           Name
         </Button>
         <Button
           size="lg"
-          className="w-full h-16 text-2xl rounded-2xl bg-primary hover:bg-primary/90 active:bg-primary/80 transition-all text-white touch-manipulation border-3 border-accent"
+          className="w-full h-16 text-4xl rounded-2xl bg-primary hover:bg-primary/90 active:bg-primary/80 transition-all text-white touch-manipulation border-3 border-accent"
           onClick={() => onSelectMode('taste')}
         >
           Taste
         </Button>
         <Button
           size="lg"
-          className="w-full h-16 text-2xl rounded-2xl bg-orange hover:bg-orange/90 active:bg-orange/90 transition-all text-accent touch-manipulation border-3 border-primary"
+          className="w-full h-16 text-4xl rounded-2xl bg-orange hover:bg-orange/90 active:bg-orange/90 transition-all text-accent touch-manipulation border-3 border-primary"
           onClick={() => onSelectMode('region')}
         >
           Place
         </Button>
         <Button
           size="lg"
-          className="w-full h-16 text-2xl rounded-2xl bg-butter hover:bg-butter/90 active:bg-butter/80 transition-all text-primary touch-manipulation border-3 border-orange"
+          className="w-full h-16 text-4xl rounded-2xl bg-butter hover:bg-butter/90 active:bg-butter/80 transition-all text-primary touch-manipulation border-3 border-orange"
           onClick={() => onSelectMode('animal')}
         >
           Beast
