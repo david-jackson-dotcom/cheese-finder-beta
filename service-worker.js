@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cheese-finder-v23';
+const CACHE_NAME = 'cheese-finder-v24';
 const urlsToCache = [
   '/',
   '/index.html',
