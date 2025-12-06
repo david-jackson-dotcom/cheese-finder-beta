@@ -136,6 +136,7 @@
   --color-magenta: var(--magenta);
 }
 
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

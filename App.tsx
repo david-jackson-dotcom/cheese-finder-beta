@@ -78,24 +78,19 @@ useEffect(() => {
     }
   };
   
-  // Scroll immediately
+  // Immediate scroll
   scrollToTop();
   
-  // Scroll after first render frame
-  requestAnimationFrame(() => {
-    scrollToTop();
-    
-    // Scroll after second render frame (backup)
-    requestAnimationFrame(scrollToTop);
-  });
+  // Keep scrolling for a while to override browser restoration
+  requestAnimationFrame(scrollToTop);
+  setTimeout(scrollToTop, 0);
+  setTimeout(scrollToTop, 10);
+  setTimeout(scrollToTop, 50);
+  setTimeout(scrollToTop, 100);
+  setTimeout(scrollToTop, 200);
+  setTimeout(scrollToTop, 300);
+  setTimeout(scrollToTop, 500);
 }, [screen]);
-  
-  useEffect(() => {
-    // Track results view whenever results are displayed
-    if (screen === 'results' && filteredCheeses.length > 0 && filterDescription) {
-      trackResultsView(filterDescription, filteredCheeses.length);
-    }
-  }, [screen, filteredCheeses, filterDescription]);
 
   const loadCheeses = async () => {
     setIsLoading(true);
@@ -783,10 +778,17 @@ useEffect(() => {
       </div>
     );
   }
+  
+  console.log('🧀 Current screen:', screen, 'Scroll:', scrollContainerRef.current?.scrollTop);
 
   return (
-  <div ref={scrollContainerRef} className="size-full bg-background overflow-y-auto">
-        <Toaster />
+
+  <div 
+    key={screen}
+    ref={scrollContainerRef} 
+    className="size-full bg-background overflow-y-auto"
+  >
+          <Toaster />
       {screen === 'welcome' && <WelcomeScreen onSelectMode={handleModeSelect} />}
       
       {screen === 'name' && (

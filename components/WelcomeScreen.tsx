@@ -121,8 +121,8 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
 
       
 
-      <p className="text-lg text-dark-orange mt-8" style={{ fontFamily: 'Orienta, sans-serif', fontWeight: 600 }}>
-        Discover Your Cheese
+      <p className="text-lg text-dark-orange mt-8" style={{ fontFamily: 'Orienta, sans-serif', fontWeight: 100 }}>
+       — Discover Your Cheese —
       </p>
 	 
       {/* Question */}
