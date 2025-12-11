@@ -132,7 +132,7 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
           <h2 className="text-3xl text-accent text-center mb-2" style={{ fontFamily: 'Leckerli One, cursive' }}>
             Choose Your Beast
           </h2>
-          <p className="text-brown text-center" style={{ fontFamily: 'Orienta, sans-serif' }}>
+          <p className="text-brown text-center" style={{ fontFamily: 'Cabin, sans-serif' }}>
             If not ordinary cow, what would you prefer?
           </p>
         </div>
@@ -159,7 +159,7 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
                     <Label className="cursor-pointer text-accent" style={{ fontFamily: 'Leckerli One, cursive', fontSize: '1.25rem' }}>
                       {option.label}
                     </Label>
-                    <p className="text-sm text-muted-foreground" style={{ fontFamily: 'Orienta, sans-serif' }}>
+                    <p className="text-sm text-muted-foreground" style={{ fontFamily: 'Cabin, sans-serif' }}>
                       {option.description}
                     </p>
                   </div>
@@ -191,7 +191,7 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
                   <Label className="cursor-pointer text-accent" style={{ fontFamily: 'Leckerli One, cursive', fontSize: '1.1rem' }}>
                     Lower Lactose (Aged Cheeses)
                   </Label>
-                  <p className="text-sm text-muted-foreground" style={{ fontFamily: 'Orienta, sans-serif' }}>
+                  <p className="text-sm text-muted-foreground" style={{ fontFamily: 'Cabin, sans-serif' }}>
                     Hard and aged cheeses have naturally lower lactose content
                   </p>
                 </div>
@@ -213,7 +213,7 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
                   <Label className="cursor-pointer text-accent" style={{ fontFamily: 'Leckerli One, cursive', fontSize: '1.1rem' }}>
                     Just Cheese
                   </Label>
-                  <p className="text-sm text-muted-foreground" style={{ fontFamily: 'Orienta, sans-serif' }}>
+                  <p className="text-sm text-muted-foreground" style={{ fontFamily: 'Cabin, sans-serif' }}>
                     Pure cheese without smoke, peppers, herbs, wine, fruit, truffles, seeds, pixie dust, or other additions
                   </p>
                 </div>
@@ -233,7 +233,7 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
 
         <Button
           className="gap-2 bg-accent text-white hover:bg-accent/90 active:bg-accent/80 rounded-full px-8 h-14 shadow-lg touch-manipulation"
-          style={{ fontFamily: 'Orienta, sans-serif' }}
+          style={{ fontFamily: 'Cabin, sans-serif' }}
           onClick={handleShowResults}
           disabled={!canApply}
         >

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&family=Orienta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&family=Cabin&family=Montserrat&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
@@ -215,7 +215,7 @@ html {
 }
 
 body {
-  font-family: 'Orienta', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Cabin', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   /* Prevent overscroll bounce on mobile */
   overscroll-behavior-y: none;
   /* Optimize touch events */
@@ -227,8 +227,13 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
+subh {
+	font-family: 'Montserrat';
+	font-weight: 200;
+}
+
 p {
-  font-family: 'Orienta', sans-serif;
+  font-family: 'Cabin', sans-serif;
 }
 
 /* Ensure all interactive elements are touch-friendly */

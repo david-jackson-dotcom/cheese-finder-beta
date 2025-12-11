@@ -65,7 +65,7 @@ Successfully implemented the "Add 5º" button on Beast results pages, allowing u
 
 ## Design System
 - Primary font: Leckerli One (headings)
-- Body font: Orienta
+- Body font: Cabin
 - Colors: Yellow-orange (#F4A623) with magenta accents (#E91E63)
 - Background: Warm gold (#FFF8E7)
 - Mobile-first responsive design

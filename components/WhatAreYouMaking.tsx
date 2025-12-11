@@ -208,28 +208,30 @@ export function WhatAreYouMaking({ onSelectUsage, onBack, onSubstituteSearch, on
       setSubstituteInput('');
     }
   };
-
+ {/* ------------------------ Standard page top  ------------------------ */}
+ 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#FFD800' }}>
-      {/* Header */}
-      <div style={{ backgroundColor: '#FFD800' }}>
-        <div className="relative px-6 py-14">
-          <div className="absolute left-6 top-1/2 -translate-y-1/2">
-            <Button
-              onClick={onBack}
-              className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80 text-base"
-            >
-              <ChevronLeft className="h-6 w-6" />
-              Back
-            </Button>
-          </div>
-        </div>
-        <div className="px-6 pb-4">
-          <p className="text-brown text-center">What are you planning?</p>
+    <div className="min-h-screen bg-background">
+      <div className="bg-gold px-6 py-4"> 
+        {/* Container for Back Button */}
+        <div className="relative">
+          <Button
+            onClick={onBack}
+            className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
+          >
+            <ChevronLeft className="h-6 w-6" />
+            Back
+          </Button>
         </div>
       </div>
+      <div className="max-w-md mx-auto space-y-4 px-6 py-4">
+        <div className="px-6">
+          <p className="text-brown text-center">What are you planning?</p>
+        </div>
+        
+{/* ------------------------ CONTENT ------------------------ */}
 
-      <div className="max-w-md mx-auto space-y-8 px-6 py-8">
+      <div className="max-w-md mx-auto space-y-8 px-6 py-0">
         <div className="grid gap-3">
           {USAGE_OPTIONS.map((option) => (
             <button
@@ -253,7 +255,7 @@ export function WhatAreYouMaking({ onSelectUsage, onBack, onSubstituteSearch, on
 
         {/* Substitute Search Section */}
         <div className="space-y-4">
-          <p className="text-brown text-center">I'm not sure. I just need a substitution for</p>
+          <p className="text-brown text-center">I'm not sure. I just<br />need a substitution for …</p>
           
           <input
             type="text"
@@ -262,10 +264,10 @@ export function WhatAreYouMaking({ onSelectUsage, onBack, onSubstituteSearch, on
             onChange={(e) => setSubstituteInput(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSubstituteSearch()}
             className="w-full p-4 pr-4 border-2 border-primary/30 rounded-2xl bg-input-background focus:outline-none focus:border-primary transition-colors placeholder:text-brown/40 text-base"
-            style={{ fontFamily: 'Orienta' }}
+            style={{ fontFamily: 'Cabin' }}
           />
 
-          <div className="flex justify-center">
+          <div className="flex justify-center pt-2">
             <Button
               onClick={handleSubstituteSearch}
               disabled={isSearching || !substituteInput.trim()}
@@ -279,8 +281,9 @@ export function WhatAreYouMaking({ onSelectUsage, onBack, onSubstituteSearch, on
           {errorMessage && (
             <p className="text-brown text-center">{errorMessage}</p>
           )}
-        </div>
+         </div>
       </div>
     </div>
+	</div>
   );
 }

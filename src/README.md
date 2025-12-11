@@ -139,7 +139,7 @@ Google Analytics tracking is configured with ID `G-M84CMFKL2D` for:
 
 ## 🎨 Design
 
-- **Typography**: Leckerli One (headings), Orienta (body)
+- **Typography**: Leckerli One (headings), Cabin (body)
 - **Color Palette**: Vibrant yellow-orange with magenta accents
 - **Style**: Cheerful, fat cursive with global cheese representation
 

@@ -108,8 +108,8 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
             />
           </div>
           {/* Rotated Text (Foreground - ROTATED) */}
-          <div className="relative z-20" style={{ transform: 'rotate(-15deg)' }}>
-            <h1 className="text-7xl sm:text-8xl text-accent mb-2" style={{ fontFamily: 'Leckerli One, cursive', fontWeight: 700 }}>
+          <div className="relative z-20 mb-10" style={{ transform: 'rotate(-15deg)' }}>
+            <h1 className="text-7xl sm:text-8xl text-accent" style={{ fontFamily: 'Leckerli One, cursive', fontWeight: 700 }}>
               Cheese
             </h1>
             <h1 className="text-7xl sm:text-8xl text-accent" style={{ fontFamily: 'Leckerli One, cursive', fontWeight: 700 }}>
@@ -121,13 +121,13 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
 
       
 
-      <p className="text-lg text-dark-orange mt-8" style={{ fontFamily: 'Orienta, sans-serif', fontWeight: 100 }}>
-       — Discover Your Cheese —
+      <p className="text-base text-dark-orange" style={{ fontFamily: 'Montserrat, serif', fontWeight: 500 }}>
+       — DISCOVER YOUR BLISS —
       </p>
 	 
       {/* Question */}
-      <div className="pt-4 pb-0">
-        <p className="text-brown" style={{ fontFamily: 'Orienta, sans-serif' }}>
+      <div className="pt-1">
+        <p className="text-brown" style={{ fontFamily: 'Cabin, sans-serif' }}>
           What matters most in your cheese?
         </p>
       </div>
@@ -136,31 +136,34 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
       <div className="space-y-4">
         <Button
           size="lg"
-          className="w-full h-16 text-4xl rounded-2xl bg-accent hover:bg-accent/90 active:bg-accent/80 transition-all text-white touch-manipulation border-3 border-accent"
+          className="w-full h-16 text-3xl rounded-2xl bg-accent hover:bg-accent/90 active:bg-accent/80 transition-all text-white touch-manipulation border-3 border-accent font-semibold"
+          style={{ fontFamily: 'Montserrat, sans-serif' }}
           onClick={() => onSelectMode('name')}
         >
-          Name
+          NAME
         </Button>
         <Button
           size="lg"
-          className="w-full h-16 text-4xl rounded-2xl bg-primary hover:bg-primary/90 active:bg-primary/80 transition-all text-white touch-manipulation border-3 border-accent"
+          className="w-full h-16 text-3xl rounded-2xl bg-primary hover:bg-primary/90 active:bg-primary/80 transition-all text-white touch-manipulation border-3 border-accent font-semibold"
+		 style={{ fontFamily: 'Montserrat, sans-serif' }}
           onClick={() => onSelectMode('taste')}
         >
-          Taste
+          TASTE
         </Button>
         <Button
           size="lg"
-          className="w-full h-16 text-4xl rounded-2xl bg-orange hover:bg-orange/90 active:bg-orange/90 transition-all text-accent touch-manipulation border-3 border-primary"
+          className="w-full h-16 text-3xl rounded-2xl bg-orange hover:bg-orange/90 active:bg-orange/90 transition-all text-accent touch-manipulation border-3 border-primary font-semibold"
+		 style={{ fontFamily: 'Montserrat, sans-serif' }}
           onClick={() => onSelectMode('region')}
         >
-          Place
+          PLACE
         </Button>
         <Button
           size="lg"
-          className="w-full h-16 text-4xl rounded-2xl bg-butter hover:bg-butter/90 active:bg-butter/80 transition-all text-primary touch-manipulation border-3 border-orange"
-          onClick={() => onSelectMode('animal')}
+          className="w-full h-16 text-3xl rounded-2xl bg-butter hover:bg-butter/90 active:bg-butter/80 transition-all text-primary touch-manipulation border-3 border-orange font-semibold"
+		 style={{ fontFamily: 'Montserrat, sans-serif' }}          onClick={() => onSelectMode('animal')}
         >
-          Beast
+          BEAST
         </Button>
       </div>
 
@@ -177,18 +180,21 @@ className="mt-12 mx-auto w-14 h-14 bg-white rounded-full flex items-center justi
       <Dialog open={showAbout} onOpenChange={setShowAbout}>
         <DialogContent className="sm:max-w-md bg-butter border-2 border-primary">
           <DialogHeader className="mt-[30px] mr-[0px] mb-[0px] ml-[0px]">
-            <DialogTitle className="text-center text-accent text-5xl sm:text-6xl" style={{ fontFamily: 'Leckerli One'}}>
-              Cheese Finder
-            </DialogTitle>
+            <DialogTitle 
+  className="text-center text-accent text-6xl sm:text-7xl" 
+  style={{ fontFamily: 'Leckerli One'}}
+>
+  Cheese Finder
+</DialogTitle>
             <DialogDescription className="sr-only">
               About Cheese Finder application
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-6 py-4">
-            <p className="text-center text-orange" style={{ fontFamily: 'Orienta' }}>
+            <p className="text-center text-orange" style={{ fontFamily: 'Cabin' }}>
               v0.9.0.beta
             </p>
-            <p className="text-center text-brown" style={{ fontFamily: 'Orienta' }}>
+            <p className="text-center text-brown" style={{ fontFamily: 'Cabin' }}>
               © David Jackson 2025
             </p>
             

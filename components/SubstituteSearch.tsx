@@ -74,28 +74,31 @@ export function SubstituteSearch({ targetCheese, initialTolerance, onBack, onSub
     }, 100);
   };
 
+ {/* ------------------------ Standard page top  ------------------------ */}
+ 
   return (
-    <div className="min-h-screen bg-gold">
-      {/* Header */}
-      <div className="bg-gold">
-        <div className="relative px-6 py-14">
-          <div className="absolute left-6 top-1/2 -translate-y-1/2">
-            <Button
-              onClick={onBack}
-              className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
-            >
-              <ChevronLeft className="h-6 w-6" />
-              Back
-            </Button>
-          </div>
+    <div className="min-h-screen bg-background">
+      <div className="bg-gold px-6 py-4"> 
+        {/* Container for Back Button */}
+        <div className="relative">
+          <Button
+            onClick={onBack}
+            className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
+          >
+            <ChevronLeft className="h-6 w-6" />
+            Back
+          </Button>
         </div>
       </div>
+      <div className="max-w-md mx-auto space-y-4 px-6 py-4">
+        <div className="px-6 mt-2"> 
+          
+{/* ------------------------ CONTENT ------------------------ */}
 
-      <div className="max-w-md mx-auto space-y-4 px-6 py-8">
         {tolerance < 100 ? (
-          <div className="space-y-3">
+          <div className="space-y-4">
             <p className="text-brown text-center">
-              No alternatives for {targetCheese.name} found within {tolerance} degrees of similarity. Increase range?
+              No alternatives for <br />{targetCheese.name} found within<br/>{tolerance} degrees of similarity.<br />Increase range?
             </p>
             <div className="flex gap-3">
               <Button
@@ -116,7 +119,7 @@ export function SubstituteSearch({ targetCheese, initialTolerance, onBack, onSub
         ) : (
           <div className="space-y-3">
             <p className="text-brown text-center">
-              No matches found for {targetCheese.name} within 100 degrees of similarity.
+              No matches found for<br />{targetCheese.name} within<br/>100 degrees of similarity.
               <br />
               Maybe cheese is just not your thing. Have you tried nutritional yeast?
             </p>
@@ -130,5 +133,7 @@ export function SubstituteSearch({ targetCheese, initialTolerance, onBack, onSub
         )}
       </div>
     </div>
+    </div>
+
   );
 }

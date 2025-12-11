@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme' // <--- Make sure this is imported
 
-export default {
+const config: Config = {
   darkMode: ["class"],
   content: [
     './index.html',
@@ -56,6 +57,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+	},
+        fontFamily: {
+        sans: ['Cabin', ...defaultTheme.fontFamily.sans], 
+        montserrat: ['Montserrat', ...defaultTheme.fontFamily.sans], 
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -78,5 +83,8 @@ export default {
       },
     },
   },
+
   plugins: [require("tailwindcss-animate")],
 } satisfies Config
+
+export default config
