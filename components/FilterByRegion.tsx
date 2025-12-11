@@ -86,28 +86,29 @@ export function FilterByRegion({ onSelectRegion, onBack }: FilterByRegionProps) 
       });
   }, []);
 
+
+{/* Standard page top  ------------------------ */}
   return (
-    <div className="min-h-screen bg-gold">
-      {/* Header */}
-      <div className="bg-gold">
-        <div className="relative px-6 py-14">
-          <div className="absolute left-6 top-1/2 -translate-y-1/2">
-            <Button
-              onClick={onBack}
-              className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
-            >
-              <ChevronLeft className="h-6 w-6" />
-              Back
-            </Button>
-          </div>
-        </div>
-        <div className="px-6 pb-4">
-          <p className="text-brown text-center">Select a regional cuisine.</p>
+    <div className="min-h-screen bg-background">
+      <div className="bg-gold px-6 py-4"> 
+        {/* Container for Back Button */}
+        <div className="relative">
+          <Button
+            onClick={onBack}
+            className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
+          >
+            <ChevronLeft className="h-6 w-6" />
+            Back
+          </Button>
         </div>
       </div>
-
-      <div className="max-w-md mx-auto space-y-8 px-6 py-8">
-        <div className="grid gap-3">
+      <div className="max-w-md mx-auto space-y-4 px-6 py-4">
+        <div className="px-6 mt-2"> 
+          <p className="text-brown text-center">Select a regional cuisine.</p>
+        </div>
+        
+{/* ------------ CONTENT ------------ */}
+		<div className="grid gap-3">
           {regions.map((region) => (
             <button
               key={region.name}
@@ -121,8 +122,11 @@ export function FilterByRegion({ onSelectRegion, onBack }: FilterByRegionProps) 
               <p className="text-sm text-muted-foreground text-center">{region.description}</p>
             </button>
           ))}
-        </div>
-      </div>
+          </div>
+          
+{/* ----------- END CONTENT ------------ */}
+
+      </div>	
     </div>
   );
 }

@@ -62,34 +62,29 @@ export function FilterByName({ onBack }: FilterByNameProps) {
     );
   }
 
+{/* Standard page top  ------------------------ */}
   return (
     <div className="min-h-screen bg-background">
-{/* Header */}
-<div className="bg-gold">
-  {/* Container for Back Button */}
-  <div className="relative px-6 py-14">
-    <div className="absolute left-6 top-1/2 -translate-y-1/2">
-      <Button
-        onClick={onBack}
-        className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
-      >
-        <ChevronLeft className="h-6 w-6" />
-        Back
-      </Button>
-    </div>
-  </div>
-  {/* Container for Title/Description */}
-  <div className="px-6 pb-4">
-    <p className="text-brown text-center">Name a cheese and discover its character.</p>
-  </div>
-</div>
-      
-
-      {/* Main Content / Search Forms */}
-      <div className="max-w-md mx-auto space-y-8 px-6 py-8">
-
-        {/* Name Search Input */}
-        <div className="space-y-6">
+      <div className="bg-gold px-6 py-4"> 
+        {/* Container for Back Button */}
+        <div className="relative">
+          <Button
+            onClick={onBack}
+            className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
+          >
+            <ChevronLeft className="h-6 w-6" />
+            Back
+          </Button>
+        </div>
+      </div>
+      <div className="max-w-md mx-auto space-y-4 px-6 py-2">
+       
+{/* ------------ CONTENT ------------ */}
+        {/* Name Search Input Block */}
+        <div className="space-y-2">
+         <div className="px-6"> 
+          <p className="text-brown text-center">Name a cheese<br />and discover its character.</p>
+        </div>
           <div className="relative">
             <input
               type="text"
@@ -98,7 +93,7 @@ export function FilterByName({ onBack }: FilterByNameProps) {
               onKeyDown={(e) => e.key === 'Enter' && !tagsQuery.trim() && handleNameSearch()}
               placeholder="example: mozzarella"
               className="w-full p-4 pr-4 border-2 border-primary/30 rounded-2xl bg-input-background focus:outline-none focus:border-primary transition-colors placeholder:text-brown/40 text-base"
-              style={{ fontFamily: 'Orienta' }}
+              style={{ fontFamily: 'Cabin' }}
             />
           </div>
 
@@ -106,24 +101,25 @@ export function FilterByName({ onBack }: FilterByNameProps) {
             <Button
               onClick={handleNameSearch}
               disabled={!nameQuery.trim() || !!tagsQuery.trim()}
-              className="mt-4"
+              className="mt-2"
             >
               Find My Cheese
             </Button>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="text-center">
+        {/* Divider - my-8 preserves the large space around the divider */}
+        <div className="text-center my-8">
           <h1 className="text-magenta" style={{ fontFamily: 'Leckerli One', fontSize: '2rem' }}>
             — or —
           </h1>
         </div>
 
-        {/* Tags Search Section */}
-        <div className="space-y-6">
-          <div className="px-6 pb-4">
-            <p className="text-brown text-center">Describe a cheese and discover its name.</p>
+        {/* Tags Search Section Block */}
+        <div className="space-y-2">
+          {/* Second Paragraph (Structurally identical to the first) */}
+          <div className="px-6">
+            <p className="text-brown text-center">Describe a cheese<br />and discover its name.</p>
           </div>
 
           <div className="relative">
@@ -134,7 +130,7 @@ export function FilterByName({ onBack }: FilterByNameProps) {
               onKeyDown={(e) => e.key === 'Enter' && !nameQuery.trim() && handleTagsSearch()}
               placeholder="example: smoked spanish goat"
               className="w-full p-4 pr-4 border-2 border-primary/30 rounded-2xl bg-input-background focus:outline-none focus:border-primary transition-colors placeholder:text-brown/40 text-base"
-              style={{ fontFamily: 'Orienta' }}
+              style={{ fontFamily: 'Cabin' }}
             />
           </div>
 
@@ -142,13 +138,15 @@ export function FilterByName({ onBack }: FilterByNameProps) {
             <Button
               onClick={handleTagsSearch}
               disabled={!tagsQuery.trim() || !!nameQuery.trim()}
-              className="mt-4"
+              className="mt-2"
             >
               Name My Cheese
             </Button>
           </div>
+          
+{/* ----------- END CONTENT ------------ */}
         </div>
-      </div> 
+      </div>	
     </div>
   );
 }

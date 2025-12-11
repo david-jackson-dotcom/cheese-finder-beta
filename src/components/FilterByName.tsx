@@ -94,7 +94,7 @@ export function FilterByName({ onBack }: FilterByNameProps) {
               onKeyDown={(e) => e.key === 'Enter' && !tagsQuery.trim() && handleNameSearch()}
               placeholder="example: mozzarella"
               className="w-full p-4 pr-4 border-2 border-primary/30 rounded-2xl bg-input-background focus:outline-none focus:border-primary transition-colors placeholder:text-brown/40 text-base"
-              style={{ fontFamily: 'Orienta' }}
+              style={{ fontFamily: 'Cabin' }}
             />
           </div>
 
@@ -130,7 +130,7 @@ export function FilterByName({ onBack }: FilterByNameProps) {
               onKeyDown={(e) => e.key === 'Enter' && !nameQuery.trim() && handleTagsSearch()}
               placeholder="example: smoked spanish goat"
               className="w-full p-4 pr-4 border-2 border-primary/30 rounded-2xl bg-input-background focus:outline-none focus:border-primary transition-colors placeholder:text-brown/40 text-base"
-              style={{ fontFamily: 'Orienta' }}
+              style={{ fontFamily: 'Cabin' }}
             />
           </div>
 

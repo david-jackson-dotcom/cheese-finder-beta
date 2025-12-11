@@ -7,7 +7,7 @@ import { cn } from "./utils";
 
 function Separator({
   className,
-  orientation = "horizontal",
+  Cabintion = "horizontal",
   decorative = true,
   ...props
 }: React.ComponentProps<typeof SeparatorPrimitive.Root>) {
@@ -15,9 +15,9 @@ function Separator({
     <SeparatorPrimitive.Root
       data-slot="separator-root"
       decorative={decorative}
-      orientation={orientation}
+      Cabintion={Cabintion}
       className={cn(
-        "bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px",
+        "bg-border shrink-0 data-[Cabintion=horizontal]:h-px data-[Cabintion=horizontal]:w-full data-[Cabintion=vertical]:h-full data-[Cabintion=vertical]:w-px",
         className,
       )}
       {...props}

@@ -23,25 +23,29 @@ export function ResultsView({ cheeses, onBack, filterDescription, isA2Search, on
   // Determine the appropriate empty state message
   const hasNonCowMilkSelected = selectedMilkTypes && selectedMilkTypes.length > 0;
   const showA2Message = isA2Search && !hasNonCowMilkSelected;
+  
+  
+ {/* ------------------------ Standard page top  ------------------------ */}
+
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="bg-gold">
-        <div className="relative px-6 py-14">
-          <div className="absolute left-6 top-1/2 -translate-y-1/2">
-            <Button
-              onClick={onBack}
-              className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
-            >
-              <ChevronLeft className="h-6 w-6" />
-              Back
-            </Button>
-          </div>
-        </div>
-      </div>
+<div className="min-h-screen bg-background">     
+	<div className="relative bg-gold px-6 py-4">
+	  <div className="absolute left-6 top-4"> 
+			<Button
+				onClick={onBack}
+				className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
+				>
+				<ChevronLeft className="h-6 w-6" />
+				Back
+			</Button>
+		</div>
+	</div>
+
+
+{/* ------------------------ CONTENT ------------------------ */}
 
       {/* Count Text */}
-      <div className="bg-gold px-6 pt-2 pb-4">
+      <div className="bg-gold px-6 pt-12 pb-2">
         <p className="text-center text-brown">
           {substituteCheeseName && substituteTolerance !== undefined
             ? `Found ${cheeses.length} ${cheeses.length === 1 ? 'alternative' : 'alternatives'} to ${substituteCheeseName} within ${substituteTolerance} degrees of similarity.`
@@ -63,7 +67,7 @@ export function ResultsView({ cheeses, onBack, filterDescription, isA2Search, on
       <div className="px-6 py-6 bg-gold">
         <div className="max-w-md mx-auto space-y-6">
           {cheeses.length === 0 ? (
-            <div className="text-center py-16 space-y-4">
+            <div className="text-center py-2 space-y-4">
               {showA2Message ? (
                 <>
                   <p className="text-muted-foreground max-w-xs mx-auto">
@@ -84,7 +88,7 @@ export function ResultsView({ cheeses, onBack, filterDescription, isA2Search, on
                 </>
               ) : (
                 <>
-                  <h2 className="text-xl">No matches found</h2>
+                  <h2 className="text-xl">No matches found.</h2>
                   <p className="text-muted-foreground max-w-xs mx-auto">
                     Try adjusting your preferences to discover more cheeses.
                   </p>
@@ -103,7 +107,7 @@ export function ResultsView({ cheeses, onBack, filterDescription, isA2Search, on
               </div>
 
               {/* Start Over Button */}
-              <div className="pt-8 pb-6 flex justify-center">
+              <div className="pt-2 pb-6 flex justify-center">
                 <Button
                   onClick={isGuidedFlow ? (onDiscoverAnother || onBack) : (onStartOver || onBack)}
                   className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
@@ -114,6 +118,8 @@ export function ResultsView({ cheeses, onBack, filterDescription, isA2Search, on
             </>
           )}
         </div>
+{/* ------------------------ END CONTENT ------------------------ */}
+
       </div>
     </div>
   );

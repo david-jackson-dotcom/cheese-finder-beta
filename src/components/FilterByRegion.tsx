@@ -103,7 +103,7 @@ export function FilterByRegion({ onSelectRegion, onBack }: FilterByRegionProps) 
           <h2 className="text-3xl text-accent text-center mb-2" style={{ fontFamily: 'Leckerli One, cursive' }}>
             Pick a Place
           </h2>
-          <p className="text-brown text-center" style={{ fontFamily: 'Orienta, sans-serif' }}>
+          <p className="text-brown text-center" style={{ fontFamily: 'Cabin, sans-serif' }}>
             Select a regional cuisine.
           </p>
         </div>
@@ -124,7 +124,7 @@ export function FilterByRegion({ onSelectRegion, onBack }: FilterByRegionProps) 
                 <div className="absolute top-4 right-4">
                   <ChevronRight className="h-6 w-6 text-primary group-hover:text-accent" />
                 </div>
-                <p className="text-sm text-muted-foreground line-clamp-2" style={{ fontFamily: 'Orienta, sans-serif' }}>
+                <p className="text-sm text-muted-foreground line-clamp-2" style={{ fontFamily: 'Cabin, sans-serif' }}>
                   {region.count} {region.count === 1 ? 'variety' : 'varieties'} from {region.name}
                 </p>
               </div>

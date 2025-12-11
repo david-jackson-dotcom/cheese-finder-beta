@@ -115,28 +115,32 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
   // In Beast track, we always have a filter (excluding A1 cow milk), so always enable the button
   const canApply = true;
 
+   {/* ------------------------ Standard page top  ------------------------ */}
+ 
   return (
-    <div className="min-h-screen bg-gold">
-      {/* Header */}
-      <div className="bg-gold">
-        <div className="relative px-6 py-14">
-          <div className="absolute left-6 top-1/2 -translate-y-1/2">
-            <Button
-              onClick={onBack}
-              className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
-            >
-              <ChevronLeft className="h-6 w-6" />
-              Back
-            </Button>
-          </div>
-        </div>
-        <div className="px-6 pb-4">
-          <p className="text-brown text-center">If not ordinary cow, what would you prefer?</p>
+    <div className="min-h-screen bg-background">
+      <div className="bg-gold px-6 py-4"> 
+        {/* Container for Back Button */}
+        <div className="relative">
+          <Button
+            onClick={onBack}
+            className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
+          >
+            <ChevronLeft className="h-6 w-6" />
+            Back
+          </Button>
         </div>
       </div>
+      <div className="max-w-md mx-auto space-y-4 px-6 py-4">
+        <div className="px-6 mt-2"> 
+          <p className="text-brown text-center">If not ordinary cow, what would you prefer?</p>
+          <p className="text-brown/60 text-center">Choose many or few.</p>
+        </div>
+
+{/* ------------------------ CONTENT ------------------------ */}
 
       {/* Content */}
-      <div className="px-6 py-8 space-y-8 max-w-md mx-auto pb-[0px] pt-[32px] pr-[24px] pl-[24px]">
+      <div className="px-6 pt-2 space-y-2 max-w-md mx-auto">
         {/* Milk Type Selection */}
         <div className="space-y-4">
           <div className="space-y-3">
@@ -170,7 +174,7 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
         </div>
 
         {/* Additional Dietary Filters */}
-        <div className="space-y-4">
+        <div className="space-y-4 my-5">
           <Label className="text-brown text-center block">Additional Preferences</Label>
           
           <div className="space-y-3">
@@ -244,8 +248,11 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
         >
           Show Me the Cheese
         </Button>
-        
+      </div>
+      
+      {/* ------------------------ END CONTENT ------------------------ */}
+
       </div>
     </div>
-  );
+    );
 }
