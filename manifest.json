@@ -6,7 +6,7 @@
   "display": "standalone",
   "background_color": "#FFD800",
   "theme_color": "#FFD800",
-  "orientation": "portrait-primary",
+  "Cabintion": "portrait-primary",
   "icons": [
     {
       "src": "/cheese-finder-beta/cheese-icon.svg",

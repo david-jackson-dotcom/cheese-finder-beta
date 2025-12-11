@@ -65,7 +65,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
           <h2 className="text-3xl text-accent text-center mb-2" style={{ fontFamily: 'Leckerli One, cursive' }}>
             Taste Profile
           </h2>
-          <p className="text-brown text-center" style={{ fontFamily: 'Orienta, sans-serif' }}>
+          <p className="text-brown text-center" style={{ fontFamily: 'Cabin, sans-serif' }}>
             How do you like your cheese? Use the sliders.
           </p>
         </div>
@@ -79,7 +79,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
               <label className="block text-accent text-xl" style={{ fontFamily: 'Leckerli One, cursive' }}>
                 Structure
               </label>
-              <span className="text-sm text-primary" style={{ fontFamily: 'Orienta, sans-serif' }}>
+              <span className="text-sm text-primary" style={{ fontFamily: 'Cabin, sans-serif' }}>
                 {firmness < 33 ? 'Runny' : firmness > 66 ? 'Hard' : 'Firm'}
               </span>
             </div>
@@ -92,7 +92,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
                 step={1}
                 className="w-full"
               />
-              <div className="flex justify-between text-xs text-muted-foreground" style={{ fontFamily: 'Orienta, sans-serif' }}>
+              <div className="flex justify-between text-xs text-muted-foreground" style={{ fontFamily: 'Cabin, sans-serif' }}>
                 <span>Runny</span>
                 <span>Hard</span>
               </div>
@@ -105,7 +105,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
               <label className="block text-accent text-xl" style={{ fontFamily: 'Leckerli One, cursive' }}>
                 Bouquet
               </label>
-              <span className="text-sm text-primary" style={{ fontFamily: 'Orienta, sans-serif' }}>
+              <span className="text-sm text-primary" style={{ fontFamily: 'Cabin, sans-serif' }}>
                 {funkiness < 33 ? 'Delicate' : funkiness > 66 ? 'Funky' : 'Balanced'}
               </span>
             </div>
@@ -118,7 +118,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
                 step={1}
                 className="w-full"
               />
-              <div className="flex justify-between text-xs text-muted-foreground" style={{ fontFamily: 'Orienta, sans-serif' }}>
+              <div className="flex justify-between text-xs text-muted-foreground" style={{ fontFamily: 'Cabin, sans-serif' }}>
                 <span>Delicate</span>
                 <span>Funky</span>
               </div>
@@ -131,7 +131,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
               <label className="block text-accent text-xl" style={{ fontFamily: 'Leckerli One, cursive' }}>
                 Stability
               </label>
-              <span className="text-sm text-primary" style={{ fontFamily: 'Orienta, sans-serif' }}>
+              <span className="text-sm text-primary" style={{ fontFamily: 'Cabin, sans-serif' }}>
                 {meltability < 33 ? "Won't melt" : meltability > 66 ? 'Melts' : 'Medium'}
               </span>
             </div>
@@ -144,7 +144,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
                 step={1}
                 className="w-full"
               />
-              <div className="flex justify-between text-xs text-muted-foreground" style={{ fontFamily: 'Orienta, sans-serif' }}>
+              <div className="flex justify-between text-xs text-muted-foreground" style={{ fontFamily: 'Cabin, sans-serif' }}>
                 <span>Won't melt</span>
                 <span>Melts</span>
               </div>
@@ -155,7 +155,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
         <div className="flex justify-center pt-4">
           <Button
             className="gap-2 bg-accent text-white hover:bg-accent/90 active:bg-accent/80 rounded-full px-8 h-14 shadow-lg touch-manipulation"
-            style={{ fontFamily: 'Orienta, sans-serif' }}
+            style={{ fontFamily: 'Cabin, sans-serif' }}
             onClick={handleSubmit}
           >
             Reveal that Cheesy Goodness

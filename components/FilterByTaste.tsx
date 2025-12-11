@@ -48,27 +48,31 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
     });
   };
 
+ {/* ------------------------ Standard page top  ------------------------ */}
+ 
   return (
-<div className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="bg-gold">
-        <div className="relative px-6 py-14">
-          <div className="absolute left-6 top-1/2 -translate-y-1/2">
-            <Button
-              onClick={onBack}
-              className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
-            >
-              <ChevronLeft className="h-6 w-6" />
-              Back
-            </Button>
-          </div>
+    <div className="min-h-screen bg-background">
+      <div className="bg-gold px-6 py-4"> 
+        {/* Container for Back Button */}
+        <div className="relative">
+          <Button
+            onClick={onBack}
+            className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
+          >
+            <ChevronLeft className="h-6 w-6" />
+            Back
+          </Button>
         </div>
-        <div className="px-6 pb-4">
-          <p className="text-brown text-center">How do you like your cheese? Use the sliders.</p>
-  </div>
-</div>
-    
-      <div className="max-w-md mx-auto space-y-8 px-6 py-8">
+      </div>
+      <div className="max-w-md mx-auto space-y-4 px-6 py-4">
+        <div className="px-6 mt-2"> 
+          <p className="text-brown text-center">How do you like your cheese?</p>
+          <p className="text-brown/60 text-center">Slide the knobs.</p>
+        </div>
+        
+{/* ------------------------ CONTENT ------------------------ */}
+
+        {/* Sliders Block */}
         <div className="space-y-10">
           {/* Firmness Slider */}
           <div className="space-y-4">
@@ -141,11 +145,9 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
               </div>
             </div>
           </div>
-
-
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-10">
           <Button
             className="w-auto gap-2 bg-orange-600 text-white hover:bg-orange-700 active:bg-orange-800 rounded-full px-6 min-h-[44px] touch-manipulation"
             onClick={handleSubmit}
@@ -153,7 +155,10 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
             Reveal that Cheesy Goodness
           </Button>
         </div>
+        
+{/* ------------------------ END CONTENT ------------------------ */}
+
       </div>
     </div>
-  );
+    );
 }

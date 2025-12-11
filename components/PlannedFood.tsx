@@ -16,30 +16,29 @@ export function PlannedFood({ onContinue, onBack }: PlannedFoodProps) {
     }
   };
 
+
+{/* Standard page top  ------------------------ */}
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/30">
-      {/* Header */}
-      <div className="top-0 z-10 bg-background/95 backdrop-blur">
-        <div className="relative px-6 py-4">
-          <div className="absolute left-6 top-1/2 -translate-y-1/2">
-            <Button
-              onClick={onBack}
-              className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80 mt-4"
-            >
-              <ChevronLeft className="h-6 w-6" />
-              Back
-            </Button>
-          </div>
+    <div className="min-h-screen bg-background">
+      <div className="bg-gold px-6 py-4"> 
+        {/* Container for Back Button */}
+        <div className="relative">
+          <Button
+            onClick={onBack}
+            className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
+          >
+            <ChevronLeft className="h-6 w-6" />
+            Back
+          </Button>
         </div>
       </div>
-
-      {/* Content */}
-      <div className="px-6 py-4 space-y-2 max-w-md mx-auto">
+      <div className="max-w-md mx-auto space-y-4 px-6 py-2">
+       
+{/* ------------ CONTENT ------------ */}
+        {/* Name Search Input Block */}
         <div className="space-y-2">
-          <div className="space-y-1">
-            <label htmlFor="dish-input" className="text-sm text-muted-foreground m-[0px] p-[0px] text-center block">
-              What are you planning?
-            </label>
+          <p className="text-brown text-center">Describe the dish you're making<br />for tailored cheese recommendations.
+            </p>
             <textarea
               id="dish-input"
               name="dish-field"
@@ -62,25 +61,16 @@ export function PlannedFood({ onContinue, onBack }: PlannedFoodProps) {
             </p>
           </div>
 
-          <div className="p-3 bg-accent/10 rounded-xl border border-accent/20">
-            <p className="text-sm text-muted-foreground">
-              <span className="text-primary">Tip:</span> Describe the dish you're making for tailored cheese recommendations!
-            </p>
-          </div>
-        </div>
-
         {/* Button with 30px top margin */}
-        <div className="pt-[30px]">
-          <div className="max-w-2xl mx-auto">
+		<div className="pt-[30px] flex justify-center">
             <Button
               size="sm"
-              className="mx-auto block h-14 rounded-full px-8"
+              className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
               onClick={handleContinue}
               disabled={!dishText.trim()}
             >
               Suggest Cheeses
             </Button>
-          </div>
         </div>
       </div>
     </div>

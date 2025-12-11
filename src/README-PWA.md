@@ -33,7 +33,7 @@ Already configured with:
 - Theme colors (yellow-orange #FFD800)
 - App shortcuts (Taste, Place, Beast modes)
 - Share target functionality
-- Portrait orientation
+- Portrait Cabintion
 
 ### 5. **Google Analytics Installation Tracking** 🎯
 

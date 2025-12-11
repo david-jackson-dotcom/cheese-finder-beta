@@ -60,7 +60,7 @@ export function WelcomeScreen({
           </div>
           <p
             className="text-lg text-orange mt-12 whitespace-nowrap"
-            style={{ fontFamily: "Orienta, sans-serif" }}
+            style={{ fontFamily: "Cabin, sans-serif" }}
           >
             — Discover Cheese for Any Preference —
           </p>
@@ -70,7 +70,7 @@ export function WelcomeScreen({
         <div className="pt-6">
           <p
             className="text-xl text-brown"
-            style={{ fontFamily: "Orienta, sans-serif" }}
+            style={{ fontFamily: "Cabin, sans-serif" }}
           >
             What matters most in your cheese?
           </p>
@@ -139,13 +139,13 @@ export function WelcomeScreen({
           <div className="space-y-6 py-4">
             <p
               className="text-center text-brown"
-              style={{ fontFamily: "Orienta" }}
+              style={{ fontFamily: "Cabin" }}
             >
               © David Jackson {new Date().getFullYear()}
             </p>
             <p
               className="text-center text-brown/60 text-sm"
-              style={{ fontFamily: "Orienta" }}
+              style={{ fontFamily: "Cabin" }}
             >
               v1.0.0
             </p>

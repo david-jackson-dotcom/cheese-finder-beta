@@ -3,7 +3,7 @@ export function generateCheeseShareData(cheese: Cheese): ShareData {
 
 return {
   title: `${cheese.name} Cheese`,
-  text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}: https://bit.ly/cheese-finder-beta`,
+  text: `${cheese.name} — a ${milkTypes} milk cheese from ${cheese.origin}: ${cheese.description.slice(0, 100)}`,
 };
 }
 
@@ -50,13 +50,9 @@ function fallbackCopyToClipboard(text: string): boolean {
 /**
  * Share using Web Share API or fallback to clipboard
  */
-// old:
-//export async function share(data: ShareData): Promise<{ success: boolean; method: 'native' | 'clipboard' | 'fallback' | 'none'; shareText?: string }> {
-  //const shareText = `${data.title}\n\n${data.text}\n\nhttps://bit.ly/cheese-finder-beta`;
 
-// new:
 export async function share(data: ShareData): Promise<{ success: boolean; method: 'native' | 'clipboard' | 'fallback' | 'none'; shareText?: string }> {
-  const shareText = `Check out ${data.title.replace(' Cheese', '')} on Cheese Finder:\n\n${data.text}\n\nhttps://bit.ly/cheese-finder-beta`;
+  const shareText = `I found this on Cheese Finder:\n${data.text}\n\nCheck it out!\nhttps://bit.ly/cheese-finder-beta`;
 
 
   // Try native sharing first (mobile)

@@ -261,7 +261,7 @@ export function WhatAreYouMaking({ onSelectUsage, onBack, onSubstituteSearch, on
             onChange={(e) => setSubstituteInput(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSubstituteSearch()}
             className="w-full p-4 pr-4 border-2 border-primary/30 rounded-2xl bg-input-background focus:outline-none focus:border-primary transition-colors placeholder:text-brown/40 text-base"
-            style={{ fontFamily: 'Orienta' }}
+            style={{ fontFamily: 'Cabin' }}
           />
 
           <div className="flex justify-center">

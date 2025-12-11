@@ -1,4 +1,5 @@
 const CACHE_NAME = 'cheese-finder-v26';
+
 const urlsToCache = [
   '/',
   '/index.html',

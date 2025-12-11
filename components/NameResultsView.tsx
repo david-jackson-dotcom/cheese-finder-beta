@@ -36,12 +36,13 @@ export function NameResultsView({ searchType, nameResult, tagsResult, onBack, on
   if (searchType === 'name' && nameResult) {
     const { cheeses, originalQuery, isExactMatch, isFuzzyMatch } = nameResult;
     
+{/* ------------------------ Standard page top  ------------------------ */}
+    
     return (
       <div className="min-h-screen bg-background">
         {/* Header */}
-        <div className="bg-gold">
-          <div className="relative px-6 py-14">
-            <div className="absolute left-6 top-1/2 -translate-y-1/2">
+			<div className="relative bg-gold px-6 py-4">
+			  <div className="absolute left-6 top-4"> 
               <Button
                 onClick={onBack}
                 className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
@@ -51,27 +52,28 @@ export function NameResultsView({ searchType, nameResult, tagsResult, onBack, on
               </Button>
             </div>
           </div>
-        </div>
+        
+{/* ------------------------ CONTENT ------------------------ */}
 
         {/* Count Text */}
-        <div className="bg-gold px-6 pt-2 pb-4">
+       <div className="bg-gold px-6 pt-12 pb-4"> 
           <p className="text-center text-brown">
             {cheeses.length === 0 
-              ? 'No matches found' 
-              : `Found ${cheeses.length} ${cheeses.length === 1 ? 'cheese' : 'cheeses'}`}
+              ? 'No matches found.' 
+              : `Found ${cheeses.length} ${cheeses.length === 1 ? 'cheese' : 'cheeses'}.`}
           </p>
         </div>
 
         {/* Results */}
-        <div className="px-6 py-6 bg-gold">
+        <div className="px-6 py-0 bg-gold">
           <div className="max-w-md mx-auto space-y-6">
             {cheeses.length === 0 ? (
               <div className="text-center py-16 space-y-4">
-                <p className="text-xl text-brown" style={{ fontFamily: 'Orienta' }}>
-                  No cheese found for "{originalQuery}"
+                <p className="text-xl text-brown" style={{ fontFamily: 'Cabin' }}>
+                  No cheese found for "{originalQuery}."
                 </p>
-                <p className="text-brown/60" style={{ fontFamily: 'Orienta' }}>
-                  Try a different name
+                <p className="text-brown/60" style={{ fontFamily: 'Cabin' }}>
+                  Try a different name.
                 </p>
                 <Button onClick={onBack} className="mt-4">
                   Try Again
@@ -81,7 +83,7 @@ export function NameResultsView({ searchType, nameResult, tagsResult, onBack, on
               <>
                 {/* Fuzzy match notice */}
                 {isFuzzyMatch && (
-                  <p className="text-center text-brown" style={{ fontFamily: 'Orienta' }}>
+                  <p className="text-center text-brown" style={{ fontFamily: 'Cabin' }}>
                     <span className="capitalize">{originalQuery}</span> not found. Showing closest match.
                   </p>
                 )}
@@ -93,7 +95,7 @@ export function NameResultsView({ searchType, nameResult, tagsResult, onBack, on
                 </div>
 
                 {/* Discover Another Button */}
-                <div className="pt-8 pb-6 flex justify-center">
+                <div className="pt-2 pb-6 flex justify-center">
                   <Button
                     onClick={onBack}
                     className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
@@ -114,13 +116,14 @@ export function NameResultsView({ searchType, nameResult, tagsResult, onBack, on
     const { fullMatches, partialMatches, originalQuery, searchTerms } = tagsResult;
     const totalResults = fullMatches.length + partialMatches.reduce((sum, pm) => sum + pm.cheeses.length, 0);
 
+ {/* ------------------------ Standard page top  ------------------------ */}
+
     return (
       <>
         <div className="min-h-screen bg-background">
-          {/* Header */}
           <div className="bg-gold">
-            <div className="relative px-6 py-14">
-              <div className="absolute left-6 top-1/2 -translate-y-1/2">
+            <div className="relative px-6 py-4">
+              <div className="absolute left-6 top-4">
                 <Button
                   onClick={onBack}
                   className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
@@ -130,27 +133,29 @@ export function NameResultsView({ searchType, nameResult, tagsResult, onBack, on
                 </Button>
               </div>
             </div>
-          </div>
+        
+  {/* ------------------------ CONTENT ------------------------ */}
+
 
           {/* Count Text */}
-          <div className="bg-gold px-6 pt-2 pb-4">
+          <div className="bg-gold px-6 pt-12 pb-4">
             <p className="text-center text-brown">
               {totalResults === 0 
-                ? `No cheeses found matching ${originalQuery}` 
+                ? `No cheeses found matching ${originalQuery}.` 
                 : `Found ${fullMatches.length} ${fullMatches.length === 1 ? 'cheese' : 'cheeses'} matching ${originalQuery}.`}
             </p>
           </div>
 
           {/* Results */}
-          <div className="px-6 py-6 bg-gold">
+          <div className="px-6 py-0 bg-gold">
             <div className="max-w-md mx-auto space-y-6">
               {totalResults === 0 ? (
                 <div className="text-center py-16 space-y-4">
-                  <p className="text-xl text-brown" style={{ fontFamily: 'Orienta' }}>
-                    No cheeses found matching your description
+                  <p className="text-xl text-brown" style={{ fontFamily: 'Cabin' }}>
+                    No cheeses found matching your description.
                   </p>
-                  <p className="text-brown/60" style={{ fontFamily: 'Orienta' }}>
-                    Try different search terms
+                  <p className="text-brown/60" style={{ fontFamily: 'Cabin' }}>
+                    Try different search terms.
                   </p>
                   <Button onClick={onBack} className="mt-4">
                     Try Again
@@ -170,14 +175,14 @@ export function NameResultsView({ searchType, nameResult, tagsResult, onBack, on
                   {/* Partial Matches */}
                   {partialMatches.length > 0 && (
                     <div className="space-y-6 mt-8">
-                      <h2 className="text-center text-brown" style={{ fontFamily: 'Orienta' }}>
-                        Partial matches
+                      <h2 className="text-center text-brown" style={{ fontFamily: 'Cabin' }}>
+                        Partial matches:
                       </h2>
                       
                       {partialMatches.map((group) => (
-                        <div key={group.matchCount} className="space-y-2">
-                          <p className="text-brown text-sm" style={{ fontFamily: 'Orienta' }}>
-                            Found {group.cheeses.length} {group.cheeses.length === 1 ? 'cheese' : 'cheeses'} matching {group.matchCount} of {searchTerms.length} terms
+                        <div key={group.matchCount} className="space-y-2 text-center">
+                          <p className="text-brown text-sm" style={{ fontFamily: 'Cabin' }}>
+                            Found {group.cheeses.length} {group.cheeses.length === 1 ? 'cheese.' : 'cheeses'} matching {group.matchCount} of {searchTerms.length} terms.
                           </p>
                           {group.matchCount > 1 && (
                             <div className="flex flex-wrap gap-2">
@@ -186,7 +191,7 @@ export function NameResultsView({ searchType, nameResult, tagsResult, onBack, on
                                   key={cheese.id}
                                   onClick={() => setSelectedCheese(cheese)}
                                   className="text-brown underline hover:text-primary transition-colors"
-                                  style={{ fontFamily: 'Orienta' }}
+                                  style={{ fontFamily: 'Cabin' }}
                                 >
                                   {cheese.name}
                                 </button>
@@ -199,7 +204,7 @@ export function NameResultsView({ searchType, nameResult, tagsResult, onBack, on
                   )}
 
                   {/* Discover Another Button */}
-                  <div className="pt-8 pb-6 flex justify-center">
+                  <div className="pt-0 pb-6 flex justify-center">
                     <Button
                       onClick={onBack}
                       className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
@@ -212,7 +217,8 @@ export function NameResultsView({ searchType, nameResult, tagsResult, onBack, on
             </div>
           </div>
         </div>
-
+	</div>
+	
         {/* Cheese Detail Modal */}
         <Dialog open={!!selectedCheese} onOpenChange={() => setSelectedCheese(null)}>
           <DialogContent className="max-w-md max-h-[80vh] overflow-y-auto">
@@ -235,3 +241,4 @@ export function NameResultsView({ searchType, nameResult, tagsResult, onBack, on
 
   return null;
 }
+
