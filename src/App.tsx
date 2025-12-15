@@ -128,7 +128,7 @@ const handleApplyTasteFilters = (filters: {
   
   // Updated labels for 9-level system
   const getBodyLabel = (value: number): string => {
-    if (value <= 11) return 'drippy';
+    if (value <= 11) return 'drippy!';
     if (value <= 22) return 'creamy';
     if (value <= 33) return 'spreadable';
     if (value <= 44) return 'soft';
@@ -136,11 +136,11 @@ const handleApplyTasteFilters = (filters: {
     if (value <= 66) return 'semi-firm';
     if (value <= 77) return 'firm';
     if (value <= 88) return 'hard';
-    return 'grate-worthy';
+    return 'rocky!';
   };
 
   const getBouquetLabel = (value: number): string => {
-    if (value <= 11) return 'delicate';
+    if (value <= 11) return 'delicate!';
     if (value <= 22) return 'polite';
     if (value <= 33) return 'subtle';
     if (value <= 44) return 'moderate';
@@ -148,11 +148,11 @@ const handleApplyTasteFilters = (filters: {
     if (value <= 66) return 'aromatic';
     if (value <= 77) return 'strong';
     if (value <= 88) return 'funky';
-    return 'angry';
+    return 'angry!';
   };
 
   const getStabilityLabel = (value: number): string => {
-    if (value <= 11) return 'stubborn';
+    if (value <= 11) return 'stubborn!';
     if (value <= 22) return 'softens';
     if (value <= 33) return 'holds shape';
     if (value <= 44) return 'melts firm';
@@ -160,7 +160,7 @@ const handleApplyTasteFilters = (filters: {
     if (value <= 66) return 'flows smooth';
     if (value <= 77) return 'creamy';
     if (value <= 88) return 'gooey';
-    return 'puddle';
+    return 'puddles!';
   };
   
   let description = `${getBodyLabel(filters.firmness)}, ${getBouquetLabel(filters.funkiness)}, ${getStabilityLabel(filters.meltability)}`;
