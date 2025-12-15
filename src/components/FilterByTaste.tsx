@@ -64,7 +64,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
     });
   };
 
- {/* ------------------------ Standard page top  ------------------------ */}
+  // ------------------------ Standard page top  ------------------------
  
   return (
     <div className="min-h-screen bg-background">
@@ -86,7 +86,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
           <p className="text-brown/60 text-center">Slide the knobs.</p>
         </div>
         
-{/* ------------------------ CONTENT ------------------------ */}
+        {/* ------------------------ CONTENT ------------------------ */}
         {/* Sliders Block */}
         <div className="space-y-10">
           {/* Firmness Slider */}
@@ -171,7 +171,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
           </Button>
         </div>
         
-{/* ------------------------ END CONTENT ------------------------ */}
+        {/* ------------------------ END CONTENT ------------------------ */}
       </div>
     </div>
     );
