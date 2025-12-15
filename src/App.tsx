@@ -1,6 +1,6 @@
 import { trackDiscoveryPath, trackResultsView, trackGuidedFlow } from './lib/analytics';
 import { APP_VERSION } from './lib/version';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { WelcomeScreen } from './components/WelcomeScreen';
 import { FilterByName } from './components/FilterByName';
 import { FilterByTaste } from './components/FilterByTaste';
@@ -35,6 +35,7 @@ export default function App() {
   }, []);
   
   const [screen, setScreen] = useState<Screen>('welcome');
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [currentTrack, setCurrentTrack] = useState<'name' | 'taste' | 'region' | 'animal' | null>(null);
   const [allCheeses, setAllCheeses] = useState<Cheese[]>([]);
   const [filteredCheeses, setFilteredCheeses] = useState<Cheese[]>([]);
@@ -64,18 +65,33 @@ export default function App() {
     targetCheese?: Cheese;
   } | null>(null);
 
+  
   useEffect(() => {
     loadCheeses();
-    // Update SEO meta tags with current cheese count
-    updateSEOMetaTags();
   }, []);
+  
 
-  useEffect(() => {
-    // Track results view whenever results are displayed
-    if (screen === 'results' && filteredCheeses.length > 0 && filterDescription) {
-      trackResultsView(filterDescription, filteredCheeses.length);
+// Scroll whenever screen changes
+useEffect(() => {
+  const scrollToTop = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
     }
-  }, [screen, filteredCheeses, filterDescription]);
+  };
+  
+  // Immediate scroll
+  scrollToTop();
+  
+  // Keep scrolling for a while to override browser restoration
+  requestAnimationFrame(scrollToTop);
+  setTimeout(scrollToTop, 0);
+  setTimeout(scrollToTop, 10);
+  setTimeout(scrollToTop, 50);
+  setTimeout(scrollToTop, 100);
+  setTimeout(scrollToTop, 200);
+  setTimeout(scrollToTop, 300);
+  setTimeout(scrollToTop, 500);
+}, [screen]);
 
   const loadCheeses = async () => {
     setIsLoading(true);
@@ -84,45 +100,79 @@ export default function App() {
     setIsLoading(false);
   };
 
-  const handleModeSelect = (mode: 'name' | 'taste' | 'place' | 'animal') => {
+  const handleModeSelect = (mode: 'name' | 'taste' | 'region' | 'animal') => {
     setCurrentTrack(mode);
     setScreen(mode);
     trackDiscoveryPath(mode); // Track which discovery path user selected
-    // Scroll to top when entering a new track
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
   };
 
-  const handleApplyTasteFilters = (filters: {
-    firmness: number;
-    funkiness: number;
-    meltability: number;
-    inclusions: string[];
-  }) => {
-    // Use the new relational database query system
-    const filtered = advancedCheeseSearch({
-      firmness: filters.firmness,
-      funkiness: filters.funkiness,
-      meltability: filters.meltability,
-      inclusions: filters.inclusions.length > 0 ? filters.inclusions : undefined,
-      tolerance: 35, // Increased from 25 for more forgiving results
-    });
+// ------------------------ new granular labeling
 
-    setFilteredCheeses(filtered);
-    
-    const firmLabel = filters.firmness < 33 ? 'soft' : filters.firmness > 66 ? 'hard' : 'semi-firm';
-    const funkLabel = filters.funkiness < 33 ? 'delicate' : filters.funkiness > 66 ? 'funky' : 'moderate';
-    const meltLabel = filters.meltability < 33 ? 'unmeltable' : filters.meltability > 66 ? 'melty' : 'moderately melty';
-    
-    let description = `${firmLabel}, ${funkLabel}, ${meltLabel}`;
-    if (filters.inclusions.length > 0) {
-      description += ` with ${filters.inclusions.join(', ')}`;
-    }
-    
-    setFilterDescription(description);
-    setScreen('results');
-    // Scroll to top when showing results
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+const handleApplyTasteFilters = (filters: {
+  firmness: number;
+  funkiness: number;
+  meltability: number;
+  inclusions: string[];
+}) => {
+  // Use the new relational database query system
+  const filtered = advancedCheeseSearch({
+    firmness: filters.firmness,
+    funkiness: filters.funkiness,
+    meltability: filters.meltability,
+    inclusions: filters.inclusions.length > 0 ? filters.inclusions : undefined,
+    tolerance: 35,
+  });
+
+  setFilteredCheeses(filtered);
+  
+  // Updated labels for 9-level system
+  const getBodyLabel = (value: number): string => {
+    if (value <= 11) return 'drippy';
+    if (value <= 22) return 'creamy';
+    if (value <= 33) return 'spreadable';
+    if (value <= 44) return 'soft';
+    if (value <= 55) return 'semi-soft';
+    if (value <= 66) return 'semi-firm';
+    if (value <= 77) return 'firm';
+    if (value <= 88) return 'hard';
+    return 'grate-worthy';
   };
+
+  const getBouquetLabel = (value: number): string => {
+    if (value <= 11) return 'delicate';
+    if (value <= 22) return 'polite';
+    if (value <= 33) return 'subtle';
+    if (value <= 44) return 'moderate';
+    if (value <= 55) return 'balanced';
+    if (value <= 66) return 'aromatic';
+    if (value <= 77) return 'strong';
+    if (value <= 88) return 'funky';
+    return 'angry';
+  };
+
+  const getStabilityLabel = (value: number): string => {
+    if (value <= 11) return 'stubborn';
+    if (value <= 22) return 'softens';
+    if (value <= 33) return 'holds shape';
+    if (value <= 44) return 'melts firm';
+    if (value <= 55) return 'stretchy';
+    if (value <= 66) return 'flows smooth';
+    if (value <= 77) return 'creamy';
+    if (value <= 88) return 'gooey';
+    return 'puddle';
+  };
+  
+  let description = `${getBodyLabel(filters.firmness)}, ${getBouquetLabel(filters.funkiness)}, ${getStabilityLabel(filters.meltability)}`;
+  if (filters.inclusions.length > 0) {
+    description += ` with ${filters.inclusions.join(', ')}`;
+  }
+  
+  setFilterDescription(description);
+  setScreen('results');
+};
+  
+// ------------------------ end new granular labeling
 
   const handleSelectRegion = (region: string) => {
     // Use the new relational database query system
@@ -131,8 +181,7 @@ export default function App() {
     setFilteredCheeses(filtered);
     setFilterDescription(`Cheeses from ${region}`);
     setScreen('results');
-    // Scroll to top when showing results
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
   };
 
   const handleApplyAnimalFilters = (filters: {
@@ -145,13 +194,25 @@ export default function App() {
     handleShowAnimalResults(filters);
   };
 
+  const handleSelectUsage = (usage: 'snacking' | 'appetizer-dessert' | 'entree' | 'cooking' | 'combination') => {
+    trackGuidedFlow(usage); // Track guided flow usage selection
+    // For straightforward uses, go directly to results
+    if (usage === 'snacking' || usage === 'appetizer-dessert' || usage === 'combination') {
+      handleGuidedResults(usage);
+    } else {
+      // For complex uses (entree, cooking), go to dish details page
+      setSelectedUseCase(usage);
+      setScreen('dish-details');
+    }
+  };
+
   const handleShowAnimalResults = (filters: {
     milkTypes: string[];
     avoidInclusions: boolean;
     lowLactose: boolean;
     requireA2?: boolean;
   }) => {
-    // Start with all cheeses
+    // Apply animal filters and show results immediately
     let filtered = allCheeses;
 
     // Filter by milk types and/or A2 requirement
@@ -175,11 +236,26 @@ export default function App() {
     }
 
     // Filter out cheeses with inclusions
+    console.log('=== INCLUSIONS FILTER DEBUG ===');
+    console.log('avoidInclusions:', filters.avoidInclusions);
+    console.log('Before inclusions filter:', filtered.length);
+    
+    // Count how many have inclusions vs not
+    const withInclusions = filtered.filter(c => c.inclusions && c.inclusions.length > 0);
+    const withoutInclusions = filtered.filter(c => !c.inclusions || c.inclusions.length === 0);
+    console.log(`Cheeses WITH inclusions: ${withInclusions.length}`);
+    console.log(`Cheeses WITHOUT inclusions: ${withoutInclusions.length}`);
+    console.log('Sample cheeses WITH inclusions:', withInclusions.slice(0, 5).map(c => ({ name: c.name, inclusions: c.inclusions })));
+    
     if (filters.avoidInclusions) {
       filtered = filtered.filter(
         cheese => !cheese.inclusions || cheese.inclusions.length === 0
       );
+      console.log('After inclusions filter:', filtered.length);
+    } else {
+      console.log('Skipping inclusions filter (showing all cheeses including those with inclusions)');
     }
+    console.log('=== END DEBUG ===');
 
     // Filter for lower lactose
     if (filters.lowLactose) {
@@ -207,23 +283,13 @@ export default function App() {
     
     setFilterDescription(description);
     setScreen('results');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
   };
 
   const handleGuideMe = () => {
     // Navigate to usage selection page
     setIsGuidedFlow(true);
     setScreen('usage-selection');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleSelectUsage = (usage: 'snacking' | 'appetizer-dessert' | 'entree' | 'cooking' | 'combination') => {
-    // Store the selected use case
-    setSelectedUseCase(usage);
-    // Track guided flow selection
-    trackGuidedFlow(usage);
-    // Navigate directly to results with the Beast track filtering + usage
-    handleGuidedResults(usage);
   };
 
   const handleDishDetails = (dishText: string) => {
@@ -312,7 +378,6 @@ export default function App() {
     
     setFilterDescription(description);
     setScreen('results');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSkipRefinement = () => {
@@ -640,8 +705,6 @@ export default function App() {
     } else {
       setScreen('welcome');
     }
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleBackToAnimal = () => {
@@ -664,13 +727,11 @@ export default function App() {
       setSubstituteMetadata(null);
     }
     
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSubstituteError = (targetCheese: Cheese, initialTolerance: number) => {
     setSubstituteErrorState({ targetCheese, initialTolerance });
     setScreen('substitute-search');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleIncreaseRange = () => {
@@ -742,9 +803,7 @@ export default function App() {
     } else {
       setScreen('welcome');
     }
-    
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
   };
 
   if (isLoading) {
@@ -756,10 +815,17 @@ export default function App() {
       </div>
     );
   }
+  
+  console.log('🧀 Current screen:', screen, 'Scroll:', scrollContainerRef.current?.scrollTop);
 
   return (
-    <div className="size-full bg-background">
-      <Toaster />
+
+  <div 
+    key={screen}
+    ref={scrollContainerRef} 
+    className="size-full bg-background overflow-y-auto"
+  >
+          <Toaster />
       {screen === 'welcome' && <WelcomeScreen onSelectMode={handleModeSelect} />}
       
       {screen === 'name' && (

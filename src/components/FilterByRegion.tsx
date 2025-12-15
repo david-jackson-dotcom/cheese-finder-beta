@@ -86,52 +86,47 @@ export function FilterByRegion({ onSelectRegion, onBack }: FilterByRegionProps) 
       });
   }, []);
 
+
+{/* Standard page top  ------------------------ */}
   return (
-    <div className="min-h-screen bg-gold">
-      {/* Header */}
-      <div className="bg-gold">
-        <div className="relative px-6 py-6">
+    <div className="min-h-screen bg-background">
+      <div className="bg-gold px-6 py-4"> 
+        {/* Container for Back Button */}
+        <div className="relative">
           <Button
             onClick={onBack}
-            className="rounded-full gap-1 bg-accent text-white hover:bg-accent/90 shadow-lg"
+            className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
           >
-            <ChevronLeft className="h-5 w-5" />
+            <ChevronLeft className="h-6 w-6" />
             Back
           </Button>
         </div>
-        <div className="px-6 pb-6">
-          <h2 className="text-3xl text-accent text-center mb-2" style={{ fontFamily: 'Leckerli One, cursive' }}>
-            Pick a Place
-          </h2>
-          <p className="text-brown text-center" style={{ fontFamily: 'Cabin, sans-serif' }}>
-            Select a regional cuisine.
-          </p>
-        </div>
       </div>
-
-      <div className="max-w-2xl mx-auto px-6 pb-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="max-w-md mx-auto space-y-4 px-6 py-4">
+        <div className="px-6 mt-2"> 
+          <p className="text-brown text-center">Select a regional cuisine.</p>
+        </div>
+        
+{/* ------------ CONTENT ------------ */}
+		<div className="grid gap-3">
           {regions.map((region) => (
             <button
               key={region.name}
               onClick={() => onSelectRegion(region.name)}
-              className="relative p-5 rounded-2xl border-2 border-primary hover:border-accent hover:bg-accent/10 active:bg-accent/20 transition-all bg-white shadow-md touch-manipulation group"
+              className="relative p-5 rounded-2xl border-3 border-orange hover:border-primary hover:bg-primary/5 active:bg-primary/10 transition-all bg-card touch-manipulation"
             >
-              <div className="text-center">
-                <h3 className="text-2xl text-accent mb-2 group-hover:text-accent/90" style={{ fontFamily: 'Leckerli One, cursive' }}>
-                  {region.name}
-                </h3>
-                <div className="absolute top-4 right-4">
-                  <ChevronRight className="h-6 w-6 text-primary group-hover:text-accent" />
-                </div>
-                <p className="text-sm text-muted-foreground line-clamp-2" style={{ fontFamily: 'Cabin, sans-serif' }}>
-                  {region.count} {region.count === 1 ? 'variety' : 'varieties'} from {region.name}
-                </p>
+              <div className="relative">
+                <h3 className="text-[36px] text-dark-orange text-center mb-1">{region.name}</h3>
+                <ChevronRight className="text-dark-orange absolute right-0" style={{ height: '3.4ex', width: '3.4ex', bottom: '1ex' }} />
               </div>
+              <p className="text-sm text-muted-foreground text-center">{region.description}</p>
             </button>
           ))}
-        </div>
-      </div>
+          </div>
+          
+{/* ----------- END CONTENT ------------ */}
+
+      </div>	
     </div>
   );
 }

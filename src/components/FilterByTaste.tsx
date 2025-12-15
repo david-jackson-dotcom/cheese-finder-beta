@@ -22,7 +22,7 @@ const AVAILABLE_INCLUSIONS = [
   'herbs',
   'truffle',
   'nuts',
-  'fruit',
+  'fruit'
 ];
 
 export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
@@ -48,39 +48,38 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
     });
   };
 
+ {/* ------------------------ Standard page top  ------------------------ */}
+ 
   return (
-    <div className="min-h-screen bg-gold">
-      {/* Header */}
-      <div className="bg-gold">
-        <div className="relative px-6 py-6">
+    <div className="min-h-screen bg-background">
+      <div className="bg-gold px-6 py-4"> 
+        {/* Container for Back Button */}
+        <div className="relative">
           <Button
             onClick={onBack}
-            className="rounded-full gap-1 bg-accent text-white hover:bg-accent/90 shadow-lg"
+            className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
           >
-            <ChevronLeft className="h-5 w-5" />
+            <ChevronLeft className="h-6 w-6" />
             Back
           </Button>
         </div>
-        <div className="px-6 pb-6">
-          <h2 className="text-3xl text-accent text-center mb-2" style={{ fontFamily: 'Leckerli One, cursive' }}>
-            Taste Profile
-          </h2>
-          <p className="text-brown text-center" style={{ fontFamily: 'Cabin, sans-serif' }}>
-            How do you like your cheese? Use the sliders.
-          </p>
-        </div>
       </div>
+      <div className="max-w-md mx-auto space-y-4 px-6 py-4">
+        <div className="px-6 mt-2"> 
+          <p className="text-brown text-center">How do you like your cheese?</p>
+          <p className="text-brown/60 text-center">Slide the knobs.</p>
+        </div>
+        
+{/* ------------------------ CONTENT ------------------------ */}
 
-      <div className="max-w-md mx-auto space-y-8 px-6 py-8 pb-32">
+        {/* Sliders Block */}
         <div className="space-y-10">
           {/* Firmness Slider */}
-          <div className="space-y-4 p-6 rounded-2xl bg-white shadow-md border-2 border-primary">
+          <div className="space-y-4">
             <div className="flex justify-between items-baseline">
-              <label className="block text-accent text-xl" style={{ fontFamily: 'Leckerli One, cursive' }}>
-                Structure
-              </label>
-              <span className="text-sm text-primary" style={{ fontFamily: 'Cabin, sans-serif' }}>
-                {firmness < 33 ? 'Runny' : firmness > 66 ? 'Hard' : 'Firm'}
+              <label className="block text-accent font-bold">Structure</label>
+              <span className="text-sm text-orange font-light">
+                {firmness < 33 ? 'Runny' : firmness > 66 ? 'Waxy' : 'Firm'}
               </span>
             </div>
             <div className="space-y-3">
@@ -92,7 +91,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
                 step={1}
                 className="w-full"
               />
-              <div className="flex justify-between text-xs text-muted-foreground" style={{ fontFamily: 'Cabin, sans-serif' }}>
+              <div className="flex justify-between text-xs text-muted-foreground">
                 <span>Runny</span>
                 <span>Hard</span>
               </div>
@@ -100,12 +99,10 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
           </div>
 
           {/* Funkiness Slider */}
-          <div className="space-y-4 p-6 rounded-2xl bg-white shadow-md border-2 border-primary">
+          <div className="space-y-4">
             <div className="flex justify-between items-baseline">
-              <label className="block text-accent text-xl" style={{ fontFamily: 'Leckerli One, cursive' }}>
-                Bouquet
-              </label>
-              <span className="text-sm text-primary" style={{ fontFamily: 'Cabin, sans-serif' }}>
+              <label className="block text-accent font-bold">Bouquet</label>
+              <span className="text-sm text-orange font-light">
                 {funkiness < 33 ? 'Delicate' : funkiness > 66 ? 'Funky' : 'Balanced'}
               </span>
             </div>
@@ -118,7 +115,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
                 step={1}
                 className="w-full"
               />
-              <div className="flex justify-between text-xs text-muted-foreground" style={{ fontFamily: 'Cabin, sans-serif' }}>
+              <div className="flex justify-between text-xs text-muted-foreground">
                 <span>Delicate</span>
                 <span>Funky</span>
               </div>
@@ -126,13 +123,11 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
           </div>
 
           {/* Meltability Slider */}
-          <div className="space-y-4 p-6 rounded-2xl bg-white shadow-md border-2 border-primary">
+          <div className="space-y-4">
             <div className="flex justify-between items-baseline">
-              <label className="block text-accent text-xl" style={{ fontFamily: 'Leckerli One, cursive' }}>
-                Stability
-              </label>
-              <span className="text-sm text-primary" style={{ fontFamily: 'Cabin, sans-serif' }}>
-                {meltability < 33 ? "Won't melt" : meltability > 66 ? 'Melts' : 'Medium'}
+              <label className="block text-accent font-bold">Stability</label>
+              <span className="text-sm text-orange font-light">
+                {meltability < 33 ? 'Flakes' : meltability > 66 ? 'Gooey' : 'Medium'}
               </span>
             </div>
             <div className="space-y-3">
@@ -144,7 +139,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
                 step={1}
                 className="w-full"
               />
-              <div className="flex justify-between text-xs text-muted-foreground" style={{ fontFamily: 'Cabin, sans-serif' }}>
+              <div className="flex justify-between text-xs text-muted-foreground">
                 <span>Won't melt</span>
                 <span>Melts</span>
               </div>
@@ -152,16 +147,18 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
           </div>
         </div>
 
-        <div className="flex justify-center pt-4">
+        <div className="flex justify-center mt-10">
           <Button
-            className="gap-2 bg-accent text-white hover:bg-accent/90 active:bg-accent/80 rounded-full px-8 h-14 shadow-lg touch-manipulation"
-            style={{ fontFamily: 'Cabin, sans-serif' }}
+            className="w-auto gap-2 bg-orange-600 text-white hover:bg-orange-700 active:bg-orange-800 rounded-full px-6 min-h-[44px] touch-manipulation"
             onClick={handleSubmit}
           >
             Reveal that Cheesy Goodness
           </Button>
         </div>
+        
+{/* ------------------------ END CONTENT ------------------------ */}
+
       </div>
     </div>
-  );
+    );
 }

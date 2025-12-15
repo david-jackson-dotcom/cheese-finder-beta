@@ -326,6 +326,7 @@ export const CHEESES: CheeseEntity[] = [
   { Cheese_ID: 237, Name: 'Cantal Jeune', Description: 'Young Cantal cheese with mild, milky flavor.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'semi-hard', FlavorBySource: 'Cow: Fresh, buttery when young' },
   { Cheese_ID: 238, Name: 'Cantal Vieux', Description: 'Aged Cantal with sharp, complex flavor and crumbly texture.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'hard', FlavorBySource: 'Cow: 8+ months develops intense character' },
   { Cheese_ID: 239, Name: 'Laguiole', Description: 'Firm cheese from Aubrac with buttery, nutty notes.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'hard', FlavorBySource: 'Cow: Mountain pastures create unique terroir' },
+  { Cheese_ID: 240, Name: 'Chabichou du Poitou', Description: 'Goat cheese log with wrinkled rind and creamy center.', Milk_Type: 'Goat', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'soft', FlavorBySource: 'Goat: Goaty when fresh, nutty when aged' },
   { Cheese_ID: 241, Name: 'Sainte-Maure de Touraine', Description: 'Log-shaped goat cheese with straw through center.', Milk_Type: 'Goat', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'soft', FlavorBySource: 'Goat: Ash-coated with lemony tang' },
   { Cheese_ID: 242, Name: 'Pouligny-Saint-Pierre', Description: 'Pyramid goat cheese with delicate, complex flavor.', Milk_Type: 'Goat', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'soft', FlavorBySource: 'Goat: Eiffel Tower shape, refined taste' },
   { Cheese_ID: 243, Name: 'Brocciu', Description: 'Corsican fresh whey cheese, similar to ricotta.', Milk_Type: 'Sheep', Origin_Country: 'France', Rind_Type: 'None', Texture: 'soft', FlavorBySource: 'Sheep: Fresh, milky with slight sweetness' },
@@ -509,6 +510,7 @@ export const CHEESES: CheeseEntity[] = [
   { Cheese_ID: 433, Name: 'Sfela', Description: 'Greek whey cheese from Peloponnese.', Milk_Type: 'Sheep', Origin_Country: 'Greece', Rind_Type: 'None', Texture: 'semi-hard', FlavorBySource: 'Sheep: Salty, firm, traditional' },
   { Cheese_ID: 434, Name: 'Touloumotiri', Description: 'Greek cheese aged in goatskin bag.', Milk_Type: 'Mixed', Origin_Country: 'Greece', Rind_Type: 'None', Texture: 'soft', FlavorBySource: 'Sheep/Goat: Pungent, creamy' },
   { Cheese_ID: 435, Name: 'Xynotyri', Description: 'Greek sour cheese from Cyclades islands.', Milk_Type: 'Mixed', Origin_Country: 'Greece', Rind_Type: 'None', Texture: 'crumbly', FlavorBySource: 'Sheep/Goat: Sharp, acidic' },
+  { Cheese_ID: 436, Name: 'Halloumi Grilling Cheese', Description: 'Cypriot cheese perfect for grilling, squeaky texture.', Milk_Type: 'Mixed', Origin_Country: 'Cyprus', Rind_Type: 'None', Texture: 'semi-hard', FlavorBySource: 'Sheep/Goat: High melting point' },
   { Cheese_ID: 437, Name: 'Anari', Description: 'Cypriot whey cheese similar to ricotta.', Milk_Type: 'Mixed', Origin_Country: 'Cyprus', Rind_Type: 'None', Texture: 'soft', FlavorBySource: 'Sheep/Goat: Fresh, mild whey cheese' },
   { Cheese_ID: 438, Name: 'Kaskavall', Description: 'Balkan pasta filata cheese, stretchy when heated.', Milk_Type: 'Sheep', Origin_Country: 'Middle East', Rind_Type: 'Natural', Texture: 'semi-hard', FlavorBySource: 'Sheep: Regional variation of Kashkaval' },
   { Cheese_ID: 439, Name: 'Jibne Bel Mafluf', Description: 'Braided Middle Eastern cheese preserved in brine.', Milk_Type: 'Cow', Origin_Country: 'Middle East', Rind_Type: 'None', Texture: 'semi-hard', FlavorBySource: 'Cow: Twisted rope-like cheese' },
@@ -574,14 +576,48 @@ export const CHEESES: CheeseEntity[] = [
   
   // MORE ITALIAN VARIETIES (501-520)
   { Cheese_ID: 501, Name: 'Ricotta', Description: 'Fresh Italian whey cheese, light and creamy. Essential for lasagna and cannoli.', Milk_Type: 'Cow', Origin_Country: 'Italy', Rind_Type: 'None', Texture: 'soft', FlavorBySource: 'Cow: Mild, slightly sweet whey cheese' },
+  { Cheese_ID: 502, Name: 'Provolone Dolce', Description: 'Sweet, mild provolone aged 2-3 months. Excellent for sandwiches.', Milk_Type: 'Cow', Origin_Country: 'Italy', Rind_Type: 'Natural', Texture: 'semi-hard', FlavorBySource: 'Cow: Creamy, buttery with gentle flavor' },
   { Cheese_ID: 503, Name: 'Fresh Mozzarella', Description: 'Soft Italian cheese with milky flavor, perfect for Caprese salad.', Milk_Type: 'Cow', Origin_Country: 'Italy', Rind_Type: 'None', Texture: 'soft', FlavorBySource: 'Cow: Fresh, milky, delicate' },
+  { Cheese_ID: 504, Name: 'Grana Padano', Description: 'Hard Italian grating cheese similar to Parmesan but milder.', Milk_Type: 'Cow', Origin_Country: 'Italy', Rind_Type: 'Natural', Texture: 'hard', FlavorBySource: 'Cow: Nutty, slightly sweet, less sharp than Parmigiano' },
+  { Cheese_ID: 505, Name: 'Stracchino', Description: 'Soft Italian cheese with creamy, tangy flavor. Very spreadable.', Milk_Type: 'Cow', Origin_Country: 'Italy', Rind_Type: 'None', Texture: 'soft', FlavorBySource: 'Cow: Fresh, creamy, slightly acidic' },
+  { Cheese_ID: 506, Name: 'Crescenza', Description: 'Northern Italian soft cheese, delicate and buttery.', Milk_Type: 'Cow', Origin_Country: 'Italy', Rind_Type: 'None', Texture: 'soft', FlavorBySource: 'Cow: Mild, sweet, creamy' },
+  { Cheese_ID: 507, Name: 'Toma', Description: 'Semi-soft Italian mountain cheese with mild, nutty flavor.', Milk_Type: 'Cow', Origin_Country: 'Italy', Rind_Type: 'Natural', Texture: 'semi-soft', FlavorBySource: 'Cow: Alpine grazing creates grassy notes' },
+  { Cheese_ID: 508, Name: 'Caciotta', Description: 'Small Italian cheese wheel, mild and semi-soft.', Milk_Type: 'Mixed', Origin_Country: 'Italy', Rind_Type: 'Natural', Texture: 'semi-soft', FlavorBySource: 'Mixed: Versatile, gentle flavor' },
+  { Cheese_ID: 509, Name: 'Primo Sale', Description: 'Sicilian first-salt cheese, fresh and mild.', Milk_Type: 'Sheep', Origin_Country: 'Italy', Rind_Type: 'None', Texture: 'soft', FlavorBySource: 'Sheep: Lightly salted, sweet milk flavor' },
   { Cheese_ID: 510, Name: 'Cacioricotta', Description: 'Southern Italian cheese that\'s half cheese, half ricotta.', Milk_Type: 'Goat', Origin_Country: 'Italy', Rind_Type: 'None', Texture: 'crumbly', FlavorBySource: 'Goat: Tangy, semi-dry texture' },
+  { Cheese_ID: 511, Name: 'Canestrato', Description: 'Hard Italian cheese aged in woven baskets, creating distinctive pattern.', Milk_Type: 'Sheep', Origin_Country: 'Italy', Rind_Type: 'Natural', Texture: 'hard', FlavorBySource: 'Sheep: Sharp, aromatic with basket imprint' },
+  { Cheese_ID: 512, Name: 'Fiore Sardo', Description: 'Sardinian sheep cheese with smoky, sharp flavor.', Milk_Type: 'Sheep', Origin_Country: 'Italy', Rind_Type: 'Natural', Texture: 'hard', FlavorBySource: 'Sheep: Smoked, intensely flavored' },
+  { Cheese_ID: 513, Name: 'Montasio', Description: 'Northern Italian cheese from Friuli, nutty when aged.', Milk_Type: 'Cow', Origin_Country: 'Italy', Rind_Type: 'Natural', Texture: 'hard', FlavorBySource: 'Cow: Fruity when young, sharp when aged' },
+  { Cheese_ID: 514, Name: 'Ragusano', Description: 'Sicilian stretched cheese aged in rectangular blocks.', Milk_Type: 'Cow', Origin_Country: 'Italy', Rind_Type: 'Natural', Texture: 'hard', FlavorBySource: 'Cow: Spicy, complex from long aging' },
+  { Cheese_ID: 515, Name: 'Bra', Description: 'Piedmont cheese available soft or hard, mild or aged.', Milk_Type: 'Cow', Origin_Country: 'Italy', Rind_Type: 'Natural', Texture: 'semi-hard', FlavorBySource: 'Cow: Delicate when young, spicy when aged' },
+  { Cheese_ID: 516, Name: 'Bitto', Description: 'Alpine cheese from Lombardy, aged up to 10 years.', Milk_Type: 'Cow', Origin_Country: 'Italy', Rind_Type: 'Natural', Texture: 'hard', FlavorBySource: 'Cow: Mountain milk creates complex, fruity character' },
+  { Cheese_ID: 517, Name: 'Puzzone di Moena', Description: 'Washed-rind cheese from Trentino with pungent aroma.', Milk_Type: 'Cow', Origin_Country: 'Italy', Rind_Type: 'Washed', Texture: 'semi-soft', FlavorBySource: 'Cow: Strong smell, mild taste' },
   { Cheese_ID: 518, Name: 'Casciotta', Description: 'Umbrian cheese with delicate, slightly sweet flavor.', Milk_Type: 'Mixed', Origin_Country: 'Italy', Rind_Type: 'Natural', Texture: 'semi-soft', FlavorBySource: 'Sheep/Cow: Gentle, buttery' },
+  { Cheese_ID: 519, Name: 'Silter', Description: 'Hard cheese from Lombardy aged in mountain cellars.', Milk_Type: 'Cow', Origin_Country: 'Italy', Rind_Type: 'Natural', Texture: 'hard', FlavorBySource: 'Cow: Alpine herbs create aromatic profile' },
   { Cheese_ID: 520, Name: 'Squacquerone', Description: 'Spreadable cheese from Romagna, creamy and tangy.', Milk_Type: 'Cow', Origin_Country: 'Italy', Rind_Type: 'None', Texture: 'soft', FlavorBySource: 'Cow: Fresh, acidic, spreadable' },
 
   // MORE FRENCH VARIETIES (521-540)
   { Cheese_ID: 521, Name: 'Saint-Marcellin', Description: 'Small French cheese from Dauphiné, creamy and mild.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Bloomy', Texture: 'soft', FlavorBySource: 'Cow: Delicate, slightly nutty' },
+  { Cheese_ID: 522, Name: 'Chaource', Description: 'Champagne region cheese with buttery, mushroomy flavor.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Bloomy', Texture: 'soft', FlavorBySource: 'Cow: Rich, creamy interior' },
+  { Cheese_ID: 523, Name: 'Fourme d\'Ambert', Description: 'Mild French blue cheese with creamy texture.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'semi-soft', FlavorBySource: 'Cow: Gentle blue, fruity notes' },
+  { Cheese_ID: 524, Name: 'Bleu d\'Auvergne', Description: 'French blue cheese with sharp, peppery flavor.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'semi-soft', FlavorBySource: 'Cow: Spicy, moist blue' },
+  { Cheese_ID: 525, Name: 'Tomme de Savoie', Description: 'Alpine cheese with gray rind and nutty flavor.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'semi-hard', FlavorBySource: 'Cow: Rustic, earthy, grassy' },
+  { Cheese_ID: 526, Name: 'Livarot', Description: 'Normandy washed-rind cheese with pungent aroma.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Washed', Texture: 'soft', FlavorBySource: 'Cow: Strong, spicy, complex' },
+  { Cheese_ID: 527, Name: 'Pont-l\'Évêque', Description: 'Square Norman cheese with creamy, savory flavor.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Washed', Texture: 'soft', FlavorBySource: 'Cow: Barnyard aroma, smooth taste' },
+  { Cheese_ID: 528, Name: 'Munster', Description: 'Alsatian washed-rind cheese with strong smell and creamy interior.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Washed', Texture: 'soft', FlavorBySource: 'Cow: Pungent rind, mild paste' },
+  { Cheese_ID: 529, Name: 'Cantal', Description: 'Ancient French cheese similar to Cheddar, nutty and firm.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'semi-hard', FlavorBySource: 'Cow: Tangy, buttery, aged character' },
+  { Cheese_ID: 530, Name: 'Salers', Description: 'Auvergne cheese made from summer mountain milk.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'hard', FlavorBySource: 'Cow: Complex, fruity, herbaceous' },
+  { Cheese_ID: 531, Name: 'Mimolette', Description: 'Orange French cheese with firm, nutty character.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'hard', FlavorBySource: 'Cow: Caramel notes when aged' },
+  { Cheese_ID: 532, Name: 'Picodon', Description: 'Small goat cheese from Drôme with nutty flavor.', Milk_Type: 'Goat', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'soft', FlavorBySource: 'Goat: Firm when aged, creamy when young' },
+  { Cheese_ID: 533, Name: 'Selles-sur-Cher', Description: 'Loire Valley goat cheese coated in ash.', Milk_Type: 'Goat', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'soft', FlavorBySource: 'Goat: Nutty, slightly acidic' },
+  { Cheese_ID: 534, Name: 'Valençay', Description: 'Pyramid-shaped goat cheese with lemony tang.', Milk_Type: 'Goat', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'soft', FlavorBySource: 'Goat: Delicate, ash-coated' },
+  { Cheese_ID: 535, Name: 'Rocamadour', Description: 'Tiny goat cheese from southwestern France.', Milk_Type: 'Goat', Origin_Country: 'France', Rind_Type: 'Bloomy', Texture: 'soft', FlavorBySource: 'Goat: Creamy, slightly sweet' },
+  { Cheese_ID: 536, Name: 'Maroilles', Description: 'Square washed-rind cheese from Nord with powerful aroma.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Washed', Texture: 'soft', FlavorBySource: 'Cow: Intense smell, savory taste' },
+  { Cheese_ID: 537, Name: 'Bleu de Gex', Description: 'Jura blue cheese with mild, creamy flavor.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'semi-soft', FlavorBySource: 'Cow: Gentle blue, mountain character' },
   { Cheese_ID: 538, Name: 'Bleu des Causses', Description: 'Blue cheese from limestone caves with sharp flavor.', Milk_Type: 'Cow', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'semi-soft', FlavorBySource: 'Cow: Bold, spicy blue' },
+  { Cheese_ID: 539, Name: 'Banon', Description: 'Provençal goat cheese wrapped in chestnut leaves.', Milk_Type: 'Goat', Origin_Country: 'France', Rind_Type: 'None', Texture: 'soft', FlavorBySource: 'Goat: Earthy, leaf-wrapped' },
+  { Cheese_ID: 540, Name: 'Pélardon', Description: 'Small goat cheese from Languedoc with tangy flavor.', Milk_Type: 'Goat', Origin_Country: 'France', Rind_Type: 'Natural', Texture: 'soft', FlavorBySource: 'Goat: Creamy to firm depending on age' },
+
   // MORE ASIAN VARIETIES (541-560)
   { Cheese_ID: 541, Name: 'Afghan Qurut', Description: 'Dried yogurt balls from Afghanistan, salty and tangy.', Milk_Type: 'Cow', Origin_Country: 'Afghanistan', Rind_Type: 'None', Texture: 'hard', FlavorBySource: 'Cow: Intense, salty, sun-dried' },
   { Cheese_ID: 542, Name: 'Pakistani Khoya', Description: 'Condensed milk cheese used in sweets.', Milk_Type: 'Buffalo', Origin_Country: 'Pakistan', Rind_Type: 'None', Texture: 'soft', FlavorBySource: 'Buffalo: Sweet, rich, caramelized' },
@@ -705,7 +741,7 @@ export const CHEESES: CheeseEntity[] = [
   { Cheese_ID: 642, Name: 'Jersey Farmhouse', Description: 'Traditional farmhouse cheese from Jersey herds.', Milk_Type: 'Cow', Origin_Country: 'United Kingdom', Rind_Type: 'Natural', Texture: 'semi-hard', FlavorBySource: 'Cow: Heritage Jersey milk creates rich, complex flavor', Is_A2: true },
   { Cheese_ID: 643, Name: 'A2 Cream Cheese', Description: 'Spreadable A2 cream cheese, mild and creamy.', Milk_Type: 'Cow', Origin_Country: 'United States', Rind_Type: 'None', Texture: 'soft', FlavorBySource: 'Cow: A2 milk and cream create smooth spread', Is_A2: true },
   { Cheese_ID: 644, Name: 'A2 Gouda', Description: 'Mild A2 Gouda with buttery sweetness.', Milk_Type: 'Cow', Origin_Country: 'Netherlands', Rind_Type: 'Wax', Texture: 'semi-hard', FlavorBySource: 'Cow: A2 milk develops caramel notes', Is_A2: true },
-  { Cheese_ID: 645, Name: 'Guernsey Soft Cheese', Description: 'Fresh, spreadable cheese from Guernsey milk.', Milk_Type: 'Cow', Origin_Country: 'United Kingdom', Rind_Type: 'None', Texture: 'soft', FlavorBySource: 'Cow: Rich Guernsey cream creates luxurious spread', Is_A2: true }
+  { Cheese_ID: 645, Name: 'Guernsey Soft Cheese', Description: 'Fresh, spreadable cheese from Guernsey milk.', Milk_Type: 'Cow', Origin_Country: 'United Kingdom', Rind_Type: 'None', Texture: 'soft', FlavorBySource: 'Cow: Rich Guernsey cream creates luxurious spread', Is_A2: true },
 ];
 
 // TABLE 2: ATTRIBUTES (Tag/Group Library)
@@ -769,7 +805,7 @@ export const ATTRIBUTES: Attribute[] = [
   { Attribute_ID: 702, Attribute_Type: 'Inclusion', Attribute_Value: 'Caraway' },
   { Attribute_ID: 703, Attribute_Type: 'Inclusion', Attribute_Value: 'Wine' },
   { Attribute_ID: 704, Attribute_Type: 'Inclusion', Attribute_Value: 'Herbs' },
-  { Attribute_ID: 705, Attribute_Type: 'Inclusion', Attribute_Value: 'Truffles' }
+  { Attribute_ID: 705, Attribute_Type: 'Inclusion', Attribute_Value: 'Truffles' },
 ];
 
 // TABLE 3: CHEESE_ATTRIBUTE_MAPPING (The Linker)
