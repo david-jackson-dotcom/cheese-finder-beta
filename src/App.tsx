@@ -136,7 +136,7 @@ const handleApplyTasteFilters = (filters: {
     if (value <= 66) return 'semi-firm';
     if (value <= 77) return 'firm';
     if (value <= 88) return 'hard';
-    return 'rocky!';
+    return 'solid!';
   };
 
   const getBouquetLabel = (value: number): string => {

@@ -19,7 +19,7 @@ function getBodyLabel(value: number): string {
   if (value <= 66) return 'semi-firm';
   if (value <= 77) return 'firm';
   if (value <= 88) return 'hard';
-  return 'rocky!';
+  return 'solid!';
 }
 
 function getBouquetLabel(value: number): string {

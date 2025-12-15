@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Slider } from './ui/slider';
 import { Button } from './ui/button';
-import { Badge } from './ui/badge';
 import { ChevronLeft } from 'lucide-react';
 
 interface FilterByTasteProps {
@@ -14,29 +13,46 @@ interface FilterByTasteProps {
   onBack: () => void;
 }
 
-const AVAILABLE_INCLUSIONS = [
-  'caraway',
-  'peppers',
-  'wine',
-  'beer',
-  'herbs',
-  'truffle',
-  'nuts',
-  'fruit'
-];
-
 export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
   const [firmness, setFirmness] = useState(50);
   const [funkiness, setFunkiness] = useState(50);
   const [meltability, setMeltability] = useState(50);
-  const [selectedInclusions, setSelectedInclusions] = useState<string[]>([]);
 
-  const toggleInclusion = (inclusion: string) => {
-    setSelectedInclusions((prev) =>
-      prev.includes(inclusion)
-        ? prev.filter((i) => i !== inclusion)
-        : [...prev, inclusion]
-    );
+  // 9-level label system matching App.tsx
+  const getBodyLabel = (value: number): string => {
+    if (value <= 11) return 'drippy!';
+    if (value <= 22) return 'creamy';
+    if (value <= 33) return 'spreadable';
+    if (value <= 44) return 'soft';
+    if (value <= 55) return 'semi-soft';
+    if (value <= 66) return 'semi-firm';
+    if (value <= 77) return 'firm';
+    if (value <= 88) return 'hard';
+    return 'solid!';
+  };
+
+  const getBouquetLabel = (value: number): string => {
+    if (value <= 11) return 'delicate!';
+    if (value <= 22) return 'polite';
+    if (value <= 33) return 'subtle';
+    if (value <= 44) return 'moderate';
+    if (value <= 55) return 'balanced';
+    if (value <= 66) return 'aromatic';
+    if (value <= 77) return 'strong';
+    if (value <= 88) return 'funky';
+    return 'angry!';
+  };
+
+  const getStabilityLabel = (value: number): string => {
+    if (value <= 11) return 'stubborn!';
+    if (value <= 22) return 'softens';
+    if (value <= 33) return 'holds shape';
+    if (value <= 44) return 'melts firm';
+    if (value <= 55) return 'stretchy';
+    if (value <= 66) return 'flows smooth';
+    if (value <= 77) return 'creamy';
+    if (value <= 88) return 'gooey';
+    return 'puddles!';
   };
 
   const handleSubmit = () => {
@@ -44,7 +60,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
       firmness,
       funkiness,
       meltability,
-      inclusions: selectedInclusions,
+      inclusions: [],
     });
   };
 
@@ -71,15 +87,14 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
         </div>
         
 {/* ------------------------ CONTENT ------------------------ */}
-
         {/* Sliders Block */}
         <div className="space-y-10">
           {/* Firmness Slider */}
           <div className="space-y-4">
             <div className="flex justify-between items-baseline">
-              <label className="block text-accent font-bold">Structure</label>
+              <label className="block text-accent font-bold">Body</label>
               <span className="text-sm text-orange font-light">
-                {firmness < 33 ? 'Runny' : firmness > 66 ? 'Waxy' : 'Firm'}
+                {getBodyLabel(firmness)}
               </span>
             </div>
             <div className="space-y-3">
@@ -92,8 +107,8 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
                 className="w-full"
               />
               <div className="flex justify-between text-xs text-muted-foreground">
-                <span>Runny</span>
-                <span>Hard</span>
+                <span>looser</span>
+                <span>firmer</span>
               </div>
             </div>
           </div>
@@ -103,7 +118,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
             <div className="flex justify-between items-baseline">
               <label className="block text-accent font-bold">Bouquet</label>
               <span className="text-sm text-orange font-light">
-                {funkiness < 33 ? 'Delicate' : funkiness > 66 ? 'Funky' : 'Balanced'}
+                {getBouquetLabel(funkiness)}
               </span>
             </div>
             <div className="space-y-3">
@@ -116,8 +131,8 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
                 className="w-full"
               />
               <div className="flex justify-between text-xs text-muted-foreground">
-                <span>Delicate</span>
-                <span>Funky</span>
+                <span>lighter</span>
+                <span>stronger</span>
               </div>
             </div>
           </div>
@@ -125,9 +140,9 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
           {/* Meltability Slider */}
           <div className="space-y-4">
             <div className="flex justify-between items-baseline">
-              <label className="block text-accent font-bold">Stability</label>
+              <label className="block text-accent font-bold">Meltiness</label>
               <span className="text-sm text-orange font-light">
-                {meltability < 33 ? 'Flakes' : meltability > 66 ? 'Gooey' : 'Medium'}
+                {getStabilityLabel(meltability)}
               </span>
             </div>
             <div className="space-y-3">
@@ -140,8 +155,8 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
                 className="w-full"
               />
               <div className="flex justify-between text-xs text-muted-foreground">
-                <span>Won't melt</span>
-                <span>Melts</span>
+                <span>less</span>
+                <span>more</span>
               </div>
             </div>
           </div>
@@ -149,7 +164,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
 
         <div className="flex justify-center mt-10">
           <Button
-            className="w-auto gap-2 bg-orange-600 text-white hover:bg-orange-700 active:bg-orange-800 rounded-full px-6 min-h-[44px] touch-manipulation"
+            className="rounded-full gap-1 bg-dark-orange text-accent-foreground hover:bg-accent/80"
             onClick={handleSubmit}
           >
             Reveal that Cheesy Goodness
@@ -157,7 +172,6 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
         </div>
         
 {/* ------------------------ END CONTENT ------------------------ */}
-
       </div>
     </div>
     );

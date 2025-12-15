@@ -88,8 +88,8 @@ export function ResultsView({ cheeses, onBack, filterDescription, isA2Search, on
                 </>
               ) : (
                 <>
-                  <h2 className="text-xl">No matches found.</h2>
-                  <p className="text-dark-orange max-w-xs mx-auto">
+                  <h2 className="text-xl text-magenta">No matches found.</h2>
+                  <p className="text-brown max-w-xs mx-auto">
                     Try adjusting your preferences<br />to discover more cheeses.
                   </p>
                   <Button onClick={onBack} className="mt-4">

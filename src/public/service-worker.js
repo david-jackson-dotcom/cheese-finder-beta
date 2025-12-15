@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cheese-finder-v1';
+const CACHE_NAME = 'v0.9.1';
 const RUNTIME_CACHE = 'cheese-finder-runtime';
 
 // Assets to cache on install

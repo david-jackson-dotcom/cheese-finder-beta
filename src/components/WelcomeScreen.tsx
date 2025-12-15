@@ -192,7 +192,7 @@ className="mt-12 mx-auto w-14 h-14 bg-white rounded-full flex items-center justi
           </DialogHeader>
           <div className="space-y-6 py-4">
             <p className="text-center text-orange" style={{ fontFamily: 'Cabin' }}>
-              v0.9.0.beta
+              v0.9.1.beta
             </p>
             <p className="text-center text-brown" style={{ fontFamily: 'Cabin' }}>
               © David Jackson 2025
