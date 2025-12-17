@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Slider } from './ui/slider';
 import { Button } from './ui/button';
-import { ChevronLeft } from 'lucide-react';
+import { ChevronLeft, ChevronUp, ChevronDown } from 'lucide-react';
 
 interface FilterByTasteProps {
   onApplyFilters: (filters: {
@@ -20,7 +20,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
 
   // 9-level label system matching App.tsx
   const getBodyLabel = (value: number): string => {
-    if (value <= 11) return 'drippy!';
+    if (value <= 11) return 'drippy';
     if (value <= 22) return 'creamy';
     if (value <= 33) return 'spreadable';
     if (value <= 44) return 'soft';
@@ -32,7 +32,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
   };
 
   const getBouquetLabel = (value: number): string => {
-    if (value <= 11) return 'delicate!';
+    if (value <= 11) return 'delicate';
     if (value <= 22) return 'polite';
     if (value <= 33) return 'subtle';
     if (value <= 44) return 'moderate';
@@ -44,7 +44,7 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
   };
 
   const getStabilityLabel = (value: number): string => {
-    if (value <= 11) return 'stubborn!';
+    if (value <= 11) return 'stubborn';
     if (value <= 22) return 'softens';
     if (value <= 33) return 'holds shape';
     if (value <= 44) return 'melts firm';
@@ -88,16 +88,16 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
         
         {/* ------------------------ CONTENT ------------------------ */}
         {/* Sliders Block */}
-        <div className="space-y-10">
+        <div className="space-y-11">
           {/* Firmness Slider */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             <div className="flex justify-between items-baseline">
-              <label className="block text-accent font-bold">Body</label>
-              <span className="text-sm text-orange font-light">
+              <label className="block text-accent font-bold tracking-wider">Body</label>
+              <span className="text-m text-dark-orange font-light">
                 {getBodyLabel(firmness)}
               </span>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-2">
               <Slider
                 value={[firmness]}
                 onValueChange={(value) => setFirmness(value[0])}
@@ -106,18 +106,23 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
                 step={1}
                 className="w-full"
               />
-              <div className="flex justify-between text-xs text-muted-foreground">
-                <span>looser</span>
-                <span>firmer</span>
-              </div>
+				<div className="flex justify-between text-xs text-orange">
+				  <span className="flex items-center gap-1">
+					<ChevronDown className="h-5 w-5 text-orange" />
+					less
+				  </span>
+				  <span className="flex items-center gap-1">more
+					<ChevronUp className="h-5 w-5 text-orange" />
+				  </span>
+				</div>
             </div>
           </div>
 
           {/* Funkiness Slider */}
-          <div className="space-y-4">
+          <div className="space-y-2">
             <div className="flex justify-between items-baseline">
-              <label className="block text-accent font-bold">Bouquet</label>
-              <span className="text-sm text-orange font-light">
+              <label className="block text-accent font-bold tracking-wider">Bouquet</label>
+              <span className="text-m text-dark-orange font-light">
                 {getBouquetLabel(funkiness)}
               </span>
             </div>
@@ -130,18 +135,24 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
                 step={1}
                 className="w-full"
               />
-              <div className="flex justify-between text-xs text-muted-foreground">
-                <span>lighter</span>
-                <span>stronger</span>
-              </div>
+              				<div className="flex justify-between text-xs text-orange">
+				  <span className="flex items-center gap-1">
+					<ChevronDown className="h-5 w-5 text-orange" />
+					less
+				  </span>
+				  <span className="flex items-center gap-1">more
+					<ChevronUp className="h-5 w-5 text-orange" />
+				  </span>
+				</div>
+
             </div>
           </div>
 
           {/* Meltability Slider */}
-          <div className="space-y-4">
+          <div className="space-y-2">
             <div className="flex justify-between items-baseline">
-              <label className="block text-accent font-bold">Meltiness</label>
-              <span className="text-sm text-orange font-light">
+              <label className="block text-accent font-bold tracking-wider">Meltiness</label>
+              <span className="text-m text-dark-orange font-light">
                 {getStabilityLabel(meltability)}
               </span>
             </div>
@@ -154,10 +165,16 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
                 step={1}
                 className="w-full"
               />
-              <div className="flex justify-between text-xs text-muted-foreground">
-                <span>less</span>
-                <span>more</span>
-              </div>
+              				<div className="flex justify-between text-xs text-orange">
+				  <span className="flex items-center gap-1">
+					<ChevronDown className="h-5 w-5 text-orange" />
+					less
+				  </span>
+				  <span className="flex items-center gap-1">more
+					<ChevronUp className="h-5 w-5 text-orange" />
+				  </span>
+				</div>
+
             </div>
           </div>
         </div>

@@ -160,10 +160,10 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
                     className="mt-1"
                   />
                   <div className="flex-1 space-y-1">
-                    <Label className="cursor-pointer text-dark-orange font-bold">
+                    <Label className="cursor-pointer text-dark-orange tracking-wide font-bold">
                       {option.label}
                     </Label>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-brown">
                       {option.description}
                     </p>
                   </div>
@@ -173,9 +173,9 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
           </div>
         </div>
 
-        {/* Additional Dietary Filters */}
+        {/* Additional Filters */}
         <div className="space-y-4 my-5">
-          <Label className="text-brown text-center block">Additional Preferences</Label>
+          <Label className="text-brown text-center block">Additional Preferences:</Label>
           
           <div className="space-y-3">
             {/* Low Lactose */}
@@ -194,10 +194,10 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
                   className="mt-1"
                 />
                 <div className="flex-1 space-y-1">
-                  <Label className="cursor-pointer">
-                    Lower Lactose (Aged Cheeses)
+                  <Label className="cursor-pointer text-dark-orange tracking-wide font-bold">
+                    Lower Lactose (Aged)
                   </Label>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-brown">
                     Hard and aged cheeses have naturally lower lactose content
                   </p>
                 </div>
@@ -220,11 +220,11 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
                   className="mt-1"
                 />
                 <div className="flex-1 space-y-1">
-                  <Label className="cursor-pointer">
+                  <Label className="cursor-pointer text-dark-orange tracking-wide font-bold">
                     Just Cheese
                   </Label>
-                  <p className="text-sm text-muted-foreground">
-                    Pure cheese without smoke, peppers, herbs, wine, fruit, truffles, seeds, pixie dust, or other additions
+                  <p className="text-sm text-brown">
+                    Pure cheese without smoke, peppers, herbs, wine, fruit, truffles, seeds, pixie dust, or other condiment
                   </p>
                 </div>
               </div>

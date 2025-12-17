@@ -93,7 +93,7 @@ export function CheeseCard({ cheese }: CheeseCardProps) {
         {/* Flavor by Source */}
         {cheese.flavorBySource && (
           <div className="px-4 py-3 bg-butter rounded-xl">
-            <p className="text-sm italic text-foreground/80">
+            <p className="text-sm italic tracking-wide text-brown/80">
               {cheese.flavorBySource.replace(/^[^:]+:\s*/, '')}
             </p>
           </div>
@@ -108,7 +108,7 @@ export function CheeseCard({ cheese }: CheeseCardProps) {
                 <Badge
                   key={flavor}
                   variant="secondary"
-                  className="rounded-full capitalize"
+                  className="rounded-full capitalize text-brown"
                 >
                   {flavor}
                 </Badge>
@@ -126,7 +126,7 @@ export function CheeseCard({ cheese }: CheeseCardProps) {
                 <Badge
                   key={use}
                   variant="outline"
-                  className="rounded-full capitalize border-primary/40"
+                  className="rounded-full capitalize border-primary/40 text-brown"
                 >
                   {use}
                 </Badge>

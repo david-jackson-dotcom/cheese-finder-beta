@@ -208,27 +208,32 @@ export function WhatAreYouMaking({ onSelectUsage, onBack, onSubstituteSearch, on
     }
   };
 
+{/* Standard page top  ------------------------ */}
   return (
-    <div className="min-h-screen bg-gold">
-      {/* Header */}
-      <div className="bg-gold">
-        <div className="relative px-6 py-14">
-          <div className="absolute left-6 top-1/2 -translate-y-1/2">
-            <Button
-              onClick={onBack}
-              className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
-            >
-              <ChevronLeft className="h-6 w-6" />
-              Back
-            </Button>
-          </div>
+    <div className="min-h-screen bg-background">
+      <div className="bg-gold px-6 py-4"> 
+        {/* Container for Back Button */}
+        <div className="relative">
+          <Button
+            onClick={onBack}
+            className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
+          >
+            <ChevronLeft className="h-6 w-6" />
+            Back
+          </Button>
         </div>
-        <div className="px-6 pb-4">
+      </div>
+      <div className="max-w-md mx-auto space-y-4 px-6 py-2">
+       
+{/* ------------ CONTENT ------------ */}
+        {/* Name Search Input Block */}
+        <div className="space-y-2">
+         <div className="px-6"> 
           <p className="text-brown text-center">What are you planning?</p>
         </div>
       </div>
-
-      <div className="max-w-md mx-auto space-y-8 px-6 py-8">
+	</div>
+      <div className="max-w-md mx-auto space-y-8 px-6 py-2">
         <div className="grid gap-3">
           {USAGE_OPTIONS.map((option) => (
             <button
@@ -252,7 +257,7 @@ export function WhatAreYouMaking({ onSelectUsage, onBack, onSubstituteSearch, on
 
         {/* Substitute Search Section */}
         <div className="space-y-4">
-          <p className="text-brown text-center">I'm not sure. I just need a substitution for</p>
+          <p className="text-brown text-center">I'm not sure. I just need a substitution for …</p>
           
           <input
             type="text"
@@ -264,7 +269,7 @@ export function WhatAreYouMaking({ onSelectUsage, onBack, onSubstituteSearch, on
             style={{ fontFamily: 'Cabin' }}
           />
 
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-1">
             <Button
               onClick={handleSubstituteSearch}
               disabled={isSearching || !substituteInput.trim()}

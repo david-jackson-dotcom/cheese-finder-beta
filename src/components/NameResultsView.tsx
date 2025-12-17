@@ -171,7 +171,7 @@ export function NameResultsView({ searchType, nameResult, tagsResult, onBack, on
                   {partialMatches.length > 0 && (
                     <div className="space-y-6 mt-8">
                       <h2 className="text-center text-brown" style={{ fontFamily: 'Cabin' }}>
-                        Partial matches
+                        Partial matches:
                       </h2>
                       
                       {partialMatches.map((group) => (

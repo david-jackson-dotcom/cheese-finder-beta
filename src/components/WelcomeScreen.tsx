@@ -121,7 +121,7 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
 
       
 
-      <p className="text-base text-dark-orange" style={{ fontFamily: 'Montserrat, serif', fontWeight: 500 }}>
+      <p className="text-base text-dark-orange tracking-wide" style={{ fontFamily: 'Montserrat, serif', fontWeight: 500 }}>
        — DISCOVER YOUR BLISS —
       </p>
 	 
@@ -136,7 +136,7 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
       <div className="space-y-4">
         <Button
           size="lg"
-          className="w-full h-16 text-3xl rounded-2xl bg-accent hover:bg-accent/90 active:bg-accent/80 transition-all text-white touch-manipulation border-3 border-accent font-semibold"
+          className="tracking-wide w-full h-16 text-3xl rounded-2xl bg-accent hover:bg-accent/90 active:bg-accent/80 transition-all text-white touch-manipulation border-3 border-accent font-semibold"
           style={{ fontFamily: 'Montserrat, sans-serif' }}
           onClick={() => onSelectMode('name')}
         >
@@ -144,7 +144,7 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
         </Button>
         <Button
           size="lg"
-          className="w-full h-16 text-3xl rounded-2xl bg-primary hover:bg-primary/90 active:bg-primary/80 transition-all text-white touch-manipulation border-3 border-accent font-semibold"
+          className="tracking-wide w-full h-16 text-3xl rounded-2xl bg-primary hover:bg-primary/90 active:bg-primary/80 transition-all text-white touch-manipulation border-3 border-accent font-semibold"
 		 style={{ fontFamily: 'Montserrat, sans-serif' }}
           onClick={() => onSelectMode('taste')}
         >
@@ -152,7 +152,7 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
         </Button>
         <Button
           size="lg"
-          className="w-full h-16 text-3xl rounded-2xl bg-orange hover:bg-orange/90 active:bg-orange/90 transition-all text-accent touch-manipulation border-3 border-primary font-semibold"
+          className="tracking-wide w-full h-16 text-3xl rounded-2xl bg-orange hover:bg-orange/90 active:bg-orange/90 transition-all text-accent touch-manipulation border-3 border-primary font-semibold"
 		 style={{ fontFamily: 'Montserrat, sans-serif' }}
           onClick={() => onSelectMode('region')}
         >
@@ -160,7 +160,7 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
         </Button>
         <Button
           size="lg"
-          className="w-full h-16 text-3xl rounded-2xl bg-butter hover:bg-butter/90 active:bg-butter/80 transition-all text-primary touch-manipulation border-3 border-orange font-semibold"
+          className="tracking-wide w-full h-16 text-3xl rounded-2xl bg-butter hover:bg-butter/90 active:bg-butter/80 transition-all text-primary touch-manipulation border-3 border-orange font-semibold"
 		 style={{ fontFamily: 'Montserrat, sans-serif' }}          onClick={() => onSelectMode('animal')}
         >
           BEAST
@@ -170,7 +170,7 @@ export function WelcomeScreen({ onSelectMode }: WelcomeScreenProps) {
       {/* About Button - Cheese Icon */}
       <button
         onClick={() => setShowAbout(true)}
-className="mt-12 mx-auto w-14 h-14 bg-white rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform touch-manipulation"
+className="mt-12 mx-auto w-13 h-13 bg-white rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-transform touch-manipulation"
         aria-label="About"
       >
         <img src="./cheese-icon.svg" alt="" className="w-12 h-12" />
@@ -178,7 +178,7 @@ className="mt-12 mx-auto w-14 h-14 bg-white rounded-full flex items-center justi
 </div>
       {/* About Dialog */}
       <Dialog open={showAbout} onOpenChange={setShowAbout}>
-        <DialogContent className="sm:max-w-md bg-butter border-2 border-primary">
+        <DialogContent className="sm:max-w-md !bg-butter border-2 border-primary">
           <DialogHeader className="mt-[30px] mr-[0px] mb-[0px] ml-[0px]">
             <DialogTitle 
   className="text-center text-accent text-6xl sm:text-7xl" 

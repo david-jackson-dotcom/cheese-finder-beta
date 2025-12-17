@@ -1,39 +1,22 @@
-import { Cheese } from '../types/cheese';
-
-export interface ShareData {
-  title: string;
-  text: string;
-  url: string;
-}
-
-/**
- * Generate share content for a cheese
- */
 export function generateCheeseShareData(cheese: Cheese): ShareData {
   const milkTypes = cheese.milk.map(m => m.toLowerCase() === 'mixed' ? 'blend' : m.toLowerCase()).join(', ');
-  
-  return {
-    title: `${cheese.name} Cheese`,
-    text: `Check out ${cheese.name} - a ${milkTypes} milk cheese from ${cheese.origin}! ${cheese.description.slice(0, 100)}...`,
-    url: 'https://bit.ly/cheese-finder-app',
-  };
+
+return {
+  title: `${cheese.name} Cheese`,
+  text: `${cheese.name} — a ${milkTypes} milk cheese from ${cheese.origin}: ${cheese.description.slice(0, 100)}`,
+};
 }
 
-/**
- * Generate share content for search results
- */
 export function generateResultsShareData(
-  count: number,
-  trackName: string,
-  filterDescription: string
+  count: number,
+  trackName: string,
+  filterDescription: string
 ): ShareData {
   return {
     title: `Cheese Discovery Results`,
     text: `Look what I discovered with Cheese Finder!`,
-    url: 'https://bit.ly/cheese-finder-app',
   };
 }
-
 /**
  * Check if Web Share API is available
  */
@@ -67,9 +50,11 @@ function fallbackCopyToClipboard(text: string): boolean {
 /**
  * Share using Web Share API or fallback to clipboard
  */
+
 export async function share(data: ShareData): Promise<{ success: boolean; method: 'native' | 'clipboard' | 'fallback' | 'none'; shareText?: string }> {
-  const shareText = `${data.title}\n\n${data.text}\n\n${data.url}`;
-  
+  const shareText = `I found this on Cheese Finder:\n${data.text}\n\nCheck it out!\nhttps://bit.ly/cheese-finder-beta`;
+
+
   // Try native sharing first (mobile)
   if (canShare()) {
     try {

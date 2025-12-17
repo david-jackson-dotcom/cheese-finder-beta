@@ -786,25 +786,31 @@ const handleApplyTasteFilters = (filters: {
     }
   };
 
-  const handleStartOver = () => {
-    // Clear all filters and return to the current track
-    setPendingAnimalFilters(null);
-    setSelectedUseCase(null);
-    setFilteredCheeses([]);
-    setFilterDescription('');
-    
-    // Go back to the track we came from
-    if (currentTrack === 'animal') {
-      setScreen('animal');
-    } else if (currentTrack === 'taste') {
-      setScreen('taste');
-    } else if (currentTrack === 'region') {
-      setScreen('region');
-    } else {
-      setScreen('welcome');
-    }
-
-  };
+const handleStartOver = () => {
+  // Clear all filters and return to the current track
+  setPendingAnimalFilters(null);
+  setSelectedUseCase(null);
+  setFilteredCheeses([]);
+  setFilterDescription('');
+  setSubstituteMetadata(null); // <-- ADD THIS LINE to clear substitute state
+  
+  // If in guided flow, return to usage selection (where they can type another cheese name)
+  if (isGuidedFlow) {
+    setScreen('usage-selection');
+    return;
+  }
+  
+  // Otherwise, go back to the track we came from
+  if (currentTrack === 'animal') {
+    setScreen('animal');
+  } else if (currentTrack === 'taste') {
+    setScreen('taste');
+  } else if (currentTrack === 'region') {
+    setScreen('region');
+  } else {
+    setScreen('welcome');
+  }
+}
 
   if (isLoading) {
     return (
