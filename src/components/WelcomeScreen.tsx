@@ -230,15 +230,11 @@ I've been using this cheese discovery tool and thought you might like it too. Ch
 
 It has hundreds of cheeses from around the world and all kinds of cows. 
 
-You can filter by:
-• Form (soft, firm, spreadable, etc.)
-• Meltability (from crumbly to super stretchy)
-• Funkiness (mild to stinky!)
-• Cuisine pairings
+You can filter by Form, Meltability, Funkiness, and Cuisine.
 
 Plus it has a smart substitution finder if you need to swap out a cheese in a recipe.
 
-Check it out: https://david-jackson-dotcom.github.io/cheese-finder-beta/
+Check it out: https://bit.ly/cheese-finder-beta
 
 Let me know what you think.`;
                   
