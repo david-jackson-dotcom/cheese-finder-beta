@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Slider } from './ui/slider';
 import { Button } from './ui/button';
-import { Badge } from './ui/badge';
-import { ChevronLeft } from 'lucide-react';
+import { ChevronLeft, ChevronUp, ChevronDown } from 'lucide-react';
 
 interface FilterByTasteProps {
   onApplyFilters: (filters: {
@@ -14,29 +13,46 @@ interface FilterByTasteProps {
   onBack: () => void;
 }
 
-const AVAILABLE_INCLUSIONS = [
-  'caraway',
-  'peppers',
-  'wine',
-  'beer',
-  'herbs',
-  'truffle',
-  'nuts',
-  'fruit',
-];
-
 export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
   const [firmness, setFirmness] = useState(50);
   const [funkiness, setFunkiness] = useState(50);
   const [meltability, setMeltability] = useState(50);
-  const [selectedInclusions, setSelectedInclusions] = useState<string[]>([]);
 
-  const toggleInclusion = (inclusion: string) => {
-    setSelectedInclusions((prev) =>
-      prev.includes(inclusion)
-        ? prev.filter((i) => i !== inclusion)
-        : [...prev, inclusion]
-    );
+  // 9-level label system matching App.tsx
+  const getBodyLabel = (value: number): string => {
+    if (value <= 11) return 'drippy';
+    if (value <= 22) return 'creamy';
+    if (value <= 33) return 'spreadable';
+    if (value <= 44) return 'soft';
+    if (value <= 55) return 'semi-soft';
+    if (value <= 66) return 'semi-firm';
+    if (value <= 77) return 'firm';
+    if (value <= 88) return 'hard';
+    return 'solid!';
+  };
+
+  const getBouquetLabel = (value: number): string => {
+    if (value <= 11) return 'delicate';
+    if (value <= 22) return 'polite';
+    if (value <= 33) return 'subtle';
+    if (value <= 44) return 'moderate';
+    if (value <= 55) return 'balanced';
+    if (value <= 66) return 'aromatic';
+    if (value <= 77) return 'strong';
+    if (value <= 88) return 'funky';
+    return 'angry!';
+  };
+
+  const getStabilityLabel = (value: number): string => {
+    if (value <= 11) return 'stubborn';
+    if (value <= 22) return 'softens';
+    if (value <= 33) return 'holds shape';
+    if (value <= 44) return 'melts firm';
+    if (value <= 55) return 'stretchy';
+    if (value <= 66) return 'flows smooth';
+    if (value <= 77) return 'creamy';
+    if (value <= 88) return 'gooey';
+    return 'puddles!';
   };
 
   const handleSubmit = () => {
@@ -44,46 +60,44 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
       firmness,
       funkiness,
       meltability,
-      inclusions: selectedInclusions,
+      inclusions: [],
     });
   };
 
+  // ------------------------ Standard page top  ------------------------
+ 
   return (
-    <div className="min-h-screen bg-gold">
-      {/* Header */}
-      <div className="bg-gold">
-        <div className="relative px-6 py-6">
+    <div className="min-h-screen bg-background">
+      <div className="bg-gold px-6 py-4"> 
+        {/* Container for Back Button */}
+        <div className="relative">
           <Button
             onClick={onBack}
-            className="rounded-full gap-1 bg-accent text-white hover:bg-accent/90 shadow-lg"
+            className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
           >
-            <ChevronLeft className="h-5 w-5" />
+            <ChevronLeft className="h-6 w-6" />
             Back
           </Button>
         </div>
-        <div className="px-6 pb-6">
-          <h2 className="text-3xl text-accent text-center mb-2" style={{ fontFamily: 'Leckerli One, cursive' }}>
-            Taste Profile
-          </h2>
-          <p className="text-brown text-center" style={{ fontFamily: 'Cabin, sans-serif' }}>
-            How do you like your cheese? Use the sliders.
-          </p>
-        </div>
       </div>
-
-      <div className="max-w-md mx-auto space-y-8 px-6 py-8 pb-32">
-        <div className="space-y-10">
+      <div className="max-w-md mx-auto space-y-4 px-6 py-4">
+        <div className="px-6 mt-2"> 
+          <p className="text-brown text-center">How do you like your cheese?</p>
+          <p className="text-brown/60 text-center">Slide the knobs.</p>
+        </div>
+        
+        {/* ------------------------ CONTENT ------------------------ */}
+        {/* Sliders Block */}
+        <div className="space-y-11">
           {/* Firmness Slider */}
-          <div className="space-y-4 p-6 rounded-2xl bg-white shadow-md border-2 border-primary">
+          <div className="space-y-3">
             <div className="flex justify-between items-baseline">
-              <label className="block text-accent text-xl" style={{ fontFamily: 'Leckerli One, cursive' }}>
-                Structure
-              </label>
-              <span className="text-sm text-primary" style={{ fontFamily: 'Cabin, sans-serif' }}>
-                {firmness < 33 ? 'Runny' : firmness > 66 ? 'Hard' : 'Firm'}
+              <label className="block text-accent font-bold tracking-wider">Body</label>
+              <span className="text-m text-dark-orange font-light">
+                {getBodyLabel(firmness)}
               </span>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-2">
               <Slider
                 value={[firmness]}
                 onValueChange={(value) => setFirmness(value[0])}
@@ -92,21 +106,24 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
                 step={1}
                 className="w-full"
               />
-              <div className="flex justify-between text-xs text-muted-foreground" style={{ fontFamily: 'Cabin, sans-serif' }}>
-                <span>Runny</span>
-                <span>Hard</span>
-              </div>
+				<div className="flex justify-between text-xs text-orange">
+				  <span className="flex items-center gap-1">
+					<ChevronDown className="h-5 w-5 text-orange" />
+					less
+				  </span>
+				  <span className="flex items-center gap-1">more
+					<ChevronUp className="h-5 w-5 text-orange" />
+				  </span>
+				</div>
             </div>
           </div>
 
           {/* Funkiness Slider */}
-          <div className="space-y-4 p-6 rounded-2xl bg-white shadow-md border-2 border-primary">
+          <div className="space-y-2">
             <div className="flex justify-between items-baseline">
-              <label className="block text-accent text-xl" style={{ fontFamily: 'Leckerli One, cursive' }}>
-                Bouquet
-              </label>
-              <span className="text-sm text-primary" style={{ fontFamily: 'Cabin, sans-serif' }}>
-                {funkiness < 33 ? 'Delicate' : funkiness > 66 ? 'Funky' : 'Balanced'}
+              <label className="block text-accent font-bold tracking-wider">Bouquet</label>
+              <span className="text-m text-dark-orange font-light">
+                {getBouquetLabel(funkiness)}
               </span>
             </div>
             <div className="space-y-3">
@@ -118,21 +135,25 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
                 step={1}
                 className="w-full"
               />
-              <div className="flex justify-between text-xs text-muted-foreground" style={{ fontFamily: 'Cabin, sans-serif' }}>
-                <span>Delicate</span>
-                <span>Funky</span>
-              </div>
+              				<div className="flex justify-between text-xs text-orange">
+				  <span className="flex items-center gap-1">
+					<ChevronDown className="h-5 w-5 text-orange" />
+					less
+				  </span>
+				  <span className="flex items-center gap-1">more
+					<ChevronUp className="h-5 w-5 text-orange" />
+				  </span>
+				</div>
+
             </div>
           </div>
 
           {/* Meltability Slider */}
-          <div className="space-y-4 p-6 rounded-2xl bg-white shadow-md border-2 border-primary">
+          <div className="space-y-2">
             <div className="flex justify-between items-baseline">
-              <label className="block text-accent text-xl" style={{ fontFamily: 'Leckerli One, cursive' }}>
-                Stability
-              </label>
-              <span className="text-sm text-primary" style={{ fontFamily: 'Cabin, sans-serif' }}>
-                {meltability < 33 ? "Won't melt" : meltability > 66 ? 'Melts' : 'Medium'}
+              <label className="block text-accent font-bold tracking-wider">Meltiness</label>
+              <span className="text-m text-dark-orange font-light">
+                {getStabilityLabel(meltability)}
               </span>
             </div>
             <div className="space-y-3">
@@ -144,24 +165,31 @@ export function FilterByTaste({ onApplyFilters, onBack }: FilterByTasteProps) {
                 step={1}
                 className="w-full"
               />
-              <div className="flex justify-between text-xs text-muted-foreground" style={{ fontFamily: 'Cabin, sans-serif' }}>
-                <span>Won't melt</span>
-                <span>Melts</span>
-              </div>
+              				<div className="flex justify-between text-xs text-orange">
+				  <span className="flex items-center gap-1">
+					<ChevronDown className="h-5 w-5 text-orange" />
+					less
+				  </span>
+				  <span className="flex items-center gap-1">more
+					<ChevronUp className="h-5 w-5 text-orange" />
+				  </span>
+				</div>
+
             </div>
           </div>
         </div>
 
-        <div className="flex justify-center pt-4">
+        <div className="flex justify-center mt-10">
           <Button
-            className="gap-2 bg-accent text-white hover:bg-accent/90 active:bg-accent/80 rounded-full px-8 h-14 shadow-lg touch-manipulation"
-            style={{ fontFamily: 'Cabin, sans-serif' }}
+            className="rounded-full gap-1 bg-dark-orange text-accent-foreground hover:bg-accent/80"
             onClick={handleSubmit}
           >
             Reveal that Cheesy Goodness
           </Button>
         </div>
+        
+        {/* ------------------------ END CONTENT ------------------------ */}
       </div>
     </div>
-  );
+    );
 }

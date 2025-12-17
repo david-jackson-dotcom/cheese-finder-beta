@@ -115,39 +115,43 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
   // In Beast track, we always have a filter (excluding A1 cow milk), so always enable the button
   const canApply = true;
 
+   {/* ------------------------ Standard page top  ------------------------ */}
+ 
   return (
-    <div className="min-h-screen bg-gold">
-      {/* Header */}
-      <div className="bg-gold">
-        <div className="relative px-6 py-6">
+    <div className="min-h-screen bg-background">
+      <div className="bg-gold px-6 py-4"> 
+        {/* Container for Back Button */}
+        <div className="relative">
           <Button
             onClick={onBack}
-            className="rounded-full gap-1 bg-accent text-white hover:bg-accent/90 shadow-lg"
+            className="rounded-full gap-1 bg-accent text-accent-foreground hover:bg-accent/80"
           >
-            <ChevronLeft className="h-5 w-5" />
+            <ChevronLeft className="h-6 w-6" />
             Back
           </Button>
         </div>
-        <div className="px-6 pb-6">
-          <h2 className="text-3xl text-accent text-center mb-2" style={{ fontFamily: 'Leckerli One, cursive' }}>
-            Choose Your Beast
-          </h2>
-          <p className="text-brown text-center" style={{ fontFamily: 'Cabin, sans-serif' }}>
-            If not ordinary cow, what would you prefer?
-          </p>
-        </div>
       </div>
+      <div className="max-w-md mx-auto space-y-4 px-6 py-4">
+        <div className="px-6 mt-2"> 
+          <p className="text-brown text-center">If not ordinary cow,<br />what would you prefer?</p>
+          <p className="text-brown/60 text-center">Choose many or few.</p>
+        </div>
+
+{/* ------------------------ CONTENT ------------------------ */}
 
       {/* Content */}
-      <div className="px-6 py-4 space-y-6 max-w-md mx-auto pb-[20px] pt-[16px] pr-[24px] pl-[24px]">
+      <div className="px-6 pt-2 space-y-2 max-w-md mx-auto">
         {/* Milk Type Selection */}
-        <div className="space-y-3">
-          {milkOptions.map((option) => {
-            const isSelected = option.value === 'a2cow' ? requireA2 : selectedMilkTypes.includes(option.value);
-            return (
+        <div className="space-y-4">
+          <div className="space-y-3">
+            {milkOptions.map((option) => (
               <div
                 key={option.value}
-                className={`p-4 rounded-2xl border-2 transition-all cursor-pointer touch-manipulation shadow-md ${isSelected ? 'border-accent bg-accent/10' : 'border-primary bg-white hover:border-accent hover:bg-accent/5 active:bg-accent/10'}`}
+                className={`p-4 rounded-xl border-3 transition-all cursor-pointer touch-manipulation ${
+                  (option.value === 'a2cow' ? requireA2 : selectedMilkTypes.includes(option.value))
+                    ? 'border-primary bg-primary/5'
+                    : 'border-orange bg-card hover:border-primary hover:bg-butter active:bg-butter'
+                }`}
                 onClick={() => toggleMilkType(option.value)}
               >
                 <div className="flex items-start gap-3 pointer-events-none">
@@ -156,29 +160,31 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
                     className="mt-1"
                   />
                   <div className="flex-1 space-y-1">
-                    <Label className="cursor-pointer text-accent" style={{ fontFamily: 'Leckerli One, cursive', fontSize: '1.25rem' }}>
+                    <Label className="cursor-pointer text-dark-orange tracking-wide font-bold">
                       {option.label}
                     </Label>
-                    <p className="text-sm text-muted-foreground" style={{ fontFamily: 'Cabin, sans-serif' }}>
+                    <p className="text-sm text-brown">
                       {option.description}
                     </p>
                   </div>
                 </div>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
 
-        {/* Additional Dietary Filters */}
-        <div className="space-y-4 pt-4">
-          <h3 className="text-brown text-center text-xl" style={{ fontFamily: 'Leckerli One, cursive' }}>
-            Additional Preferences
-          </h3>
+        {/* Additional Filters */}
+        <div className="space-y-4 my-5">
+          <Label className="text-brown text-center block">Additional Preferences:</Label>
           
           <div className="space-y-3">
             {/* Low Lactose */}
             <div
-              className={`p-4 rounded-2xl border-2 transition-all cursor-pointer touch-manipulation shadow-md ${lowLactose ? 'border-accent bg-accent/10' : 'border-primary bg-white hover:border-accent hover:bg-accent/5 active:bg-accent/10'}`}
+              className={`p-4 rounded-xl border-3 transition-all cursor-pointer touch-manipulation ${
+                lowLactose
+                  ? 'border-primary bg-primary/5'
+                  : 'border-orange bg-card hover:border-primary hover:bg-primary/5 active:bg-primary/10'
+              }`}
               onClick={() => setLowLactose(!lowLactose)}
             >
               <div className="flex items-start gap-3">
@@ -188,10 +194,10 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
                   className="mt-1"
                 />
                 <div className="flex-1 space-y-1">
-                  <Label className="cursor-pointer text-accent" style={{ fontFamily: 'Leckerli One, cursive', fontSize: '1.1rem' }}>
-                    Lower Lactose (Aged Cheeses)
+                  <Label className="cursor-pointer text-dark-orange tracking-wide font-bold">
+                    Lower Lactose (Aged)
                   </Label>
-                  <p className="text-sm text-muted-foreground" style={{ fontFamily: 'Cabin, sans-serif' }}>
+                  <p className="text-sm text-brown">
                     Hard and aged cheeses have naturally lower lactose content
                   </p>
                 </div>
@@ -200,7 +206,11 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
 
             {/* No Inclusions */}
             <div
-              className={`p-4 rounded-2xl border-2 transition-all cursor-pointer touch-manipulation shadow-md ${avoidInclusions ? 'border-accent bg-accent/10' : 'border-primary bg-white hover:border-accent hover:bg-accent/5 active:bg-accent/10'}`}
+              className={`p-4 rounded-xl border-3 transition-all cursor-pointer touch-manipulation ${
+                avoidInclusions
+                 ? 'border-primary bg-primary/5'
+                  : 'border-orange bg-card hover:border-primary hover:bg-primary/5 active:bg-primary/10'
+              }`}
               onClick={() => setAvoidInclusions(!avoidInclusions)}
             >
               <div className="flex items-start gap-3">
@@ -210,11 +220,11 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
                   className="mt-1"
                 />
                 <div className="flex-1 space-y-1">
-                  <Label className="cursor-pointer text-accent" style={{ fontFamily: 'Leckerli One, cursive', fontSize: '1.1rem' }}>
+                  <Label className="cursor-pointer text-dark-orange tracking-wide font-bold">
                     Just Cheese
                   </Label>
-                  <p className="text-sm text-muted-foreground" style={{ fontFamily: 'Cabin, sans-serif' }}>
-                    Pure cheese without smoke, peppers, herbs, wine, fruit, truffles, seeds, pixie dust, or other additions
+                  <p className="text-sm text-brown">
+                    Pure cheese without smoke, peppers, herbs, wine, fruit, truffles, seeds, pixie dust, or other condiment
                   </p>
                 </div>
               </div>
@@ -224,22 +234,25 @@ export function FilterByAnimal({ onApplyFilters, onBack, onShowResults, onGuideM
       </div>
 
       {/* Fixed Bottom Buttons */}
-      <div className="p-6 bg-gold flex justify-center gap-4 shadow-lg">
-         <Button
+      <div className="p-6 bg-gold flex justify-center gap-4">
+        <Button
           className="w-auto gap-2 bg-dark-orange text-white hover:bg-dark-orange/90 active:bg-dark-orange/80 rounded-full px-6 min-h-[44px] touch-manipulation"
           onClick={onGuideMe}>
           Guide Me
         </Button>
 
         <Button
-          className="gap-2 bg-accent text-white hover:bg-accent/90 active:bg-accent/80 rounded-full px-8 h-14 shadow-lg touch-manipulation"
-          style={{ fontFamily: 'Cabin, sans-serif' }}
+          className="w-auto gap-2 bg-magenta text-white hover:bg-magenta/90 active:bg-magenta/80 rounded-full px-6 min-h-[44px] touch-manipulation"
           onClick={handleShowResults}
           disabled={!canApply}
         >
           Show Me the Cheese
         </Button>
       </div>
+      
+      {/* ------------------------ END CONTENT ------------------------ */}
+
+      </div>
     </div>
-  );
+    );
 }

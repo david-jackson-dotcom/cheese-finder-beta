@@ -9,6 +9,43 @@ interface CheeseCardProps {
   cheese: Cheese;
 }
 
+// Helper functions for granular 9-level labels (matching FilterByTaste.tsx)
+function getBodyLabel(value: number): string {
+  if (value <= 11) return 'drippy!';
+  if (value <= 22) return 'creamy';
+  if (value <= 33) return 'spreadable';
+  if (value <= 44) return 'soft';
+  if (value <= 55) return 'semi-soft';
+  if (value <= 66) return 'semi-firm';
+  if (value <= 77) return 'firm';
+  if (value <= 88) return 'hard';
+  return 'solid!';
+}
+
+function getBouquetLabel(value: number): string {
+  if (value <= 11) return 'delicate!';
+  if (value <= 22) return 'polite';
+  if (value <= 33) return 'subtle';
+  if (value <= 44) return 'moderate';
+  if (value <= 55) return 'balanced';
+  if (value <= 66) return 'aromatic';
+  if (value <= 77) return 'strong';
+  if (value <= 88) return 'funky';
+  return 'angry!';
+}
+
+function getStabilityLabel(value: number): string {
+  if (value <= 11) return 'stubborn!';
+  if (value <= 22) return 'softens';
+  if (value <= 33) return 'holds shape';
+  if (value <= 44) return 'melts firm';
+  if (value <= 55) return 'stretchy';
+  if (value <= 66) return 'flows smooth';
+  if (value <= 77) return 'creamy';
+  if (value <= 88) return 'gooey';
+  return 'puddles!';
+}
+
 export function CheeseCard({ cheese }: CheeseCardProps) {
   return (
     <Card className="overflow-hidden border-2">
@@ -56,7 +93,7 @@ export function CheeseCard({ cheese }: CheeseCardProps) {
         {/* Flavor by Source */}
         {cheese.flavorBySource && (
           <div className="px-4 py-3 bg-butter rounded-xl">
-            <p className="text-sm italic text-foreground/80">
+            <p className="text-sm italic tracking-wide text-brown/80">
               {cheese.flavorBySource.replace(/^[^:]+:\s*/, '')}
             </p>
           </div>
@@ -71,7 +108,7 @@ export function CheeseCard({ cheese }: CheeseCardProps) {
                 <Badge
                   key={flavor}
                   variant="secondary"
-                  className="rounded-full capitalize"
+                  className="rounded-full capitalize text-brown"
                 >
                   {flavor}
                 </Badge>
@@ -89,7 +126,7 @@ export function CheeseCard({ cheese }: CheeseCardProps) {
                 <Badge
                   key={use}
                   variant="outline"
-                  className="rounded-full capitalize border-primary/40"
+                  className="rounded-full capitalize border-primary/40 text-brown"
                 >
                   {use}
                 </Badge>
@@ -115,7 +152,7 @@ export function CheeseCard({ cheese }: CheeseCardProps) {
           </div>
         )}
 
-        {/* Texture indicators */}
+        {/* Texture indicators with new granular 9-level labels */}
         <div className="pt-2 grid grid-cols-3 gap-3 text-center text-xs">
           <div className="space-y-1">
             <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
@@ -125,7 +162,7 @@ export function CheeseCard({ cheese }: CheeseCardProps) {
               />
             </div>
             <p className="text-muted-foreground text-sm">
-              {(cheese.firmness || 50) < 33 ? 'Gooey!' : (cheese.firmness || 50) > 66 ? 'Waxy' : 'Slices'}
+              {getBodyLabel(cheese.firmness || 50)}
             </p>
           </div>
           <div className="space-y-1">
@@ -136,7 +173,7 @@ export function CheeseCard({ cheese }: CheeseCardProps) {
               />
             </div>
             <p className="text-sm text-muted-foreground">
-              {(cheese.funkiness || 50) < 33 ? 'Not So Funky' : (cheese.funkiness || 50) > 66 ? 'Funky!' : 'Medium Funk'}
+              {getBouquetLabel(cheese.funkiness || 50)}
             </p>
           </div>
           <div className="space-y-1">
@@ -147,9 +184,7 @@ export function CheeseCard({ cheese }: CheeseCardProps) {
               />
             </div>
             <p className="text-sm text-muted-foreground">
-              {(cheese.meltability || 50) < 33 
-                ? ((cheese.firmness || 50) < 40 ? 'Stays Put' : 'Crumbles')
-                : (cheese.meltability || 50) > 66 ? 'Melty!' : 'Almost Melts'}
+              {getStabilityLabel(cheese.meltability || 50)}
             </p>
           </div>
         </div>
