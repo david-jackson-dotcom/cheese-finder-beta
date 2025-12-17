@@ -58,7 +58,7 @@ export async function share(data: ShareData): Promise<{ success: boolean; method
   // Try native sharing first (mobile)
   if (canShare()) {
     try {
-      await navigator.share(data);
+	await navigator.share({ text: shareText });
       return { success: true, method: 'native' };
     } catch (error) {
       // User cancelled or error occurred
