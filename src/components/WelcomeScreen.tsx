@@ -200,7 +200,7 @@ className="mt-12 mx-auto w-13 h-13 bg-white rounded-full flex items-center justi
             
             <div className="flex justify-center gap-3">
               <Button
-                className="w-auto gap-2 bg-orange text-white hover:bg-orange/90 active:scale-95 transition-transform"
+                className="w-auto gap-2 bg-dark-orange text-white hover:bg-orange/90 active:scale-95 transition-transform"
                 onClick={() => {
                   const subject = 'Cheese Finder Feedback';
                   const body = `Hi David,
@@ -221,22 +221,22 @@ Thanks!`;
                 Write
               </Button>
               <Button
-                className="w-auto gap-2 bg-orange text-white hover:bg-orange/90 active:scale-95 transition-transform"
+                className="w-auto gap-2 bg-dark-orange text-white hover:bg-orange/90 active:scale-95 transition-transform"
                 onClick={() => {
                   const subject = 'Check out this cheese app';
                   const body = `Hey, Friendo.
 
 I've been using this cheese discovery tool and thought you might like it too. Check out Cheese Finder.
 
-It has hundreds of cheeses from around the world and all kinds of cows. 
+It has hundreds of cheeses from around the world and all kinds of milk types. 
 
-You can filter by Form, Meltability, Funkiness, and Cuisine.
+You can filter by form, meltability, funk factor, and cuisine.
 
-Plus it has a smart substitution finder if you need to swap out a cheese in a recipe.
+Plus, it has a smart substitution finder if you need to swap out a cheese in a recipe.
 
 Check it out: https://bit.ly/cheese-finder-beta
 
-Let me know what you think.`;
+Let me know what you think!`;
                   
                   toast.success('Opening email client...', {
                     duration: 2000,
@@ -249,6 +249,9 @@ Let me know what you think.`;
                 <Share2 className="w-4 h-4" />
                 Share
               </Button>
+            </div>
+            <div className="text-center">
+            <p><span className="text-orange font-bold tracking-wide">Pro tip:</span><br /><span className="text-brown/60"> Bookmark ➝ Share ➝ Add to Home Screen</span></p>
             </div>
           </div>
         </DialogContent>
