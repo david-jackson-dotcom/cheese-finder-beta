@@ -250,8 +250,8 @@ Let me know what you think!`;
                 Share
               </Button>
             </div>
-            <div className="text-center">
-            <p><span className="text-orange font-bold tracking-wide">Pro tip:</span><br /><span className="text-brown/60"> Bookmark ➝ Share ➝ Add to Home Screen</span></p>
+            <div className="text-center text-xs">
+            <p><span className="text-orange tracking-wide">Pro tip:</span><br /><span className="text-brown/60"> Tap Share ❯ Add to Home Screen</span></p>
             </div>
           </div>
         </DialogContent>
