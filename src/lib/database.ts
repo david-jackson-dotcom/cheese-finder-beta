@@ -33,7 +33,7 @@ export const CHEESES: CheeseEntity[] = [
   { Cheese_ID: 20, Name: 'Wensleydale', Description: 'Crumbly, mild cheese often paired with fruit.', Milk_Type: 'Cow', Origin_Country: 'United Kingdom', Rind_Type: 'Natural', Texture: 'firm', FlavorBySource: 'Cow: Delicate, balanced milk yields honeyed sweetness' },
   
   // NETHERLANDS
-  { Cheese_ID: 21, Name: 'Aged Gouda', Description: 'Caramel-sweet aged cheese with crunchy crystals.', Milk_Type: 'Cow', Origin_Country: 'Netherlands', Rind_Type: 'Waxed', Texture: 'hard', FlavorBySource: 'Cow: Buttery milk develops butterscotch sweetness through long aging' },
+  { Cheese_ID: 21, Name: 'Aged Gouda', Description: 'Caramel-sweet aged cheese with crunchy crystals. Also known as Parrano.', Milk_Type: 'Cow', Origin_Country: 'Netherlands', Rind_Type: 'Waxed', Texture: 'hard', FlavorBySource: 'Cow: Buttery milk develops butterscotch sweetness through long aging' },
   { Cheese_ID: 22, Name: 'Edam', Description: 'Mild, slightly nutty cheese with a red wax coating.', Milk_Type: 'Cow', Origin_Country: 'Netherlands', Rind_Type: 'Waxed', Texture: 'semi-hard', FlavorBySource: 'Cow: Lower-fat milk creates mild, approachable flavor' },
   
   // GREECE

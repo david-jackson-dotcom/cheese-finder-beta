@@ -213,7 +213,7 @@ Thanks!`;
                     duration: 2000,
                   });
                   
-                  const mailtoLink = `mailto:apewalk@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                  const mailtoLink = `mailto:cheese.finder.beta@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                   window.location.href = mailtoLink;
                 }}
               >
